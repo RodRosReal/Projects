@@ -1,0 +1,56 @@
+<#@ include file="WebConfigTemplate.tt" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Collections.Generic" #>
+
+<#+
+public class WebConfigGenerator : Generator
+{
+	private readonly string webConfigSettingsLocation;
+	
+	public WebConfigGenerator(string webConfigSettingsLocation)
+	{
+		this.webConfigSettingsLocation = webConfigSettingsLocation;
+	}
+
+	protected override void RunCore()
+	{
+		var reader = new StreamReader(webConfigSettingsLocation);
+		var content = reader.ReadToEnd();
+		reader.Close(); 
+		var rows = content.Split('\n');
+		var settings = new List<string>();
+		for (var r = 0; r < rows.Length; r++)
+		{
+			var row = rows[r];	
+			var columns = row.Split('\t');
+			var values = new Dictionary<string, string>();
+			string environmentName = string.Empty; 
+			
+			if (r == 0)
+				for (var c = 0; c < columns.Length; c++)
+					settings.Add(columns[c].Trim());
+			else
+			{
+				for (var c = 0; c < columns.Length; c++)
+					if (c == 0)
+						environmentName = columns[c].Trim(); 
+					else 
+						values.Add(settings[c].Trim(), columns[c].Trim());
+						
+				if (!String.IsNullOrEmpty(environmentName))
+				{ 
+					var extension = (environmentName == "local") ? string.Empty : "." + environmentName;
+					var webConfigTemplate = new WebConfigTemplate(values);
+					webConfigTemplate.Output.File = "../Web.config" + extension;
+					if (environmentName == "local")
+						webConfigTemplate.Output.BuildAction = BuildAction.None;
+					else
+						webConfigTemplate.Output.BuildAction = BuildAction.Content;
+					webConfigTemplate.Render(); 
+				} 
+			} 
+		}
+	}
+}
+#>

@@ -1,0 +1,101 @@
+<#@ include file="ServiceInterfaceTemplate.tt" #>
+<#@ include file="MessageTemplate.tt" #>
+<#@ include file="ServiceBaseTemplate.tt" #>
+<#@ include file="ServiceImplementationTemplate.tt" #>
+
+<#@ import namespace="System" #>   
+<#@ import namespace="System.Collections.Generic" #>
+
+<#+
+public const string GeneratorName = "Softmóvel Service Generator";
+public const string GeneratorVersion = "1.0";
+
+public class ServiceContractGenerator : Generator
+{
+	private readonly string rootNamespace;
+	private readonly string serviceName;
+	private readonly List<String> operations;
+	
+	public bool GenerateWcfDecorators {get;set;}
+	
+	public ServiceContractGenerator(string rootNamespace, string serviceName, List<String> operations)
+	{
+		this.rootNamespace = rootNamespace;
+		this.serviceName = serviceName;
+		this.operations = operations;
+		this.GenerateWcfDecorators = true;
+	}
+	
+	protected override void RunCore()
+	{
+		// Generate the service base class
+		var serviceBase = new ServiceBaseTemplate(rootNamespace, serviceName, operations);
+		serviceBase.Output.File = "base/" + serviceName + "Base.generated.cs";
+		serviceBase.Render();
+
+		// Generate the service base class
+		var serviceImpleBase = new ServiceImplementationTemplate(rootNamespace, serviceName, operations);
+		serviceImpleBase.Output.File = "Services/" + serviceName + ".cs";
+		serviceImpleBase.Output.PreserveExistingFile = true;
+		serviceImpleBase.Render();
+		
+		// Generate the service interface
+		var serviceInterface = new ServiceInterfaceTemplate(rootNamespace, serviceName, operations, GeneratorName, GeneratorVersion);
+		serviceInterface.GenerateWcfDecorators = this.GenerateWcfDecorators;
+		serviceInterface.Output.File = "Interfaces/I" + serviceName + ".generated.cs";
+		serviceInterface.Output.References.Add("System.ServiceModel");
+		serviceInterface.Output.References.Add("System.Runtime.Serialization");
+		serviceInterface.Render();
+		
+		// Generate the service base messages
+		
+		var requestBaseMessage = new MessageTemplate(rootNamespace, serviceName + "Request");
+		requestBaseMessage.GenerateWcfDecorators = this.GenerateWcfDecorators;
+		requestBaseMessage.Output.File = "base/" + serviceName + "Request.generated.cs";
+		requestBaseMessage.Render();
+		
+		var requestBaseMessageCustom = new MessageTemplate(rootNamespace, serviceName + "Request", null);
+		requestBaseMessageCustom.GenerateWcfDecorators = this.GenerateWcfDecorators;
+		requestBaseMessageCustom.Output.File = "Messages/" + serviceName + "Request.cs";
+		requestBaseMessageCustom.Output.PreserveExistingFile = true;
+		requestBaseMessageCustom.Render();
+		
+		var responseBaseMessage = new MessageTemplate(rootNamespace, serviceName + "Response");
+		responseBaseMessage.GenerateWcfDecorators = this.GenerateWcfDecorators;
+		responseBaseMessage.Output.File = "base/" + serviceName + "Response.generated.cs";
+		responseBaseMessage.Render();
+		
+		var responseBaseMessageCustom = new MessageTemplate(rootNamespace, serviceName + "Response", null);
+		responseBaseMessageCustom.GenerateWcfDecorators = this.GenerateWcfDecorators;
+		responseBaseMessageCustom.Output.File = "Messages/" + serviceName + "Response.cs";
+		responseBaseMessageCustom.Output.PreserveExistingFile = true;
+		responseBaseMessageCustom.Render();
+		
+		// Generate the operation messages
+		foreach (var operation in operations)
+		{
+			var requestMessage = new MessageTemplate(rootNamespace, operation + "Request", serviceName + "Request");
+			requestMessage.GenerateWcfDecorators = this.GenerateWcfDecorators;
+			requestMessage.Output.File = "base/"+ operation + "Request.generated.cs";
+			requestMessage.Render();
+			
+			var requestMessageCustom = new MessageTemplate(rootNamespace, operation + "Request");
+			requestMessageCustom.GenerateWcfDecorators = this.GenerateWcfDecorators;
+			requestMessageCustom.Output.File = "Messages/" + operation+"/"+ operation + "Request.cs";
+			requestMessageCustom.Output.PreserveExistingFile = true;
+			requestMessageCustom.Render();
+			
+			var responseMessage = new MessageTemplate(rootNamespace, operation + "Response", serviceName + "Response");
+			responseMessage.GenerateWcfDecorators = this.GenerateWcfDecorators;
+			responseMessage.Output.File = "base/" + operation + "Response.generated.cs";
+			responseMessage.Render();
+			
+			var responseMessageCustom = new MessageTemplate(rootNamespace, operation + "Response");
+			responseMessageCustom.GenerateWcfDecorators = this.GenerateWcfDecorators;
+			responseMessageCustom.Output.File = "Messages/" + operation+"/"+ operation + "Response.cs";
+			responseMessageCustom.Output.PreserveExistingFile = true;
+			responseMessageCustom.Render();
+		}
+	}
+}
+#>

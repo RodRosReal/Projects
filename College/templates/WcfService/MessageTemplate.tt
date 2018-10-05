@@ -1,0 +1,59 @@
+<#@ import namespace="System" #>
+<#@ import namespace="System.Collections.Generic" #>
+
+<#+
+public class MessageTemplate : Template
+{
+	private readonly string rootNamespace;
+	private readonly string className;
+	private readonly string baseClass;
+	private bool isCustomClass;
+    public bool GenerateWcfDecorators {get;set;}
+
+	
+	public MessageTemplate(string rootNamespace, string className) : this (rootNamespace, className, null, false)
+	{
+	}
+	
+	public MessageTemplate(string rootNamespace, string className, string baseClass) : this(rootNamespace, className, baseClass, true)
+	{
+	}
+	
+	public MessageTemplate(string rootNamespace, string className, string baseClass, bool isCustomClass)
+	{
+		this.rootNamespace = rootNamespace;
+		this.className = className;
+		this.baseClass = baseClass;
+		this.isCustomClass = isCustomClass;
+		this.GenerateWcfDecorators = true;
+	}
+	
+	public string  PrintDecorator()
+	{
+		if(!this.isCustomClass)
+		{
+			if(this.GenerateWcfDecorators)
+				return "[DataContract]";
+
+			return "[System.Serializable][System.Xml.Serialization.XmlRoot()]";
+		}
+		return "";
+	}
+	
+	public override string TransformText()
+	{
+#>
+<#+ if (!isCustomClass) { #>using System.Runtime.Serialization;<#+ } #>
+
+namespace <#=rootNamespace#>.Messages
+{
+	<#=PrintDecorator()#>
+	public partial class <#=className#> <#= (!String.IsNullOrEmpty(baseClass)) ? " : " + baseClass : String.Empty #>
+	{
+	} 
+}
+<#+
+        return this.GenerationEnvironment.ToString();
+	}
+}
+#>

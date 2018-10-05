@@ -1,0 +1,55 @@
+<#@ import namespace="System" #>
+<#@ import namespace="System.Collections.Generic" #>
+
+<#+
+public class ServiceImplementationTemplate : Template
+{
+	
+	private readonly string rootNamespace;
+	private readonly string serviceName;
+	private readonly List<String> operations;
+	
+	public ServiceImplementationTemplate(string rootNamespace, string serviceName, List<String> operations)
+	{
+		this.rootNamespace = rootNamespace;
+		this.serviceName = serviceName;
+		this.operations = operations;
+	}
+	
+	public override string TransformText()
+	{
+#>
+using System;
+using <#=rootNamespace#>.Interfaces;
+using <#=rootNamespace#>.Messages;
+
+namespace <#=rootNamespace#>.Services
+{
+	public class <#=serviceName#> : <#=serviceName#>Base
+	{
+		#region Constructor
+		protected <#=serviceName#>()
+		{
+
+		}
+		#endregion
+		
+		#region Operation Methods Implementation
+		<#+
+		foreach (var operation in operations)
+		{#>public override <#=operation#>Response On<#=operation#>Execute(<#=operation#>Request request)
+        {
+            var response = new <#=operation#>Response();
+            //<IMPLEMENT HERE>
+            return response;
+        }
+		<#+ 
+		}
+		#>#endregion
+	}
+}
+<#+
+        return this.GenerationEnvironment.ToString();
+	}
+}
+#>

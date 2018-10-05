@@ -1,0 +1,479 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0E2C9F92-89ED-41F0-A1AC-4AD35E19CA6E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CollegeUI</RootNamespace>
+    <AssemblyName>CollegeUI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="assets\1\about\about.jpg" />
+    <Content Include="assets\1\courses\course-1.jpg" />
+    <Content Include="assets\1\courses\course-2.jpg" />
+    <Content Include="assets\1\courses\course-thumb-1.jpg" />
+    <Content Include="assets\1\courses\course-thumb-2.jpg" />
+    <Content Include="assets\1\courses\course-2.png" />
+    <Content Include="assets\1\news\images\prodCurso.jpg" />
+    <Content Include="assets\1\news\news2.html" />
+    <Content Include="assets\1\news\images\beneficios.jpg" />
+    <Content Include="assets\1\news\images\Testemunho.jpg" />
+    <Content Include="assets\1\testimonials\profile-1.jpg" />
+    <Content Include="assets\1\testimonials\profile-2.jpg" />
+    <Content Include="assets\1\testimonials\profile-3.jpg" />
+    <Content Include="assets\1\news\news.html" />
+    <Content Include="assets\js\training.js" />
+    <Content Include="assets\plugins\countdown\countdown.css" />
+    <Content Include="assets\css\openSans.css" />
+    <Content Include="assets\css\styles-green.css" />
+    <Content Include="assets\css\styles-purple.css" />
+    <Content Include="assets\css\styles-red.css" />
+    <Content Include="assets\css\styles-blue.css" />
+    <Content Include="assets\1\courses\course-1.png" />
+    <Content Include="assets\1\courses\course-thumb-1.png" />
+    <Content Include="assets\1\courses\course-thumb-2.png" />
+    <Content Include="assets\1\logo.png" />
+    <Content Include="assets\1\misc\bootstrap-glyphicons-screenshot.png" />
+    <Content Include="assets\1\misc\fontawsome-screenshot.png" />
+    <Content Include="assets\1\slides\slide-1.jpg" />
+    <Content Include="assets\1\slides\slide-2.jpg" />
+    <Content Include="assets\1\slides\slide-3.jpg" />
+    <Content Include="assets\1\slides\slide-4.jpg" />
+    <Content Include="assets\1\slides\slide-6.jpg" />
+    <Content Include="assets\email\contact.html" />
+    <Content Include="assets\email\forgot.html" />
+    <Content Include="assets\js\contact.js" />
+    <Content Include="assets\js\test.js" />
+    <Content Include="assets\js\exercise.js" />
+    <Content Include="assets\plugins\countdown\images\dash.png" />
+    <Content Include="assets\plugins\other\bootbox.js" />
+    <Content Include="assets\js\course.js" />
+    <Content Include="assets\js\events.js" />
+    <Content Include="assets\js\html5shiv.js" />
+    <Content Include="assets\js\myAccont.js" />
+    <Content Include="assets\js\myCourses.js" />
+    <Content Include="assets\js\login.js" />
+    <Content Include="assets\js\forgot.js" />
+    <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\map.js" />
+    <Content Include="assets\js\respond.min.js" />
+    <Content Include="assets\plugins\back-to-top.js" />
+    <Content Include="assets\plugins\bootstrap-hover-dropdown.min.js" />
+    <Content Include="assets\plugins\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="assets\plugins\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="assets\plugins\bootstrap\css\bootstrap.css" />
+    <Content Include="assets\plugins\bootstrap\css\bootstrap.min.css" />
+    <Content Include="assets\plugins\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\plugins\bootstrap\js\bootstrap.js" />
+    <Content Include="assets\plugins\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assets\plugins\flexslider\flexslider.css" />
+    <Content Include="assets\plugins\flexslider\images\bg_direction_nav.png" />
+    <Content Include="assets\plugins\flexslider\images\bg_direction_nav1.png" />
+    <Content Include="assets\plugins\flexslider\jquery.flexslider-min.js" />
+    <Content Include="assets\plugins\flexslider\jquery.flexslider.js" />
+    <Content Include="assets\plugins\font-awesome\css\font-awesome.css" />
+    <Content Include="assets\plugins\font-awesome\css\font-awesome.min.css" />
+    <Content Include="assets\plugins\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\plugins\gmaps\gmaps.js" />
+    <Content Include="assets\plugins\jflickrfeed\colorbox\colorbox.css" />
+    <Content Include="assets\plugins\jflickrfeed\colorbox\images\controls.png" />
+    <Content Include="assets\plugins\jflickrfeed\colorbox\images\loading.gif" />
+    <Content Include="assets\plugins\jflickrfeed\colorbox\jquery.colorbox-min.js" />
+    <Content Include="assets\plugins\jflickrfeed\cycle\jquery.cycle.all.min.js" />
+    <Content Include="assets\plugins\jflickrfeed\example.html" />
+    <Content Include="assets\plugins\jflickrfeed\jflickrfeed.js" />
+    <Content Include="assets\plugins\jflickrfeed\jflickrfeed.min.js" />
+    <Content Include="assets\plugins\jflickrfeed\setup.js" />
+    <Content Include="assets\plugins\jflickrfeed\style.css" />
+    <Content Include="assets\plugins\jquery-1.10.2.min.js" />
+    <Content Include="assets\plugins\jquery-migrate-1.2.1.min.js" />
+    <Content Include="assets\plugins\jquery-placeholder\demo.html" />
+    <Content Include="assets\plugins\jquery-placeholder\jquery.placeholder.js" />
+    <Content Include="assets\plugins\jquery-placeholder\LICENSE-MIT.txt" />
+    <Content Include="assets\plugins\countdown\jquery.lwtCountdown-1.0.js" />
+    <Content Include="assets\plugins\other\jquery.cpf-validate.1.0.min.js" />
+    <Content Include="assets\plugins\other\jquery.maskedinput.js" />
+    <Content Include="assets\plugins\other\querystring-0.9.0.js" />
+    <Content Include="assets\plugins\pretty-photo\css\prettyPhoto.css" />
+    <Content Include="assets\plugins\pretty-photo\images\fullscreen\1.jpg" />
+    <Content Include="assets\plugins\pretty-photo\images\fullscreen\2.jpg" />
+    <Content Include="assets\plugins\pretty-photo\images\fullscreen\3.jpg" />
+    <Content Include="assets\plugins\pretty-photo\images\fullscreen\4.jpg" />
+    <Content Include="assets\plugins\pretty-photo\images\fullscreen\5.jpg" />
+    <Content Include="assets\plugins\pretty-photo\images\fullscreen\6.jpg" />
+    <Content Include="assets\plugins\pretty-photo\images\fullscreen\high.gif" />
+    <Content Include="assets\plugins\pretty-photo\images\fullscreen\huge.gif" />
+    <Content Include="assets\plugins\pretty-photo\images\fullscreen\wide.gif" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\dark_rounded\btnNext.png" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\dark_rounded\btnPrevious.png" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\dark_rounded\contentPattern.png" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\dark_rounded\default_thumbnail.gif" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\dark_rounded\loader.gif" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\dark_rounded\sprite.png" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\dark_square\btnNext.png" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\dark_square\btnPrevious.png" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\dark_square\contentPattern.png" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\dark_square\default_thumbnail.gif" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\dark_square\loader.gif" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\dark_square\sprite.png" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\default\default_thumb.png" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\default\loader.gif" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\default\sprite.png" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\default\sprite_next.png" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\default\sprite_prev.png" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\default\sprite_x.png" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\default\sprite_y.png" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\facebook\btnNext.png" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\facebook\btnPrevious.png" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\facebook\contentPatternBottom.png" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\facebook\contentPatternLeft.png" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\facebook\contentPatternRight.png" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\facebook\contentPatternTop.png" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\facebook\default_thumbnail.gif" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\facebook\loader.gif" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\facebook\sprite.png" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\light_rounded\btnNext.png" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\light_rounded\btnPrevious.png" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\light_rounded\default_thumbnail.gif" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\light_rounded\loader.gif" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\light_rounded\sprite.png" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\light_square\btnNext.png" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\light_square\btnPrevious.png" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\light_square\default_thumbnail.gif" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\light_square\loader.gif" />
+    <Content Include="assets\plugins\pretty-photo\images\prettyPhoto\light_square\sprite.png" />
+    <Content Include="assets\plugins\pretty-photo\images\thumbnails\flash-logo.png" />
+    <Content Include="assets\plugins\pretty-photo\images\thumbnails\quicktime-logo.gif" />
+    <Content Include="assets\plugins\pretty-photo\images\thumbnails\t_1.jpg" />
+    <Content Include="assets\plugins\pretty-photo\images\thumbnails\t_2.jpg" />
+    <Content Include="assets\plugins\pretty-photo\images\thumbnails\t_3.jpg" />
+    <Content Include="assets\plugins\pretty-photo\images\thumbnails\t_4.jpg" />
+    <Content Include="assets\plugins\pretty-photo\images\thumbnails\t_5.jpg" />
+    <Content Include="assets\plugins\pretty-photo\index.html" />
+    <Content Include="assets\plugins\pretty-photo\js\jquery-1.3.2.min.js" />
+    <Content Include="assets\plugins\pretty-photo\js\jquery-1.4.4.min.js" />
+    <Content Include="assets\plugins\pretty-photo\js\jquery-1.6.1.min.js" />
+    <Content Include="assets\plugins\pretty-photo\js\jquery.prettyPhoto.js" />
+    <Content Include="assets\plugins\pretty-photo\xhr_response.html" />
+    <Content Include="College.asmx" />
+    <Content Include="Contact.aspx" />
+    <Content Include="courses\Training.aspx" />
+    <Content Include="courses\Test.aspx" />
+    <Content Include="courses\Exercise.aspx" />
+    <Content Include="Index.html" />
+    <Content Include="Forgot.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Login.aspx" />
+    <Content Include="Course.aspx" />
+    <Content Include="Courses.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="Events.aspx" />
+    <Content Include="Faq.aspx" />
+    <Content Include="assets\1\favicon.ico" />
+    <Content Include="Logout.aspx" />
+    <Content Include="MyAccont.aspx" />
+    <Content Include="MyCourse.aspx" />
+    <Content Include="MyCourses.aspx" />
+    <Content Include="Terms.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="wuc\Contact.ascx" />
+    <Content Include="wuc\Videos.ascx" />
+    <Content Include="wuc\Events.ascx" />
+    <Content Include="wuc\Testimonials.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="College.asmx.cs">
+      <DependentUpon>College.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="courses\Training.aspx.cs">
+      <DependentUpon>Training.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="courses\Training.aspx.designer.cs">
+      <DependentUpon>Training.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="courses\Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="courses\Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="courses\Exercise.aspx.cs">
+      <DependentUpon>Exercise.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="courses\Exercise.aspx.designer.cs">
+      <DependentUpon>Exercise.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forgot.aspx.cs">
+      <DependentUpon>Forgot.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forgot.aspx.designer.cs">
+      <DependentUpon>Forgot.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Course.aspx.cs">
+      <DependentUpon>Course.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Course.aspx.designer.cs">
+      <DependentUpon>Course.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Courses.aspx.cs">
+      <DependentUpon>Courses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Courses.aspx.designer.cs">
+      <DependentUpon>Courses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Events.aspx.cs">
+      <DependentUpon>Events.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Events.aspx.designer.cs">
+      <DependentUpon>Events.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Faq.aspx.cs">
+      <DependentUpon>Faq.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Faq.aspx.designer.cs">
+      <DependentUpon>Faq.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MyAccont.aspx.cs">
+      <DependentUpon>MyAccont.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyAccont.aspx.designer.cs">
+      <DependentUpon>MyAccont.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MyCourse.aspx.cs">
+      <DependentUpon>MyCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyCourse.aspx.designer.cs">
+      <DependentUpon>MyCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MyCourses.aspx.cs">
+      <DependentUpon>MyCourses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyCourses.aspx.designer.cs">
+      <DependentUpon>MyCourses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Terms.aspx.cs">
+      <DependentUpon>Terms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Terms.aspx.designer.cs">
+      <DependentUpon>Terms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wuc\Contact.ascx.cs">
+      <DependentUpon>Contact.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wuc\Contact.ascx.designer.cs">
+      <DependentUpon>Contact.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="wuc\Videos.ascx.cs">
+      <DependentUpon>Videos.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wuc\Videos.ascx.designer.cs">
+      <DependentUpon>Videos.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="wuc\Events.ascx.cs">
+      <DependentUpon>Events.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wuc\Events.ascx.designer.cs">
+      <DependentUpon>Events.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="wuc\Testimonials.ascx.cs">
+      <DependentUpon>Testimonials.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wuc\Testimonials.ascx.designer.cs">
+      <DependentUpon>Testimonials.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="assets\plugins\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="assets\plugins\bootstrap\css\bootstrap.css.map" />
+    <Content Include="assets\plugins\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\plugins\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\plugins\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\plugins\flexslider\README.mdown" />
+    <Content Include="assets\plugins\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\plugins\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\plugins\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\plugins\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="assets\plugins\jquery-placeholder\.gitattributes" />
+    <Content Include="assets\plugins\jquery-placeholder\.gitignore" />
+    <Content Include="assets\plugins\jquery-placeholder\bower.json" />
+    <Content Include="assets\plugins\jquery-placeholder\README.md" />
+    <Content Include="assets\plugins\pretty-photo\README" />
+    <Content Include="Site.Master" />
+    <Content Include="assets\fonts\opensans\DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff" />
+    <Content Include="assets\fonts\opensans\cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff" />
+    <Content Include="assets\fonts\opensans\MTP_ySUJH_bn48VBG8sNSnhCUOGz7vYGh680lGh-uXM.woff" />
+    <Content Include="assets\fonts\opensans\k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff" />
+    <None Include="Properties\PublishProfiles\College.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CollegeBusiness\CollegeBusiness.csproj">
+      <Project>{0b08a728-0980-4f85-9a26-7b057b3fb940}</Project>
+      <Name>CollegeBusiness</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="assets\email\images\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>18689</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:25171/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,24 @@
+﻿<#@ template language="C#" hostspecific="True" debug="True" #>
+<#@ output extension="cs" #>   
+<#@ include file="T4Toolbox.tt" #>    
+<#@ include file="../../Templates/WcfService/ServiceContractGenerator.tt" #>
+
+<#
+	var rootNamespace = "CollegeService";
+	var dic = new Dictionary<string, List<string>>();
+	
+	// Definindo serviços e suas operações
+	dic.Add("CollegeService", new List<string>()
+	{
+		"FirstMethod"
+	});
+		
+	
+	// Criando estrutura dos serviços
+	foreach (var service in dic.Keys)
+	{
+		var servicesGenerator = new ServiceContractGenerator(rootNamespace, service, dic[service]);
+		servicesGenerator.GenerateWcfDecorators = true;
+		servicesGenerator.Run();
+	}	
+#>  

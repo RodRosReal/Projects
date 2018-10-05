@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3A18BD61-F7AE-414C-A6DA-F861791D5F74}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CollegeData</RootNamespace>
+    <AssemblyName>CollegeData</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ACAD_ACADEMIAS.cs">
+      <DependentUpon>College.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ACAD_AREAS.cs">
+      <DependentUpon>College.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ACAD_AREAS_CURSOS.cs">
+      <DependentUpon>College.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ACAD_BANNERS.cs">
+      <DependentUpon>College.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ACAD_BLOCOS.cs">
+      <DependentUpon>College.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ACAD_CODIGOS.cs">
+      <DependentUpon>College.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ACAD_CURSOS.cs">
+      <DependentUpon>College.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ACAD_EVENTOS.cs">
+      <DependentUpon>College.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ACAD_EXERCICIOS.cs">
+      <DependentUpon>College.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ACAD_FAQS.cs">
+      <DependentUpon>College.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ACAD_MATRICULAS.cs">
+      <DependentUpon>College.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ACAD_MODULOS.cs">
+      <DependentUpon>College.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ACAD_QUESTOES.cs">
+      <DependentUpon>College.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ACAD_RECURSOS.cs">
+      <DependentUpon>College.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ACAD_TESTEMUNHOS.cs">
+      <DependentUpon>College.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ACAD_USUARIOS.cs">
+      <DependentUpon>College.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ACAD_USUARIOS_BLOCOS.cs">
+      <DependentUpon>College.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ACAD_USUARIOS_EXERCICIOS.cs">
+      <DependentUpon>College.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ACAD_USUARIOS_PROVAS_QUESTOES.cs">
+      <DependentUpon>College.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="College.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>College.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="College.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>College.tt</DependentUpon>
+    </Compile>
+    <Compile Include="College.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>College.edmx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="College.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>College.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="College.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>College.edmx</DependentUpon>
+      <LastGenOutput>College.Context.cs</LastGenOutput>
+    </None>
+    <None Include="College.edmx.diagram">
+      <DependentUpon>College.edmx</DependentUpon>
+    </None>
+    <None Include="College.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>College.edmx</DependentUpon>
+      <LastGenOutput>College.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

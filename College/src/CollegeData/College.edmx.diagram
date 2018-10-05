@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cf8de7c734b1473b98c56433b850b7a1" Name="Diagram1" ZoomLevel="81">
+        <EntityTypeShape EntityType="CollegeModel.ACAD_ACADEMIAS" Width="1.5" PointX="10.047278639882467" PointY="16.114116318577022" />
+        <EntityTypeShape EntityType="CollegeModel.ACAD_AREAS" Width="1.5" PointX="10.948866040887715" PointY="25.291504320358626" />
+        <EntityTypeShape EntityType="CollegeModel.ACAD_AREAS_CURSOS" Width="1.5" PointX="11.110715511772185" PointY="9.55241732744147" />
+        <EntityTypeShape EntityType="CollegeModel.ACAD_BANNERS" Width="1.5" PointX="3.8091526347255114" PointY="10.19342102585054" />
+        <EntityTypeShape EntityType="CollegeModel.ACAD_BLOCOS" Width="1.5" PointX="4.9975997419085347" PointY="27.445480031634439" />
+        <EntityTypeShape EntityType="CollegeModel.ACAD_CODIGOS" Width="1.5" PointX="9.5582622706695748" PointY="6.2349067061370738" />
+        <EntityTypeShape EntityType="CollegeModel.ACAD_CURSOS" Width="1.5" PointX="3.3275940750388404" PointY="17.517236136606538" />
+        <EntityTypeShape EntityType="CollegeModel.ACAD_EVENTOS" Width="1.5" PointX="4.2625976820767848" PointY="15.02529219492585" />
+        <EntityTypeShape EntityType="CollegeModel.ACAD_EXERCICIOS" Width="1.5" PointX="8.2333794106884763" PointY="9.62406804115701" />
+        <EntityTypeShape EntityType="CollegeModel.ACAD_FAQS" Width="1.5" PointX="10.007699890997122" PointY="5.9411366907605609" />
+        <EntityTypeShape EntityType="CollegeModel.ACAD_MATRICULAS" Width="1.5" PointX="5.6089482221794071" PointY="11.179136341055454" />
+        <EntityTypeShape EntityType="CollegeModel.ACAD_MODULOS" Width="1.5" PointX="4.5600895027444182" PointY="13.598183980955827" />
+        <EntityTypeShape EntityType="CollegeModel.ACAD_QUESTOES" Width="1.5" PointX="3.9223182517673436" PointY="23.919799741320219" />
+        <EntityTypeShape EntityType="CollegeModel.ACAD_RECURSOS" Width="1.5" PointX="3.4740730186337947" PointY="14.747753746224452" />
+        <EntityTypeShape EntityType="CollegeModel.ACAD_TESTEMUNHOS" Width="1.5" PointX="11.800375074055221" PointY="22.995872225144819" />
+        <EntityTypeShape EntityType="CollegeModel.ACAD_USUARIOS" Width="1.5" PointX="1.99150169360987" PointY="11.536271324165291" />
+        <EntityTypeShape EntityType="CollegeModel.ACAD_USUARIOS_BLOCOS" Width="1.5" PointX="11.44792210843783" PointY="19.330384650887169" />
+        <EntityTypeShape EntityType="CollegeModel.ACAD_USUARIOS_EXERCICIOS" Width="1.5" PointX="10.7777047281981" PointY="20.58725696270692" />
+        <EntityTypeShape EntityType="CollegeModel.ACAD_USUARIOS_PROVAS_QUESTOES" Width="1.5" PointX="4.0478532444908533" PointY="5.2285444313793183" />
+        <AssociationConnector Association="CollegeModel.FK_ACAD_BANNERS_ACAD_ACADEMIAS" />
+        <AssociationConnector Association="CollegeModel.FK_ACAD_CURSOS_ACAD_ACADEMIAS" />
+        <AssociationConnector Association="CollegeModel.FK_ACAD_EVENTOS_ACAD_ACADEMIAS" />
+        <AssociationConnector Association="CollegeModel.FK_ACAD_FAQS_ACAD_ACADEMIAS" />
+        <AssociationConnector Association="CollegeModel.FK_ACAD_TESTEMUNHOS_ACAD_ACADEMIAS" />
+        <AssociationConnector Association="CollegeModel.FK_ACAD_USUARIOS_ACAD_ACADEMIAS" />
+        <AssociationConnector Association="CollegeModel.FK_ACAD_AREAS_CURSOS_ACAD_AREAS" />
+        <AssociationConnector Association="CollegeModel.FK_ACAD_AREAS_CURSOS_ACAD_CURSOS" />
+        <AssociationConnector Association="CollegeModel.FK_ACAD_BLOCOS_ACAD_MODULOS" />
+        <AssociationConnector Association="CollegeModel.FK_ACAD_EXERCICIOS_ACAD_BLOCOS" />
+        <AssociationConnector Association="CollegeModel.FK_ACAD_USUARIOS_BLOCOS_ACAD_BLOCOS" />
+        <AssociationConnector Association="CollegeModel.FK_ACAD_CODIGOS_ACAD_CURSOS" />
+        <AssociationConnector Association="CollegeModel.FK_ACAD_CURSOS_ACAD_USUARIOS" />
+        <AssociationConnector Association="CollegeModel.FK_ACAD_MATRICULAS_ACAD_CURSOS" />
+        <AssociationConnector Association="CollegeModel.FK_ACAD_MODULOS_ACAD_CURSOS" />
+        <AssociationConnector Association="CollegeModel.FK_ACAD_USUARIOS_EXERCICIOS_ACAD_EXERCICIOS" />
+        <AssociationConnector Association="CollegeModel.FK_ACAD_MATRICULAS_ACAD_USUARIOS" />
+        <AssociationConnector Association="CollegeModel.FK_ACAD_USUARIOS_EXERCICIOS_ACAD_MATRICULAS" />
+        <AssociationConnector Association="CollegeModel.FK_ACAD_USUARIOS_PROVAS_QUESTOES_ACAD_MATRICULAS" />
+        <AssociationConnector Association="CollegeModel.FK_ACAD_QUESTOES_ACAD_MODULOS" />
+        <AssociationConnector Association="CollegeModel.FK_ACAD_RECURSOS_ACAD_MODULOS" />
+        <AssociationConnector Association="CollegeModel.FK_ACAD_USUARIOS_PROVAS_QUESTOES_ACAD_QUESTOES" />
+        <AssociationConnector Association="CollegeModel.FK_ACAD_USUARIOS_BLOCOS_ACAD_USUARIOS" />
+        <AssociationConnector Association="CollegeModel.FK_ACAD_USUARIOS_EXERCICIOS_ACAD_USUARIOS" />
+        <AssociationConnector Association="CollegeModel.FK_ACAD_USUARIOS_PROVAS_QUESTOES_ACAD_USUARIOS" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

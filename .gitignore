@@ -3,3 +3,13 @@
 ################################################################################
 
 /.vs
+/College/src/.vs
+/College/src/CollegeBusiness/bin/Debug
+/College/src/CollegeBusiness/obj/Debug
+/College/src/CollegeData/bin/Debug
+/College/src/CollegeData/obj/Debug
+/College/src/CollegeService/bin
+/College/src/CollegeService/obj/Debug
+/College/src/CollegeUI/bin
+/College/src/CollegeUI/obj/Debug
+/College/src/Uol.PagSeguro/obj/Debug

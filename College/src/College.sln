@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollegeUI", "CollegeUI\CollegeUI.csproj", "{0E2C9F92-89ED-41F0-A1AC-4AD35E19CA6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollegeData", "CollegeData\CollegeData.csproj", "{3A18BD61-F7AE-414C-A6DA-F861791D5F74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollegeBusiness", "CollegeBusiness\CollegeBusiness.csproj", "{0B08A728-0980-4F85-9A26-7B057B3FB940}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollegeService", "CollegeService\CollegeService.csproj", "{1673F6A9-A759-40D6-B9D9-6E5E35F25A74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uol.PagSeguro", "Uol.PagSeguro\Uol.PagSeguro.csproj", "{BABC5658-6AFD-4F8E-81F1-434553663D99}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		VIGOR|Any CPU = VIGOR|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E2C9F92-89ED-41F0-A1AC-4AD35E19CA6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E2C9F92-89ED-41F0-A1AC-4AD35E19CA6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E2C9F92-89ED-41F0-A1AC-4AD35E19CA6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E2C9F92-89ED-41F0-A1AC-4AD35E19CA6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E2C9F92-89ED-41F0-A1AC-4AD35E19CA6E}.VIGOR|Any CPU.ActiveCfg = Release|Any CPU
+		{0E2C9F92-89ED-41F0-A1AC-4AD35E19CA6E}.VIGOR|Any CPU.Build.0 = Release|Any CPU
+		{3A18BD61-F7AE-414C-A6DA-F861791D5F74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A18BD61-F7AE-414C-A6DA-F861791D5F74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A18BD61-F7AE-414C-A6DA-F861791D5F74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A18BD61-F7AE-414C-A6DA-F861791D5F74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A18BD61-F7AE-414C-A6DA-F861791D5F74}.VIGOR|Any CPU.ActiveCfg = Release|Any CPU
+		{3A18BD61-F7AE-414C-A6DA-F861791D5F74}.VIGOR|Any CPU.Build.0 = Release|Any CPU
+		{0B08A728-0980-4F85-9A26-7B057B3FB940}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B08A728-0980-4F85-9A26-7B057B3FB940}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B08A728-0980-4F85-9A26-7B057B3FB940}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B08A728-0980-4F85-9A26-7B057B3FB940}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B08A728-0980-4F85-9A26-7B057B3FB940}.VIGOR|Any CPU.ActiveCfg = Release|Any CPU
+		{0B08A728-0980-4F85-9A26-7B057B3FB940}.VIGOR|Any CPU.Build.0 = Release|Any CPU
+		{1673F6A9-A759-40D6-B9D9-6E5E35F25A74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1673F6A9-A759-40D6-B9D9-6E5E35F25A74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1673F6A9-A759-40D6-B9D9-6E5E35F25A74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1673F6A9-A759-40D6-B9D9-6E5E35F25A74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1673F6A9-A759-40D6-B9D9-6E5E35F25A74}.VIGOR|Any CPU.ActiveCfg = VIGOR|Any CPU
+		{1673F6A9-A759-40D6-B9D9-6E5E35F25A74}.VIGOR|Any CPU.Build.0 = VIGOR|Any CPU
+		{BABC5658-6AFD-4F8E-81F1-434553663D99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BABC5658-6AFD-4F8E-81F1-434553663D99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BABC5658-6AFD-4F8E-81F1-434553663D99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BABC5658-6AFD-4F8E-81F1-434553663D99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BABC5658-6AFD-4F8E-81F1-434553663D99}.VIGOR|Any CPU.ActiveCfg = Release|Any CPU
+		{BABC5658-6AFD-4F8E-81F1-434553663D99}.VIGOR|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

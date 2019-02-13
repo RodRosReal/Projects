@@ -12,19 +12,16 @@ namespace CollegeData
     using System;
     using System.Collections.Generic;
     
-    public partial class ACAD_QUESTOES
+    public partial class Area
     {
-        public ACAD_QUESTOES()
+        public Area()
         {
-            this.ACAD_USUARIOS_PROVAS_QUESTOES = new HashSet<ACAD_USUARIOS_PROVAS_QUESTOES>();
+            this.AreaCurso = new HashSet<AreaCurso>();
         }
     
-        public long CD_QUESTAO { get; set; }
-        public long CD_MODULO { get; set; }
-        public string TX_PERGUNTA { get; set; }
-        public string TX_GABARITO { get; set; }
+        public int Id { get; set; }
+        public string Nome { get; set; }
     
-        public virtual ACAD_MODULOS ACAD_MODULOS { get; set; }
-        public virtual ICollection<ACAD_USUARIOS_PROVAS_QUESTOES> ACAD_USUARIOS_PROVAS_QUESTOES { get; set; }
+        public virtual ICollection<AreaCurso> AreaCurso { get; set; }
     }
 }

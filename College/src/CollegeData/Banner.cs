@@ -12,16 +12,17 @@ namespace CollegeData
     using System;
     using System.Collections.Generic;
     
-    public partial class ACAD_TESTEMUNHOS
+    public partial class Banner
     {
-        public long CD_TESTEMUNHO { get; set; }
-        public long CD_ACADEMIA { get; set; }
-        public string TX_TESTEMUNHO { get; set; }
-        public string NM_AUTOR { get; set; }
-        public string TX_LOCAL { get; set; }
-        public System.DateTime DT_DATA { get; set; }
-        public bool FL_ATIVO { get; set; }
+        public int Id { get; set; }
+        public int IdAcademia { get; set; }
+        public string Caption { get; set; }
+        public string Caption2 { get; set; }
+        public System.DateTime DataInicio { get; set; }
+        public Nullable<System.DateTime> DataFinal { get; set; }
+        public System.DateTime DataCriacao { get; set; }
+        public bool Ativo { get; set; }
     
-        public virtual ACAD_ACADEMIAS ACAD_ACADEMIAS { get; set; }
+        public virtual Academia Academia { get; set; }
     }
 }

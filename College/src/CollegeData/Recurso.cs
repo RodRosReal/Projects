@@ -12,17 +12,13 @@ namespace CollegeData
     using System;
     using System.Collections.Generic;
     
-    public partial class ACAD_BANNERS
+    public partial class Recurso
     {
-        public long CD_BANNER { get; set; }
-        public long CD_ACADEMIA { get; set; }
-        public string TX_CAPTION { get; set; }
-        public string TX_CAPTION2 { get; set; }
-        public System.DateTime DT_INICIO { get; set; }
-        public Nullable<System.DateTime> DT_FINAL { get; set; }
-        public System.DateTime DT_DATA { get; set; }
-        public bool FL_ATIVO { get; set; }
+        public int Id { get; set; }
+        public int IdModulo { get; set; }
+        public string Nome { get; set; }
+        public string Pagina { get; set; }
     
-        public virtual ACAD_ACADEMIAS ACAD_ACADEMIAS { get; set; }
+        public virtual Modulo Modulo { get; set; }
     }
 }

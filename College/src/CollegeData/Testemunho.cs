@@ -12,13 +12,16 @@ namespace CollegeData
     using System;
     using System.Collections.Generic;
     
-    public partial class ACAD_RECURSOS
+    public partial class Testemunho
     {
-        public long CD_RECURSO { get; set; }
-        public long CD_MODULO { get; set; }
-        public string NM_RECURSO { get; set; }
-        public string NM_PAGE { get; set; }
+        public int Id { get; set; }
+        public int IdAcademia { get; set; }
+        public string Testemunho1 { get; set; }
+        public string Autor { get; set; }
+        public string Local { get; set; }
+        public System.DateTime DataCriacao { get; set; }
+        public bool Ativo { get; set; }
     
-        public virtual ACAD_MODULOS ACAD_MODULOS { get; set; }
+        public virtual Academia Academia { get; set; }
     }
 }

@@ -51,61 +51,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ACAD_ACADEMIAS.cs">
+    <Compile Include="Academia.cs">
       <DependentUpon>College.tt</DependentUpon>
     </Compile>
-    <Compile Include="ACAD_AREAS.cs">
+    <Compile Include="Area.cs">
       <DependentUpon>College.tt</DependentUpon>
     </Compile>
-    <Compile Include="ACAD_AREAS_CURSOS.cs">
+    <Compile Include="AreaCurso.cs">
       <DependentUpon>College.tt</DependentUpon>
     </Compile>
-    <Compile Include="ACAD_BANNERS.cs">
+    <Compile Include="Banner.cs">
       <DependentUpon>College.tt</DependentUpon>
     </Compile>
-    <Compile Include="ACAD_BLOCOS.cs">
+    <Compile Include="Bloco.cs">
       <DependentUpon>College.tt</DependentUpon>
     </Compile>
-    <Compile Include="ACAD_CODIGOS.cs">
+    <Compile Include="Codigo.cs">
       <DependentUpon>College.tt</DependentUpon>
     </Compile>
-    <Compile Include="ACAD_CURSOS.cs">
+    <Compile Include="Curso.cs">
       <DependentUpon>College.tt</DependentUpon>
     </Compile>
-    <Compile Include="ACAD_EVENTOS.cs">
+    <Compile Include="Evento.cs">
       <DependentUpon>College.tt</DependentUpon>
     </Compile>
-    <Compile Include="ACAD_EXERCICIOS.cs">
+    <Compile Include="Exercicio.cs">
       <DependentUpon>College.tt</DependentUpon>
     </Compile>
-    <Compile Include="ACAD_FAQS.cs">
+    <Compile Include="Faq.cs">
       <DependentUpon>College.tt</DependentUpon>
     </Compile>
-    <Compile Include="ACAD_MATRICULAS.cs">
+    <Compile Include="Matricula.cs">
       <DependentUpon>College.tt</DependentUpon>
     </Compile>
-    <Compile Include="ACAD_MODULOS.cs">
-      <DependentUpon>College.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ACAD_QUESTOES.cs">
-      <DependentUpon>College.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ACAD_RECURSOS.cs">
-      <DependentUpon>College.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ACAD_TESTEMUNHOS.cs">
-      <DependentUpon>College.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ACAD_USUARIOS.cs">
-      <DependentUpon>College.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ACAD_USUARIOS_BLOCOS.cs">
-      <DependentUpon>College.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ACAD_USUARIOS_EXERCICIOS.cs">
-      <DependentUpon>College.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ACAD_USUARIOS_PROVAS_QUESTOES.cs">
+    <Compile Include="Modulo.cs">
       <DependentUpon>College.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -123,6 +102,27 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>College.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Questao.cs">
+      <DependentUpon>College.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recurso.cs">
+      <DependentUpon>College.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Testemunho.cs">
+      <DependentUpon>College.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario.cs">
+      <DependentUpon>College.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsuarioBloco.cs">
+      <DependentUpon>College.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsuarioExercicio.cs">
+      <DependentUpon>College.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsuarioProvaQuestao.cs">
+      <DependentUpon>College.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

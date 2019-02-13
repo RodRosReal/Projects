@@ -12,14 +12,14 @@ namespace CollegeData
     using System;
     using System.Collections.Generic;
     
-    public partial class ACAD_FAQS
+    public partial class Faq
     {
-        public long CD_FAQ { get; set; }
-        public long CD_ACADEMIA { get; set; }
-        public string TX_PERGUNTA { get; set; }
-        public string TX_RESPOSTA { get; set; }
-        public int NR_ORDEM { get; set; }
+        public int Id { get; set; }
+        public int IdAcademia { get; set; }
+        public string Pergunta { get; set; }
+        public string Resposta { get; set; }
+        public int Ordem { get; set; }
     
-        public virtual ACAD_ACADEMIAS ACAD_ACADEMIAS { get; set; }
+        public virtual Academia Academia { get; set; }
     }
 }

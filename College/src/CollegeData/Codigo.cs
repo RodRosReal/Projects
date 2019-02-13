@@ -12,13 +12,13 @@ namespace CollegeData
     using System;
     using System.Collections.Generic;
     
-    public partial class ACAD_CODIGOS
+    public partial class Codigo
     {
-        public System.Guid CD_CODIGO { get; set; }
-        public long CD_CURSO { get; set; }
-        public Nullable<System.DateTime> DT_DATA { get; set; }
-        public bool FL_ATIVO { get; set; }
+        public System.Guid Id { get; set; }
+        public int IdCurso { get; set; }
+        public Nullable<System.DateTime> DataCriacao { get; set; }
+        public bool Ativo { get; set; }
     
-        public virtual ACAD_CURSOS ACAD_CURSOS { get; set; }
+        public virtual Curso Curso { get; set; }
     }
 }

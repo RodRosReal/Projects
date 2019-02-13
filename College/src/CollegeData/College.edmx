@@ -1,1373 +1,1373 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
   <!-- EF Runtime content -->
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SivaServerModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="SivaServerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Academia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Descricao" Type="varchar(max)" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="SenhaEmail" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Smtp" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="SmtpPorta" Type="int" Nullable="false" />
+          <Property Name="UrlBase" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Url" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="MetaDescription" Type="varchar(max)" />
+          <Property Name="MetaKeywords" Type="varchar(max)" />
+          <Property Name="MetaRobots" Type="varchar" MaxLength="20" />
+          <Property Name="MetaGoogleBot" Type="varchar" MaxLength="20" />
+          <Property Name="MetaGenerator" Type="varchar(max)" />
+          <Property Name="MetaRevisiteAfter" Type="varchar" MaxLength="20" />
+          <Property Name="Cnpj" Type="varchar" MaxLength="18" Nullable="false" />
+          <Property Name="Telefone" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="Endereco" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Numero" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Complemento" Type="varchar" MaxLength="10" />
+          <Property Name="Bairro" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Cidade" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Uf" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="Cep" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+          <Property Name="Ativo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AreaCurso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdArea" Type="int" Nullable="false" />
+          <Property Name="IdCurso" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Banner">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAcademia" Type="int" Nullable="false" />
+          <Property Name="Caption" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Caption2" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DataInicio" Type="datetime" Nullable="false" />
+          <Property Name="DataFinal" Type="datetime" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+          <Property Name="Ativo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bloco">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdModulo" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Pagina" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Ordem" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Codigo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdCurso" Type="int" Nullable="false" />
+          <Property Name="DataCriacao" Type="datetime" />
+          <Property Name="Ativo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Curso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAcademia" Type="int" Nullable="false" />
+          <Property Name="IdProfessor" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Resumo" Type="varchar" MaxLength="400" Nullable="false" />
+          <Property Name="Descricao" Type="varchar(max)" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Moeda" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="Valor" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+          <Property Name="Ativo" Type="bit" Nullable="false" />
+          <Property Name="Ordem" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Evento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAcademia" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="DataInicio" Type="datetime" Nullable="false" />
+          <Property Name="DataFinal" Type="datetime" />
+          <Property Name="Url" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Descricao" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+          <Property Name="Ativo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Exercicio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdBloco" Type="int" Nullable="false" />
+          <Property Name="Pergunta" Type="varchar(max)" Nullable="false" />
+          <Property Name="Gabarito" Type="varchar(max)" Nullable="false" />
+          <Property Name="Ordem" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Faq">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAcademia" Type="int" Nullable="false" />
+          <Property Name="Pergunta" Type="varchar(max)" Nullable="false" />
+          <Property Name="Resposta" Type="varchar(max)" Nullable="false" />
+          <Property Name="Ordem" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Matricula">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUsuario" Type="int" Nullable="false" />
+          <Property Name="IdCurso" Type="int" Nullable="false" />
+          <Property Name="Codigo" Type="varchar" MaxLength="50" />
+          <Property Name="Transacao" Type="varchar" MaxLength="50" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Modulo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCurso" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Pagina" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Ordem" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Questao">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdModulo" Type="int" Nullable="false" />
+          <Property Name="Pergunta" Type="varchar(max)" Nullable="false" />
+          <Property Name="Gabarito" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Recurso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdModulo" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Pagina" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Testemunho">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAcademia" Type="int" Nullable="false" />
+          <Property Name="Testemunho" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Autor" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Local" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+          <Property Name="Ativo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAcademia" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SobreNome" Type="varchar" MaxLength="180" Nullable="false" />
+          <Property Name="NomeCompleto" Type="varchar" MaxLength="201" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Telefone" Type="varchar" MaxLength="14" />
+          <Property Name="Celular" Type="varchar" MaxLength="14" />
+          <Property Name="Cpf" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="Senha" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Ip" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+          <Property Name="Ativo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UsuarioBloco">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="IdBloco" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUsuario" Type="int" Nullable="false" />
+          <Property Name="IdBloco" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UsuarioExercicio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUsuario" Type="int" Nullable="false" />
+          <Property Name="IdExercicio" Type="int" Nullable="false" />
+          <Property Name="IdMatricula" Type="int" Nullable="false" />
+          <Property Name="Pergunta" Type="varchar(max)" Nullable="false" />
+          <Property Name="Resposta" Type="varchar(max)" />
+          <Property Name="ObsCorrecao" Type="varchar(max)" Nullable="false" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UsuarioProvaQuestao">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUsuario" Type="int" Nullable="false" />
+          <Property Name="IdMatricula" Type="int" Nullable="false" />
+          <Property Name="IdQuestao" Type="int" Nullable="false" />
+          <Property Name="DataInicio" Type="datetime" Nullable="false" />
+          <Property Name="Pergunta" Type="varchar(max)" Nullable="false" />
+          <Property Name="Resposta" Type="varchar(max)" />
+          <Property Name="Acerto" Type="bit" Nullable="false" />
+          <Property Name="ObsCorrecao" Type="varchar(max)" />
+          <Property Name="Gabarito" Type="varchar(max)" />
+        </EntityType>
+        <Association Name="FK_AreaCursoArea">
+          <End Role="Area" Type="Self.Area" Multiplicity="1" />
+          <End Role="AreaCurso" Type="Self.AreaCurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AreaCurso">
+              <PropertyRef Name="IdArea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AreaCursoCurso">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+          <End Role="AreaCurso" Type="Self.AreaCurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AreaCurso">
+              <PropertyRef Name="IdCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BannerAcademia">
+          <End Role="Academia" Type="Self.Academia" Multiplicity="1" />
+          <End Role="Banner" Type="Self.Banner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Academia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Banner">
+              <PropertyRef Name="IdAcademia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlocoModulo">
+          <End Role="Modulo" Type="Self.Modulo" Multiplicity="1" />
+          <End Role="Bloco" Type="Self.Bloco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Bloco">
+              <PropertyRef Name="IdModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CodigoCurso">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+          <End Role="Codigo" Type="Self.Codigo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Codigo">
+              <PropertyRef Name="IdCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CursoAcademia">
+          <End Role="Academia" Type="Self.Academia" Multiplicity="1" />
+          <End Role="Curso" Type="Self.Curso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Academia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Curso">
+              <PropertyRef Name="IdAcademia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CursoUsuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Curso" Type="Self.Curso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Curso">
+              <PropertyRef Name="IdProfessor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventoAcademia">
+          <End Role="Academia" Type="Self.Academia" Multiplicity="1" />
+          <End Role="Evento" Type="Self.Evento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Academia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Evento">
+              <PropertyRef Name="IdAcademia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExercicioBloco">
+          <End Role="Bloco" Type="Self.Bloco" Multiplicity="1" />
+          <End Role="Exercicio" Type="Self.Exercicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bloco">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Exercicio">
+              <PropertyRef Name="IdBloco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FaqAcademia">
+          <End Role="Academia" Type="Self.Academia" Multiplicity="1" />
+          <End Role="Faq" Type="Self.Faq" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Academia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Faq">
+              <PropertyRef Name="IdAcademia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatriculaCurso">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+          <End Role="Matricula" Type="Self.Matricula" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Matricula">
+              <PropertyRef Name="IdCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatriculaUsuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Matricula" Type="Self.Matricula" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Matricula">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModuloCurso">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+          <End Role="Modulo" Type="Self.Modulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Modulo">
+              <PropertyRef Name="IdCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QuestaoModulo">
+          <End Role="Modulo" Type="Self.Modulo" Multiplicity="1" />
+          <End Role="Questao" Type="Self.Questao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Questao">
+              <PropertyRef Name="IdModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecursoModulo">
+          <End Role="Modulo" Type="Self.Modulo" Multiplicity="1" />
+          <End Role="Recurso" Type="Self.Recurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Recurso">
+              <PropertyRef Name="IdModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TestemunhoAcademia">
+          <End Role="Academia" Type="Self.Academia" Multiplicity="1" />
+          <End Role="Testemunho" Type="Self.Testemunho" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Academia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Testemunho">
+              <PropertyRef Name="IdAcademia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioAcademia">
+          <End Role="Academia" Type="Self.Academia" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Academia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="IdAcademia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioBlocoBloco">
+          <End Role="Bloco" Type="Self.Bloco" Multiplicity="1" />
+          <End Role="UsuarioBloco" Type="Self.UsuarioBloco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bloco">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioBloco">
+              <PropertyRef Name="IdBloco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioBlocoUsuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="UsuarioBloco" Type="Self.UsuarioBloco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioBloco">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioExercicioExercicio">
+          <End Role="Exercicio" Type="Self.Exercicio" Multiplicity="1" />
+          <End Role="UsuarioExercicio" Type="Self.UsuarioExercicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exercicio">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioExercicio">
+              <PropertyRef Name="IdExercicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioExercicioMatricula">
+          <End Role="Matricula" Type="Self.Matricula" Multiplicity="1" />
+          <End Role="UsuarioExercicio" Type="Self.UsuarioExercicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Matricula">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioExercicio">
+              <PropertyRef Name="IdMatricula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioExercicioUsuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="UsuarioExercicio" Type="Self.UsuarioExercicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioExercicio">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioProvaQuestaoMatricula">
+          <End Role="Matricula" Type="Self.Matricula" Multiplicity="1" />
+          <End Role="UsuarioProvaQuestao" Type="Self.UsuarioProvaQuestao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Matricula">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioProvaQuestao">
+              <PropertyRef Name="IdMatricula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioProvaQuestaoQuestao">
+          <End Role="Questao" Type="Self.Questao" Multiplicity="1" />
+          <End Role="UsuarioProvaQuestao" Type="Self.UsuarioProvaQuestao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questao">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioProvaQuestao">
+              <PropertyRef Name="IdQuestao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioProvaQuestaoUsuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="UsuarioProvaQuestao" Type="Self.UsuarioProvaQuestao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioProvaQuestao">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="SivaServerModelStoreContainer">
-          <EntitySet Name="ACAD_ACADEMIAS" EntityType="SivaServerModel.Store.ACAD_ACADEMIAS" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ACAD_AREAS" EntityType="SivaServerModel.Store.ACAD_AREAS" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ACAD_AREAS_CURSOS" EntityType="SivaServerModel.Store.ACAD_AREAS_CURSOS" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ACAD_BANNERS" EntityType="SivaServerModel.Store.ACAD_BANNERS" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ACAD_BLOCOS" EntityType="SivaServerModel.Store.ACAD_BLOCOS" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ACAD_CODIGOS" EntityType="SivaServerModel.Store.ACAD_CODIGOS" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ACAD_CURSOS" EntityType="SivaServerModel.Store.ACAD_CURSOS" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ACAD_EVENTOS" EntityType="SivaServerModel.Store.ACAD_EVENTOS" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ACAD_EXERCICIOS" EntityType="SivaServerModel.Store.ACAD_EXERCICIOS" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ACAD_FAQS" EntityType="SivaServerModel.Store.ACAD_FAQS" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ACAD_MATRICULAS" EntityType="SivaServerModel.Store.ACAD_MATRICULAS" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ACAD_MODULOS" EntityType="SivaServerModel.Store.ACAD_MODULOS" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ACAD_QUESTOES" EntityType="SivaServerModel.Store.ACAD_QUESTOES" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ACAD_RECURSOS" EntityType="SivaServerModel.Store.ACAD_RECURSOS" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ACAD_TESTEMUNHOS" EntityType="SivaServerModel.Store.ACAD_TESTEMUNHOS" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ACAD_USUARIOS" EntityType="SivaServerModel.Store.ACAD_USUARIOS" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ACAD_USUARIOS_BLOCOS" EntityType="SivaServerModel.Store.ACAD_USUARIOS_BLOCOS" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ACAD_USUARIOS_EXERCICIOS" EntityType="SivaServerModel.Store.ACAD_USUARIOS_EXERCICIOS" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ACAD_USUARIOS_PROVAS_QUESTOES" EntityType="SivaServerModel.Store.ACAD_USUARIOS_PROVAS_QUESTOES" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK_ACAD_AREAS_CURSOS_ACAD_AREAS" Association="SivaServerModel.Store.FK_ACAD_AREAS_CURSOS_ACAD_AREAS">
-            <End Role="ACAD_AREAS" EntitySet="ACAD_AREAS" />
-            <End Role="ACAD_AREAS_CURSOS" EntitySet="ACAD_AREAS_CURSOS" />
+          <EntitySet Name="Academia" EntityType="Self.Academia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Area" EntityType="Self.Area" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AreaCurso" EntityType="Self.AreaCurso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Banner" EntityType="Self.Banner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bloco" EntityType="Self.Bloco" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Codigo" EntityType="Self.Codigo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Curso" EntityType="Self.Curso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Evento" EntityType="Self.Evento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Exercicio" EntityType="Self.Exercicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Faq" EntityType="Self.Faq" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Matricula" EntityType="Self.Matricula" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Modulo" EntityType="Self.Modulo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Questao" EntityType="Self.Questao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recurso" EntityType="Self.Recurso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Testemunho" EntityType="Self.Testemunho" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsuarioBloco" EntityType="Self.UsuarioBloco" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsuarioExercicio" EntityType="Self.UsuarioExercicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsuarioProvaQuestao" EntityType="Self.UsuarioProvaQuestao" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AreaCursoArea" Association="Self.FK_AreaCursoArea">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="AreaCurso" EntitySet="AreaCurso" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_AREAS_CURSOS_ACAD_CURSOS" Association="SivaServerModel.Store.FK_ACAD_AREAS_CURSOS_ACAD_CURSOS">
-            <End Role="ACAD_CURSOS" EntitySet="ACAD_CURSOS" />
-            <End Role="ACAD_AREAS_CURSOS" EntitySet="ACAD_AREAS_CURSOS" />
+          <AssociationSet Name="FK_AreaCursoCurso" Association="Self.FK_AreaCursoCurso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="AreaCurso" EntitySet="AreaCurso" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_BANNERS_ACAD_ACADEMIAS" Association="SivaServerModel.Store.FK_ACAD_BANNERS_ACAD_ACADEMIAS">
-            <End Role="ACAD_ACADEMIAS" EntitySet="ACAD_ACADEMIAS" />
-            <End Role="ACAD_BANNERS" EntitySet="ACAD_BANNERS" />
+          <AssociationSet Name="FK_BannerAcademia" Association="Self.FK_BannerAcademia">
+            <End Role="Academia" EntitySet="Academia" />
+            <End Role="Banner" EntitySet="Banner" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_BLOCOS_ACAD_MODULOS" Association="SivaServerModel.Store.FK_ACAD_BLOCOS_ACAD_MODULOS">
-            <End Role="ACAD_MODULOS" EntitySet="ACAD_MODULOS" />
-            <End Role="ACAD_BLOCOS" EntitySet="ACAD_BLOCOS" />
+          <AssociationSet Name="FK_BlocoModulo" Association="Self.FK_BlocoModulo">
+            <End Role="Modulo" EntitySet="Modulo" />
+            <End Role="Bloco" EntitySet="Bloco" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_CODIGOS_ACAD_CURSOS" Association="SivaServerModel.Store.FK_ACAD_CODIGOS_ACAD_CURSOS">
-            <End Role="ACAD_CURSOS" EntitySet="ACAD_CURSOS" />
-            <End Role="ACAD_CODIGOS" EntitySet="ACAD_CODIGOS" />
+          <AssociationSet Name="FK_CodigoCurso" Association="Self.FK_CodigoCurso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Codigo" EntitySet="Codigo" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_CURSOS_ACAD_ACADEMIAS" Association="SivaServerModel.Store.FK_ACAD_CURSOS_ACAD_ACADEMIAS">
-            <End Role="ACAD_ACADEMIAS" EntitySet="ACAD_ACADEMIAS" />
-            <End Role="ACAD_CURSOS" EntitySet="ACAD_CURSOS" />
+          <AssociationSet Name="FK_CursoAcademia" Association="Self.FK_CursoAcademia">
+            <End Role="Academia" EntitySet="Academia" />
+            <End Role="Curso" EntitySet="Curso" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_CURSOS_ACAD_USUARIOS" Association="SivaServerModel.Store.FK_ACAD_CURSOS_ACAD_USUARIOS">
-            <End Role="ACAD_USUARIOS" EntitySet="ACAD_USUARIOS" />
-            <End Role="ACAD_CURSOS" EntitySet="ACAD_CURSOS" />
+          <AssociationSet Name="FK_CursoUsuario" Association="Self.FK_CursoUsuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Curso" EntitySet="Curso" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_EVENTOS_ACAD_ACADEMIAS" Association="SivaServerModel.Store.FK_ACAD_EVENTOS_ACAD_ACADEMIAS">
-            <End Role="ACAD_ACADEMIAS" EntitySet="ACAD_ACADEMIAS" />
-            <End Role="ACAD_EVENTOS" EntitySet="ACAD_EVENTOS" />
+          <AssociationSet Name="FK_EventoAcademia" Association="Self.FK_EventoAcademia">
+            <End Role="Academia" EntitySet="Academia" />
+            <End Role="Evento" EntitySet="Evento" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_EXERCICIOS_ACAD_BLOCOS" Association="SivaServerModel.Store.FK_ACAD_EXERCICIOS_ACAD_BLOCOS">
-            <End Role="ACAD_BLOCOS" EntitySet="ACAD_BLOCOS" />
-            <End Role="ACAD_EXERCICIOS" EntitySet="ACAD_EXERCICIOS" />
+          <AssociationSet Name="FK_ExercicioBloco" Association="Self.FK_ExercicioBloco">
+            <End Role="Bloco" EntitySet="Bloco" />
+            <End Role="Exercicio" EntitySet="Exercicio" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_FAQS_ACAD_ACADEMIAS" Association="SivaServerModel.Store.FK_ACAD_FAQS_ACAD_ACADEMIAS">
-            <End Role="ACAD_ACADEMIAS" EntitySet="ACAD_ACADEMIAS" />
-            <End Role="ACAD_FAQS" EntitySet="ACAD_FAQS" />
+          <AssociationSet Name="FK_FaqAcademia" Association="Self.FK_FaqAcademia">
+            <End Role="Academia" EntitySet="Academia" />
+            <End Role="Faq" EntitySet="Faq" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_MATRICULAS_ACAD_CURSOS" Association="SivaServerModel.Store.FK_ACAD_MATRICULAS_ACAD_CURSOS">
-            <End Role="ACAD_CURSOS" EntitySet="ACAD_CURSOS" />
-            <End Role="ACAD_MATRICULAS" EntitySet="ACAD_MATRICULAS" />
+          <AssociationSet Name="FK_MatriculaCurso" Association="Self.FK_MatriculaCurso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Matricula" EntitySet="Matricula" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_MATRICULAS_ACAD_USUARIOS" Association="SivaServerModel.Store.FK_ACAD_MATRICULAS_ACAD_USUARIOS">
-            <End Role="ACAD_USUARIOS" EntitySet="ACAD_USUARIOS" />
-            <End Role="ACAD_MATRICULAS" EntitySet="ACAD_MATRICULAS" />
+          <AssociationSet Name="FK_MatriculaUsuario" Association="Self.FK_MatriculaUsuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Matricula" EntitySet="Matricula" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_MODULOS_ACAD_CURSOS" Association="SivaServerModel.Store.FK_ACAD_MODULOS_ACAD_CURSOS">
-            <End Role="ACAD_CURSOS" EntitySet="ACAD_CURSOS" />
-            <End Role="ACAD_MODULOS" EntitySet="ACAD_MODULOS" />
+          <AssociationSet Name="FK_ModuloCurso" Association="Self.FK_ModuloCurso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Modulo" EntitySet="Modulo" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_QUESTOES_ACAD_MODULOS" Association="SivaServerModel.Store.FK_ACAD_QUESTOES_ACAD_MODULOS">
-            <End Role="ACAD_MODULOS" EntitySet="ACAD_MODULOS" />
-            <End Role="ACAD_QUESTOES" EntitySet="ACAD_QUESTOES" />
+          <AssociationSet Name="FK_QuestaoModulo" Association="Self.FK_QuestaoModulo">
+            <End Role="Modulo" EntitySet="Modulo" />
+            <End Role="Questao" EntitySet="Questao" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_RECURSOS_ACAD_MODULOS" Association="SivaServerModel.Store.FK_ACAD_RECURSOS_ACAD_MODULOS">
-            <End Role="ACAD_MODULOS" EntitySet="ACAD_MODULOS" />
-            <End Role="ACAD_RECURSOS" EntitySet="ACAD_RECURSOS" />
+          <AssociationSet Name="FK_RecursoModulo" Association="Self.FK_RecursoModulo">
+            <End Role="Modulo" EntitySet="Modulo" />
+            <End Role="Recurso" EntitySet="Recurso" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_TESTEMUNHOS_ACAD_ACADEMIAS" Association="SivaServerModel.Store.FK_ACAD_TESTEMUNHOS_ACAD_ACADEMIAS">
-            <End Role="ACAD_ACADEMIAS" EntitySet="ACAD_ACADEMIAS" />
-            <End Role="ACAD_TESTEMUNHOS" EntitySet="ACAD_TESTEMUNHOS" />
+          <AssociationSet Name="FK_TestemunhoAcademia" Association="Self.FK_TestemunhoAcademia">
+            <End Role="Academia" EntitySet="Academia" />
+            <End Role="Testemunho" EntitySet="Testemunho" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_USUARIOS_ACAD_ACADEMIAS" Association="SivaServerModel.Store.FK_ACAD_USUARIOS_ACAD_ACADEMIAS">
-            <End Role="ACAD_ACADEMIAS" EntitySet="ACAD_ACADEMIAS" />
-            <End Role="ACAD_USUARIOS" EntitySet="ACAD_USUARIOS" />
+          <AssociationSet Name="FK_UsuarioAcademia" Association="Self.FK_UsuarioAcademia">
+            <End Role="Academia" EntitySet="Academia" />
+            <End Role="Usuario" EntitySet="Usuario" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_USUARIOS_BLOCOS_ACAD_BLOCOS" Association="SivaServerModel.Store.FK_ACAD_USUARIOS_BLOCOS_ACAD_BLOCOS">
-            <End Role="ACAD_BLOCOS" EntitySet="ACAD_BLOCOS" />
-            <End Role="ACAD_USUARIOS_BLOCOS" EntitySet="ACAD_USUARIOS_BLOCOS" />
+          <AssociationSet Name="FK_UsuarioBlocoBloco" Association="Self.FK_UsuarioBlocoBloco">
+            <End Role="Bloco" EntitySet="Bloco" />
+            <End Role="UsuarioBloco" EntitySet="UsuarioBloco" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_USUARIOS_BLOCOS_ACAD_USUARIOS" Association="SivaServerModel.Store.FK_ACAD_USUARIOS_BLOCOS_ACAD_USUARIOS">
-            <End Role="ACAD_USUARIOS" EntitySet="ACAD_USUARIOS" />
-            <End Role="ACAD_USUARIOS_BLOCOS" EntitySet="ACAD_USUARIOS_BLOCOS" />
+          <AssociationSet Name="FK_UsuarioBlocoUsuario" Association="Self.FK_UsuarioBlocoUsuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="UsuarioBloco" EntitySet="UsuarioBloco" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_USUARIOS_EXERCICIOS_ACAD_EXERCICIOS" Association="SivaServerModel.Store.FK_ACAD_USUARIOS_EXERCICIOS_ACAD_EXERCICIOS">
-            <End Role="ACAD_EXERCICIOS" EntitySet="ACAD_EXERCICIOS" />
-            <End Role="ACAD_USUARIOS_EXERCICIOS" EntitySet="ACAD_USUARIOS_EXERCICIOS" />
+          <AssociationSet Name="FK_UsuarioExercicioExercicio" Association="Self.FK_UsuarioExercicioExercicio">
+            <End Role="Exercicio" EntitySet="Exercicio" />
+            <End Role="UsuarioExercicio" EntitySet="UsuarioExercicio" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_USUARIOS_EXERCICIOS_ACAD_MATRICULAS" Association="SivaServerModel.Store.FK_ACAD_USUARIOS_EXERCICIOS_ACAD_MATRICULAS">
-            <End Role="ACAD_MATRICULAS" EntitySet="ACAD_MATRICULAS" />
-            <End Role="ACAD_USUARIOS_EXERCICIOS" EntitySet="ACAD_USUARIOS_EXERCICIOS" />
+          <AssociationSet Name="FK_UsuarioExercicioMatricula" Association="Self.FK_UsuarioExercicioMatricula">
+            <End Role="Matricula" EntitySet="Matricula" />
+            <End Role="UsuarioExercicio" EntitySet="UsuarioExercicio" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_USUARIOS_EXERCICIOS_ACAD_USUARIOS" Association="SivaServerModel.Store.FK_ACAD_USUARIOS_EXERCICIOS_ACAD_USUARIOS">
-            <End Role="ACAD_USUARIOS" EntitySet="ACAD_USUARIOS" />
-            <End Role="ACAD_USUARIOS_EXERCICIOS" EntitySet="ACAD_USUARIOS_EXERCICIOS" />
+          <AssociationSet Name="FK_UsuarioExercicioUsuario" Association="Self.FK_UsuarioExercicioUsuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="UsuarioExercicio" EntitySet="UsuarioExercicio" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_USUARIOS_PROVAS_QUESTOES_ACAD_MATRICULAS" Association="SivaServerModel.Store.FK_ACAD_USUARIOS_PROVAS_QUESTOES_ACAD_MATRICULAS">
-            <End Role="ACAD_MATRICULAS" EntitySet="ACAD_MATRICULAS" />
-            <End Role="ACAD_USUARIOS_PROVAS_QUESTOES" EntitySet="ACAD_USUARIOS_PROVAS_QUESTOES" />
+          <AssociationSet Name="FK_UsuarioProvaQuestaoMatricula" Association="Self.FK_UsuarioProvaQuestaoMatricula">
+            <End Role="Matricula" EntitySet="Matricula" />
+            <End Role="UsuarioProvaQuestao" EntitySet="UsuarioProvaQuestao" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_USUARIOS_PROVAS_QUESTOES_ACAD_QUESTOES" Association="SivaServerModel.Store.FK_ACAD_USUARIOS_PROVAS_QUESTOES_ACAD_QUESTOES">
-            <End Role="ACAD_QUESTOES" EntitySet="ACAD_QUESTOES" />
-            <End Role="ACAD_USUARIOS_PROVAS_QUESTOES" EntitySet="ACAD_USUARIOS_PROVAS_QUESTOES" />
+          <AssociationSet Name="FK_UsuarioProvaQuestaoQuestao" Association="Self.FK_UsuarioProvaQuestaoQuestao">
+            <End Role="Questao" EntitySet="Questao" />
+            <End Role="UsuarioProvaQuestao" EntitySet="UsuarioProvaQuestao" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_USUARIOS_PROVAS_QUESTOES_ACAD_USUARIOS" Association="SivaServerModel.Store.FK_ACAD_USUARIOS_PROVAS_QUESTOES_ACAD_USUARIOS">
-            <End Role="ACAD_USUARIOS" EntitySet="ACAD_USUARIOS" />
-            <End Role="ACAD_USUARIOS_PROVAS_QUESTOES" EntitySet="ACAD_USUARIOS_PROVAS_QUESTOES" />
+          <AssociationSet Name="FK_UsuarioProvaQuestaoUsuario" Association="Self.FK_UsuarioProvaQuestaoUsuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="UsuarioProvaQuestao" EntitySet="UsuarioProvaQuestao" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="ACAD_ACADEMIAS">
-          <Key>
-            <PropertyRef Name="CD_ACADEMIA" />
-          </Key>
-          <Property Name="CD_ACADEMIA" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="NM_ACADEMIA" Type="varchar" Nullable="false" MaxLength="200" />
-          <Property Name="TX_DESCRICAO" Type="varchar(max)" Nullable="false" />
-          <Property Name="TX_EMAIL" Type="varchar" Nullable="false" MaxLength="200" />
-          <Property Name="TX_SENHA_EMAIL" Type="varchar" Nullable="false" MaxLength="20" />
-          <Property Name="TX_SMTP" Type="varchar" Nullable="false" MaxLength="200" />
-          <Property Name="TX_SMTP_PORTA" Type="int" Nullable="false" />
-          <Property Name="TX_URL_BASE" Type="varchar" Nullable="false" MaxLength="200" />
-          <Property Name="TX_URL" Type="varchar" Nullable="false" MaxLength="200" />
-          <Property Name="TX_META_DESCRIPTION" Type="varchar(max)" />
-          <Property Name="TX_META_KEYWORDS" Type="varchar(max)" />
-          <Property Name="TX_META_ROBOTS" Type="varchar" MaxLength="20" />
-          <Property Name="TX_META_GOOGLEBOT" Type="varchar" MaxLength="20" />
-          <Property Name="TX_META_GENERATOR" Type="varchar(max)" />
-          <Property Name="TX_META_REVISITE_AFTER" Type="varchar" MaxLength="20" />
-          <Property Name="TX_CNPJ" Type="varchar" Nullable="false" MaxLength="18" />
-          <Property Name="TX_TEL" Type="varchar" Nullable="false" MaxLength="14" />
-          <Property Name="TX_ENDERECO" Type="varchar" Nullable="false" MaxLength="150" />
-          <Property Name="TX_NUMERO" Type="varchar" Nullable="false" MaxLength="10" />
-          <Property Name="TX_COMPLEMENTO" Type="varchar" MaxLength="10" />
-          <Property Name="TX_BAIRRO" Type="varchar" Nullable="false" MaxLength="100" />
-          <Property Name="TX_CIDADE" Type="varchar" Nullable="false" MaxLength="100" />
-          <Property Name="TX_ESTADO" Type="char" Nullable="false" MaxLength="2" />
-          <Property Name="TX_CEP" Type="varchar" Nullable="false" MaxLength="10" />
-          <Property Name="DT_CRIACAO" Type="datetime" Nullable="false" />
-          <Property Name="FL_ATIVO" Type="bit" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ACAD_AREAS">
-          <Key>
-            <PropertyRef Name="CD_AREA" />
-          </Key>
-          <Property Name="CD_AREA" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="NM_AREA" Type="varchar" Nullable="false" MaxLength="100" />
-        </EntityType>
-        <EntityType Name="ACAD_AREAS_CURSOS">
-          <Key>
-            <PropertyRef Name="CD_AREA_CURSO" />
-          </Key>
-          <Property Name="CD_AREA_CURSO" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="CD_AREA" Type="int" Nullable="false" />
-          <Property Name="CD_CURSO" Type="bigint" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ACAD_BANNERS">
-          <Key>
-            <PropertyRef Name="CD_BANNER" />
-          </Key>
-          <Property Name="CD_BANNER" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="CD_ACADEMIA" Type="bigint" Nullable="false" />
-          <Property Name="TX_CAPTION" Type="varchar" Nullable="false" MaxLength="100" />
-          <Property Name="TX_CAPTION2" Type="varchar" Nullable="false" MaxLength="100" />
-          <Property Name="DT_INICIO" Type="datetime" Nullable="false" />
-          <Property Name="DT_FINAL" Type="datetime" />
-          <Property Name="DT_DATA" Type="datetime" Nullable="false" />
-          <Property Name="FL_ATIVO" Type="bit" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ACAD_BLOCOS">
-          <Key>
-            <PropertyRef Name="CD_BLOCO" />
-          </Key>
-          <Property Name="CD_BLOCO" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="CD_MODULO" Type="bigint" Nullable="false" />
-          <Property Name="NM_BLOCO" Type="varchar" Nullable="false" MaxLength="25" />
-          <Property Name="NM_PAGE" Type="varchar" Nullable="false" MaxLength="150" />
-          <Property Name="NR_ORDEM" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ACAD_CODIGOS">
-          <Key>
-            <PropertyRef Name="CD_CODIGO" />
-          </Key>
-          <Property Name="CD_CODIGO" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="CD_CURSO" Type="bigint" Nullable="false" />
-          <Property Name="DT_DATA" Type="date" />
-          <Property Name="FL_ATIVO" Type="bit" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ACAD_CURSOS">
-          <Key>
-            <PropertyRef Name="CD_CURSO" />
-          </Key>
-          <Property Name="CD_CURSO" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="CD_ACADEMIA" Type="bigint" Nullable="false" />
-          <Property Name="CD_PROFESSOR" Type="bigint" Nullable="false" />
-          <Property Name="NM_CURSO" Type="varchar" Nullable="false" MaxLength="200" />
-          <Property Name="TX_RESUMO" Type="varchar" Nullable="false" MaxLength="400" />
-          <Property Name="TX_DESCRICAO" Type="varchar(max)" Nullable="false" />
-          <Property Name="TX_EMAIL" Type="varchar" Nullable="false" MaxLength="200" />
-          <Property Name="TX_MOEDA" Type="varchar" Nullable="false" MaxLength="3" />
-          <Property Name="VL_CURSO" Type="decimal" Nullable="false" Precision="10" Scale="2" />
-          <Property Name="DT_DATA" Type="datetime" Nullable="false" />
-          <Property Name="FL_ATIVO" Type="bit" Nullable="false" />
-          <Property Name="NR_ORDEM" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ACAD_EVENTOS">
-          <Key>
-            <PropertyRef Name="CD_EVENTO" />
-          </Key>
-          <Property Name="CD_EVENTO" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="CD_ACADEMIA" Type="bigint" Nullable="false" />
-          <Property Name="NM_EVENTO" Type="varchar" Nullable="false" MaxLength="200" />
-          <Property Name="DT_INICIO" Type="datetime" Nullable="false" />
-          <Property Name="DT_FINAL" Type="datetime" />
-          <Property Name="TX_URL" Type="varchar" Nullable="false" MaxLength="300" />
-          <Property Name="TX_DESCRICAO" Type="varchar" Nullable="false" MaxLength="500" />
-          <Property Name="DT_DATA" Type="datetime" Nullable="false" />
-          <Property Name="FL_ATIVO" Type="bit" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ACAD_EXERCICIOS">
-          <Key>
-            <PropertyRef Name="CD_EXERCICIO" />
-          </Key>
-          <Property Name="CD_EXERCICIO" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="CD_BLOCO" Type="bigint" Nullable="false" />
-          <Property Name="TX_PERGUNTA" Type="varchar(max)" Nullable="false" />
-          <Property Name="TX_GABARITO" Type="varchar(max)" Nullable="false" />
-          <Property Name="NR_ORDEM" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ACAD_FAQS">
-          <Key>
-            <PropertyRef Name="CD_FAQ" />
-          </Key>
-          <Property Name="CD_FAQ" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="CD_ACADEMIA" Type="bigint" Nullable="false" />
-          <Property Name="TX_PERGUNTA" Type="varchar(max)" Nullable="false" />
-          <Property Name="TX_RESPOSTA" Type="varchar(max)" Nullable="false" />
-          <Property Name="NR_ORDEM" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ACAD_MATRICULAS">
-          <Key>
-            <PropertyRef Name="CD_MATRICULA" />
-          </Key>
-          <Property Name="CD_MATRICULA" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="CD_USUARIO" Type="bigint" Nullable="false" />
-          <Property Name="CD_CURSO" Type="bigint" Nullable="false" />
-          <Property Name="TX_CODIGO" Type="varchar" MaxLength="50" />
-          <Property Name="TX_TRANSACAO" Type="varchar" MaxLength="50" />
-          <Property Name="DT_DATA" Type="datetime" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ACAD_MODULOS">
-          <Key>
-            <PropertyRef Name="CD_MODULO" />
-          </Key>
-          <Property Name="CD_MODULO" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="CD_CURSO" Type="bigint" Nullable="false" />
-          <Property Name="NM_MODULO" Type="varchar" Nullable="false" MaxLength="25" />
-          <Property Name="NM_PAGE" Type="varchar" Nullable="false" MaxLength="150" />
-          <Property Name="NR_ORDEM" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ACAD_QUESTOES">
-          <Key>
-            <PropertyRef Name="CD_QUESTAO" />
-          </Key>
-          <Property Name="CD_QUESTAO" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="CD_MODULO" Type="bigint" Nullable="false" />
-          <Property Name="TX_PERGUNTA" Type="varchar(max)" Nullable="false" />
-          <Property Name="TX_GABARITO" Type="varchar(max)" />
-        </EntityType>
-        <EntityType Name="ACAD_RECURSOS">
-          <Key>
-            <PropertyRef Name="CD_RECURSO" />
-          </Key>
-          <Property Name="CD_RECURSO" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="CD_MODULO" Type="bigint" Nullable="false" />
-          <Property Name="NM_RECURSO" Type="varchar" Nullable="false" MaxLength="25" />
-          <Property Name="NM_PAGE" Type="varchar" Nullable="false" MaxLength="150" />
-        </EntityType>
-        <EntityType Name="ACAD_TESTEMUNHOS">
-          <Key>
-            <PropertyRef Name="CD_TESTEMUNHO" />
-          </Key>
-          <Property Name="CD_TESTEMUNHO" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="CD_ACADEMIA" Type="bigint" Nullable="false" />
-          <Property Name="TX_TESTEMUNHO" Type="varchar" Nullable="false" MaxLength="300" />
-          <Property Name="NM_AUTOR" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="TX_LOCAL" Type="varchar" Nullable="false" MaxLength="20" />
-          <Property Name="DT_DATA" Type="datetime" Nullable="false" />
-          <Property Name="FL_ATIVO" Type="bit" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ACAD_USUARIOS">
-          <Key>
-            <PropertyRef Name="CD_USUARIO" />
-          </Key>
-          <Property Name="CD_USUARIO" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="CD_ACADEMIA" Type="bigint" Nullable="false" />
-          <Property Name="NM_USUARIO" Type="varchar" Nullable="false" MaxLength="20" />
-          <Property Name="NM_SOBRENOME" Type="varchar" Nullable="false" MaxLength="180" />
-          <Property Name="NM_COMPLETO" Type="varchar" Nullable="false" MaxLength="201" StoreGeneratedPattern="Computed" />
-          <Property Name="TX_EMAIL" Type="varchar" Nullable="false" MaxLength="200" />
-          <Property Name="TX_TELEFONE" Type="varchar" MaxLength="14" />
-          <Property Name="TX_CELULAR" Type="varchar" MaxLength="14" />
-          <Property Name="TX_CPF" Type="varchar" Nullable="false" MaxLength="14" />
-          <Property Name="TX_SENHA" Type="varchar" Nullable="false" MaxLength="8" />
-          <Property Name="TX_IP" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="DT_DATA" Type="datetime" Nullable="false" />
-          <Property Name="FL_ATIVO" Type="bit" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ACAD_USUARIOS_BLOCOS">
-          <Key>
-            <PropertyRef Name="CD_USUARIO" />
-            <PropertyRef Name="CD_BLOCO" />
-          </Key>
-          <Property Name="CD_USUARIO_BLOCO" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="CD_USUARIO" Type="bigint" Nullable="false" />
-          <Property Name="CD_BLOCO" Type="bigint" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ACAD_USUARIOS_EXERCICIOS">
-          <Key>
-            <PropertyRef Name="CD_USUARIO_EXERCICIO" />
-          </Key>
-          <Property Name="CD_USUARIO_EXERCICIO" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="CD_USUARIO" Type="bigint" Nullable="false" />
-          <Property Name="CD_EXERCICIO" Type="bigint" Nullable="false" />
-          <Property Name="CD_MATRICULA" Type="bigint" Nullable="false" />
-          <Property Name="TX_PERGUNTA" Type="varchar(max)" Nullable="false" />
-          <Property Name="TX_RESPOSTA" Type="varchar(max)" />
-          <Property Name="TX_OBS_CORRECAO" Type="varchar(max)" Nullable="false" />
-          <Property Name="DT_EXERCICIO" Type="datetime" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ACAD_USUARIOS_PROVAS_QUESTOES">
-          <Key>
-            <PropertyRef Name="CD_PROVA" />
-          </Key>
-          <Property Name="CD_PROVA" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="CD_USUARIO" Type="bigint" Nullable="false" />
-          <Property Name="CD_MATRICULA" Type="bigint" Nullable="false" />
-          <Property Name="CD_QUESTAO" Type="bigint" Nullable="false" />
-          <Property Name="DT_INICIO" Type="datetime" Nullable="false" />
-          <Property Name="TX_PERGUNTA" Type="varchar(max)" Nullable="false" />
-          <Property Name="TX_RESPOSTA" Type="varchar(max)" />
-          <Property Name="FL_ACERTO" Type="bit" Nullable="false" />
-          <Property Name="TX_OBS_CORRECAO" Type="varchar(max)" />
-          <Property Name="TX_GABARITO" Type="varchar(max)" />
-        </EntityType>
-        <Association Name="FK_ACAD_AREAS_CURSOS_ACAD_AREAS">
-          <End Role="ACAD_AREAS" Type="SivaServerModel.Store.ACAD_AREAS" Multiplicity="1" />
-          <End Role="ACAD_AREAS_CURSOS" Type="SivaServerModel.Store.ACAD_AREAS_CURSOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ACAD_AREAS">
-              <PropertyRef Name="CD_AREA" />
-            </Principal>
-            <Dependent Role="ACAD_AREAS_CURSOS">
-              <PropertyRef Name="CD_AREA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ACAD_AREAS_CURSOS_ACAD_CURSOS">
-          <End Role="ACAD_CURSOS" Type="SivaServerModel.Store.ACAD_CURSOS" Multiplicity="1" />
-          <End Role="ACAD_AREAS_CURSOS" Type="SivaServerModel.Store.ACAD_AREAS_CURSOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ACAD_CURSOS">
-              <PropertyRef Name="CD_CURSO" />
-            </Principal>
-            <Dependent Role="ACAD_AREAS_CURSOS">
-              <PropertyRef Name="CD_CURSO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ACAD_BANNERS_ACAD_ACADEMIAS">
-          <End Role="ACAD_ACADEMIAS" Type="SivaServerModel.Store.ACAD_ACADEMIAS" Multiplicity="1" />
-          <End Role="ACAD_BANNERS" Type="SivaServerModel.Store.ACAD_BANNERS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ACAD_ACADEMIAS">
-              <PropertyRef Name="CD_ACADEMIA" />
-            </Principal>
-            <Dependent Role="ACAD_BANNERS">
-              <PropertyRef Name="CD_ACADEMIA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ACAD_BLOCOS_ACAD_MODULOS">
-          <End Role="ACAD_MODULOS" Type="SivaServerModel.Store.ACAD_MODULOS" Multiplicity="1" />
-          <End Role="ACAD_BLOCOS" Type="SivaServerModel.Store.ACAD_BLOCOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ACAD_MODULOS">
-              <PropertyRef Name="CD_MODULO" />
-            </Principal>
-            <Dependent Role="ACAD_BLOCOS">
-              <PropertyRef Name="CD_MODULO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ACAD_CODIGOS_ACAD_CURSOS">
-          <End Role="ACAD_CURSOS" Type="SivaServerModel.Store.ACAD_CURSOS" Multiplicity="1" />
-          <End Role="ACAD_CODIGOS" Type="SivaServerModel.Store.ACAD_CODIGOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ACAD_CURSOS">
-              <PropertyRef Name="CD_CURSO" />
-            </Principal>
-            <Dependent Role="ACAD_CODIGOS">
-              <PropertyRef Name="CD_CURSO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ACAD_CURSOS_ACAD_ACADEMIAS">
-          <End Role="ACAD_ACADEMIAS" Type="SivaServerModel.Store.ACAD_ACADEMIAS" Multiplicity="1" />
-          <End Role="ACAD_CURSOS" Type="SivaServerModel.Store.ACAD_CURSOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ACAD_ACADEMIAS">
-              <PropertyRef Name="CD_ACADEMIA" />
-            </Principal>
-            <Dependent Role="ACAD_CURSOS">
-              <PropertyRef Name="CD_ACADEMIA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ACAD_CURSOS_ACAD_USUARIOS">
-          <End Role="ACAD_USUARIOS" Type="SivaServerModel.Store.ACAD_USUARIOS" Multiplicity="1" />
-          <End Role="ACAD_CURSOS" Type="SivaServerModel.Store.ACAD_CURSOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ACAD_USUARIOS">
-              <PropertyRef Name="CD_USUARIO" />
-            </Principal>
-            <Dependent Role="ACAD_CURSOS">
-              <PropertyRef Name="CD_PROFESSOR" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ACAD_EVENTOS_ACAD_ACADEMIAS">
-          <End Role="ACAD_ACADEMIAS" Type="SivaServerModel.Store.ACAD_ACADEMIAS" Multiplicity="1" />
-          <End Role="ACAD_EVENTOS" Type="SivaServerModel.Store.ACAD_EVENTOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ACAD_ACADEMIAS">
-              <PropertyRef Name="CD_ACADEMIA" />
-            </Principal>
-            <Dependent Role="ACAD_EVENTOS">
-              <PropertyRef Name="CD_ACADEMIA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ACAD_EXERCICIOS_ACAD_BLOCOS">
-          <End Role="ACAD_BLOCOS" Type="SivaServerModel.Store.ACAD_BLOCOS" Multiplicity="1" />
-          <End Role="ACAD_EXERCICIOS" Type="SivaServerModel.Store.ACAD_EXERCICIOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ACAD_BLOCOS">
-              <PropertyRef Name="CD_BLOCO" />
-            </Principal>
-            <Dependent Role="ACAD_EXERCICIOS">
-              <PropertyRef Name="CD_BLOCO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ACAD_FAQS_ACAD_ACADEMIAS">
-          <End Role="ACAD_ACADEMIAS" Type="SivaServerModel.Store.ACAD_ACADEMIAS" Multiplicity="1" />
-          <End Role="ACAD_FAQS" Type="SivaServerModel.Store.ACAD_FAQS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ACAD_ACADEMIAS">
-              <PropertyRef Name="CD_ACADEMIA" />
-            </Principal>
-            <Dependent Role="ACAD_FAQS">
-              <PropertyRef Name="CD_ACADEMIA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ACAD_MATRICULAS_ACAD_CURSOS">
-          <End Role="ACAD_CURSOS" Type="SivaServerModel.Store.ACAD_CURSOS" Multiplicity="1" />
-          <End Role="ACAD_MATRICULAS" Type="SivaServerModel.Store.ACAD_MATRICULAS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ACAD_CURSOS">
-              <PropertyRef Name="CD_CURSO" />
-            </Principal>
-            <Dependent Role="ACAD_MATRICULAS">
-              <PropertyRef Name="CD_CURSO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ACAD_MATRICULAS_ACAD_USUARIOS">
-          <End Role="ACAD_USUARIOS" Type="SivaServerModel.Store.ACAD_USUARIOS" Multiplicity="1" />
-          <End Role="ACAD_MATRICULAS" Type="SivaServerModel.Store.ACAD_MATRICULAS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ACAD_USUARIOS">
-              <PropertyRef Name="CD_USUARIO" />
-            </Principal>
-            <Dependent Role="ACAD_MATRICULAS">
-              <PropertyRef Name="CD_USUARIO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ACAD_MODULOS_ACAD_CURSOS">
-          <End Role="ACAD_CURSOS" Type="SivaServerModel.Store.ACAD_CURSOS" Multiplicity="1" />
-          <End Role="ACAD_MODULOS" Type="SivaServerModel.Store.ACAD_MODULOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ACAD_CURSOS">
-              <PropertyRef Name="CD_CURSO" />
-            </Principal>
-            <Dependent Role="ACAD_MODULOS">
-              <PropertyRef Name="CD_CURSO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ACAD_QUESTOES_ACAD_MODULOS">
-          <End Role="ACAD_MODULOS" Type="SivaServerModel.Store.ACAD_MODULOS" Multiplicity="1" />
-          <End Role="ACAD_QUESTOES" Type="SivaServerModel.Store.ACAD_QUESTOES" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ACAD_MODULOS">
-              <PropertyRef Name="CD_MODULO" />
-            </Principal>
-            <Dependent Role="ACAD_QUESTOES">
-              <PropertyRef Name="CD_MODULO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ACAD_RECURSOS_ACAD_MODULOS">
-          <End Role="ACAD_MODULOS" Type="SivaServerModel.Store.ACAD_MODULOS" Multiplicity="1" />
-          <End Role="ACAD_RECURSOS" Type="SivaServerModel.Store.ACAD_RECURSOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ACAD_MODULOS">
-              <PropertyRef Name="CD_MODULO" />
-            </Principal>
-            <Dependent Role="ACAD_RECURSOS">
-              <PropertyRef Name="CD_MODULO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ACAD_TESTEMUNHOS_ACAD_ACADEMIAS">
-          <End Role="ACAD_ACADEMIAS" Type="SivaServerModel.Store.ACAD_ACADEMIAS" Multiplicity="1" />
-          <End Role="ACAD_TESTEMUNHOS" Type="SivaServerModel.Store.ACAD_TESTEMUNHOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ACAD_ACADEMIAS">
-              <PropertyRef Name="CD_ACADEMIA" />
-            </Principal>
-            <Dependent Role="ACAD_TESTEMUNHOS">
-              <PropertyRef Name="CD_ACADEMIA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ACAD_USUARIOS_ACAD_ACADEMIAS">
-          <End Role="ACAD_ACADEMIAS" Type="SivaServerModel.Store.ACAD_ACADEMIAS" Multiplicity="1" />
-          <End Role="ACAD_USUARIOS" Type="SivaServerModel.Store.ACAD_USUARIOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ACAD_ACADEMIAS">
-              <PropertyRef Name="CD_ACADEMIA" />
-            </Principal>
-            <Dependent Role="ACAD_USUARIOS">
-              <PropertyRef Name="CD_ACADEMIA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ACAD_USUARIOS_BLOCOS_ACAD_BLOCOS">
-          <End Role="ACAD_BLOCOS" Type="SivaServerModel.Store.ACAD_BLOCOS" Multiplicity="1" />
-          <End Role="ACAD_USUARIOS_BLOCOS" Type="SivaServerModel.Store.ACAD_USUARIOS_BLOCOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ACAD_BLOCOS">
-              <PropertyRef Name="CD_BLOCO" />
-            </Principal>
-            <Dependent Role="ACAD_USUARIOS_BLOCOS">
-              <PropertyRef Name="CD_BLOCO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ACAD_USUARIOS_BLOCOS_ACAD_USUARIOS">
-          <End Role="ACAD_USUARIOS" Type="SivaServerModel.Store.ACAD_USUARIOS" Multiplicity="1" />
-          <End Role="ACAD_USUARIOS_BLOCOS" Type="SivaServerModel.Store.ACAD_USUARIOS_BLOCOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ACAD_USUARIOS">
-              <PropertyRef Name="CD_USUARIO" />
-            </Principal>
-            <Dependent Role="ACAD_USUARIOS_BLOCOS">
-              <PropertyRef Name="CD_USUARIO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ACAD_USUARIOS_EXERCICIOS_ACAD_EXERCICIOS">
-          <End Role="ACAD_EXERCICIOS" Type="SivaServerModel.Store.ACAD_EXERCICIOS" Multiplicity="1" />
-          <End Role="ACAD_USUARIOS_EXERCICIOS" Type="SivaServerModel.Store.ACAD_USUARIOS_EXERCICIOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ACAD_EXERCICIOS">
-              <PropertyRef Name="CD_EXERCICIO" />
-            </Principal>
-            <Dependent Role="ACAD_USUARIOS_EXERCICIOS">
-              <PropertyRef Name="CD_EXERCICIO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ACAD_USUARIOS_EXERCICIOS_ACAD_MATRICULAS">
-          <End Role="ACAD_MATRICULAS" Type="SivaServerModel.Store.ACAD_MATRICULAS" Multiplicity="1" />
-          <End Role="ACAD_USUARIOS_EXERCICIOS" Type="SivaServerModel.Store.ACAD_USUARIOS_EXERCICIOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ACAD_MATRICULAS">
-              <PropertyRef Name="CD_MATRICULA" />
-            </Principal>
-            <Dependent Role="ACAD_USUARIOS_EXERCICIOS">
-              <PropertyRef Name="CD_MATRICULA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ACAD_USUARIOS_EXERCICIOS_ACAD_USUARIOS">
-          <End Role="ACAD_USUARIOS" Type="SivaServerModel.Store.ACAD_USUARIOS" Multiplicity="1" />
-          <End Role="ACAD_USUARIOS_EXERCICIOS" Type="SivaServerModel.Store.ACAD_USUARIOS_EXERCICIOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ACAD_USUARIOS">
-              <PropertyRef Name="CD_USUARIO" />
-            </Principal>
-            <Dependent Role="ACAD_USUARIOS_EXERCICIOS">
-              <PropertyRef Name="CD_USUARIO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ACAD_USUARIOS_PROVAS_QUESTOES_ACAD_MATRICULAS">
-          <End Role="ACAD_MATRICULAS" Type="SivaServerModel.Store.ACAD_MATRICULAS" Multiplicity="1" />
-          <End Role="ACAD_USUARIOS_PROVAS_QUESTOES" Type="SivaServerModel.Store.ACAD_USUARIOS_PROVAS_QUESTOES" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ACAD_MATRICULAS">
-              <PropertyRef Name="CD_MATRICULA" />
-            </Principal>
-            <Dependent Role="ACAD_USUARIOS_PROVAS_QUESTOES">
-              <PropertyRef Name="CD_MATRICULA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ACAD_USUARIOS_PROVAS_QUESTOES_ACAD_QUESTOES">
-          <End Role="ACAD_QUESTOES" Type="SivaServerModel.Store.ACAD_QUESTOES" Multiplicity="1" />
-          <End Role="ACAD_USUARIOS_PROVAS_QUESTOES" Type="SivaServerModel.Store.ACAD_USUARIOS_PROVAS_QUESTOES" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ACAD_QUESTOES">
-              <PropertyRef Name="CD_QUESTAO" />
-            </Principal>
-            <Dependent Role="ACAD_USUARIOS_PROVAS_QUESTOES">
-              <PropertyRef Name="CD_QUESTAO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ACAD_USUARIOS_PROVAS_QUESTOES_ACAD_USUARIOS">
-          <End Role="ACAD_USUARIOS" Type="SivaServerModel.Store.ACAD_USUARIOS" Multiplicity="1" />
-          <End Role="ACAD_USUARIOS_PROVAS_QUESTOES" Type="SivaServerModel.Store.ACAD_USUARIOS_PROVAS_QUESTOES" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ACAD_USUARIOS">
-              <PropertyRef Name="CD_USUARIO" />
-            </Principal>
-            <Dependent Role="ACAD_USUARIOS_PROVAS_QUESTOES">
-              <PropertyRef Name="CD_USUARIO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="CollegeModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+      <Schema Namespace="CollegeModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
         <EntityContainer Name="CollegeEntities" p1:LazyLoadingEnabled="true">
-          <EntitySet Name="ACAD_ACADEMIAS" EntityType="CollegeModel.ACAD_ACADEMIAS" />
-          <EntitySet Name="ACAD_AREAS" EntityType="CollegeModel.ACAD_AREAS" />
-          <EntitySet Name="ACAD_AREAS_CURSOS" EntityType="CollegeModel.ACAD_AREAS_CURSOS" />
-          <EntitySet Name="ACAD_BANNERS" EntityType="CollegeModel.ACAD_BANNERS" />
-          <EntitySet Name="ACAD_BLOCOS" EntityType="CollegeModel.ACAD_BLOCOS" />
-          <EntitySet Name="ACAD_CODIGOS" EntityType="CollegeModel.ACAD_CODIGOS" />
-          <EntitySet Name="ACAD_CURSOS" EntityType="CollegeModel.ACAD_CURSOS" />
-          <EntitySet Name="ACAD_EVENTOS" EntityType="CollegeModel.ACAD_EVENTOS" />
-          <EntitySet Name="ACAD_EXERCICIOS" EntityType="CollegeModel.ACAD_EXERCICIOS" />
-          <EntitySet Name="ACAD_FAQS" EntityType="CollegeModel.ACAD_FAQS" />
-          <EntitySet Name="ACAD_MATRICULAS" EntityType="CollegeModel.ACAD_MATRICULAS" />
-          <EntitySet Name="ACAD_MODULOS" EntityType="CollegeModel.ACAD_MODULOS" />
-          <EntitySet Name="ACAD_QUESTOES" EntityType="CollegeModel.ACAD_QUESTOES" />
-          <EntitySet Name="ACAD_RECURSOS" EntityType="CollegeModel.ACAD_RECURSOS" />
-          <EntitySet Name="ACAD_TESTEMUNHOS" EntityType="CollegeModel.ACAD_TESTEMUNHOS" />
-          <EntitySet Name="ACAD_USUARIOS" EntityType="CollegeModel.ACAD_USUARIOS" />
-          <EntitySet Name="ACAD_USUARIOS_BLOCOS" EntityType="CollegeModel.ACAD_USUARIOS_BLOCOS" />
-          <EntitySet Name="ACAD_USUARIOS_EXERCICIOS" EntityType="CollegeModel.ACAD_USUARIOS_EXERCICIOS" />
-          <EntitySet Name="ACAD_USUARIOS_PROVAS_QUESTOES" EntityType="CollegeModel.ACAD_USUARIOS_PROVAS_QUESTOES" />
-          <AssociationSet Name="FK_ACAD_BANNERS_ACAD_ACADEMIAS" Association="CollegeModel.FK_ACAD_BANNERS_ACAD_ACADEMIAS">
-            <End Role="ACAD_ACADEMIAS" EntitySet="ACAD_ACADEMIAS" />
-            <End Role="ACAD_BANNERS" EntitySet="ACAD_BANNERS" />
+          <EntitySet Name="Academia" EntityType="CollegeModel.Academia" />
+          <EntitySet Name="Area" EntityType="CollegeModel.Area" />
+          <EntitySet Name="AreaCurso" EntityType="CollegeModel.AreaCurso" />
+          <EntitySet Name="Banner" EntityType="CollegeModel.Banner" />
+          <EntitySet Name="Bloco" EntityType="CollegeModel.Bloco" />
+          <EntitySet Name="Codigo" EntityType="CollegeModel.Codigo" />
+          <EntitySet Name="Curso" EntityType="CollegeModel.Curso" />
+          <EntitySet Name="Evento" EntityType="CollegeModel.Evento" />
+          <EntitySet Name="Exercicio" EntityType="CollegeModel.Exercicio" />
+          <EntitySet Name="Faq" EntityType="CollegeModel.Faq" />
+          <EntitySet Name="Matricula" EntityType="CollegeModel.Matricula" />
+          <EntitySet Name="Modulo" EntityType="CollegeModel.Modulo" />
+          <EntitySet Name="Questao" EntityType="CollegeModel.Questao" />
+          <EntitySet Name="Recurso" EntityType="CollegeModel.Recurso" />
+          <EntitySet Name="Testemunho" EntityType="CollegeModel.Testemunho" />
+          <EntitySet Name="Usuario" EntityType="CollegeModel.Usuario" />
+          <EntitySet Name="UsuarioBloco" EntityType="CollegeModel.UsuarioBloco" />
+          <EntitySet Name="UsuarioExercicio" EntityType="CollegeModel.UsuarioExercicio" />
+          <EntitySet Name="UsuarioProvaQuestao" EntityType="CollegeModel.UsuarioProvaQuestao" />
+          <AssociationSet Name="FK_BannerAcademia" Association="CollegeModel.FK_BannerAcademia">
+            <End Role="Academia" EntitySet="Academia" />
+            <End Role="Banner" EntitySet="Banner" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_CURSOS_ACAD_ACADEMIAS" Association="CollegeModel.FK_ACAD_CURSOS_ACAD_ACADEMIAS">
-            <End Role="ACAD_ACADEMIAS" EntitySet="ACAD_ACADEMIAS" />
-            <End Role="ACAD_CURSOS" EntitySet="ACAD_CURSOS" />
+          <AssociationSet Name="FK_CursoAcademia" Association="CollegeModel.FK_CursoAcademia">
+            <End Role="Academia" EntitySet="Academia" />
+            <End Role="Curso" EntitySet="Curso" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_EVENTOS_ACAD_ACADEMIAS" Association="CollegeModel.FK_ACAD_EVENTOS_ACAD_ACADEMIAS">
-            <End Role="ACAD_ACADEMIAS" EntitySet="ACAD_ACADEMIAS" />
-            <End Role="ACAD_EVENTOS" EntitySet="ACAD_EVENTOS" />
+          <AssociationSet Name="FK_EventoAcademia" Association="CollegeModel.FK_EventoAcademia">
+            <End Role="Academia" EntitySet="Academia" />
+            <End Role="Evento" EntitySet="Evento" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_FAQS_ACAD_ACADEMIAS" Association="CollegeModel.FK_ACAD_FAQS_ACAD_ACADEMIAS">
-            <End Role="ACAD_ACADEMIAS" EntitySet="ACAD_ACADEMIAS" />
-            <End Role="ACAD_FAQS" EntitySet="ACAD_FAQS" />
+          <AssociationSet Name="FK_FaqAcademia" Association="CollegeModel.FK_FaqAcademia">
+            <End Role="Academia" EntitySet="Academia" />
+            <End Role="Faq" EntitySet="Faq" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_TESTEMUNHOS_ACAD_ACADEMIAS" Association="CollegeModel.FK_ACAD_TESTEMUNHOS_ACAD_ACADEMIAS">
-            <End Role="ACAD_ACADEMIAS" EntitySet="ACAD_ACADEMIAS" />
-            <End Role="ACAD_TESTEMUNHOS" EntitySet="ACAD_TESTEMUNHOS" />
+          <AssociationSet Name="FK_TestemunhoAcademia" Association="CollegeModel.FK_TestemunhoAcademia">
+            <End Role="Academia" EntitySet="Academia" />
+            <End Role="Testemunho" EntitySet="Testemunho" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_USUARIOS_ACAD_ACADEMIAS" Association="CollegeModel.FK_ACAD_USUARIOS_ACAD_ACADEMIAS">
-            <End Role="ACAD_ACADEMIAS" EntitySet="ACAD_ACADEMIAS" />
-            <End Role="ACAD_USUARIOS" EntitySet="ACAD_USUARIOS" />
+          <AssociationSet Name="FK_UsuarioAcademia" Association="CollegeModel.FK_UsuarioAcademia">
+            <End Role="Academia" EntitySet="Academia" />
+            <End Role="Usuario" EntitySet="Usuario" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_AREAS_CURSOS_ACAD_AREAS" Association="CollegeModel.FK_ACAD_AREAS_CURSOS_ACAD_AREAS">
-            <End Role="ACAD_AREAS" EntitySet="ACAD_AREAS" />
-            <End Role="ACAD_AREAS_CURSOS" EntitySet="ACAD_AREAS_CURSOS" />
+          <AssociationSet Name="FK_AreaCursoArea" Association="CollegeModel.FK_AreaCursoArea">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="AreaCurso" EntitySet="AreaCurso" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_AREAS_CURSOS_ACAD_CURSOS" Association="CollegeModel.FK_ACAD_AREAS_CURSOS_ACAD_CURSOS">
-            <End Role="ACAD_CURSOS" EntitySet="ACAD_CURSOS" />
-            <End Role="ACAD_AREAS_CURSOS" EntitySet="ACAD_AREAS_CURSOS" />
+          <AssociationSet Name="FK_AreaCursoCurso" Association="CollegeModel.FK_AreaCursoCurso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="AreaCurso" EntitySet="AreaCurso" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_BLOCOS_ACAD_MODULOS" Association="CollegeModel.FK_ACAD_BLOCOS_ACAD_MODULOS">
-            <End Role="ACAD_MODULOS" EntitySet="ACAD_MODULOS" />
-            <End Role="ACAD_BLOCOS" EntitySet="ACAD_BLOCOS" />
+          <AssociationSet Name="FK_BlocoModulo" Association="CollegeModel.FK_BlocoModulo">
+            <End Role="Modulo" EntitySet="Modulo" />
+            <End Role="Bloco" EntitySet="Bloco" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_EXERCICIOS_ACAD_BLOCOS" Association="CollegeModel.FK_ACAD_EXERCICIOS_ACAD_BLOCOS">
-            <End Role="ACAD_BLOCOS" EntitySet="ACAD_BLOCOS" />
-            <End Role="ACAD_EXERCICIOS" EntitySet="ACAD_EXERCICIOS" />
+          <AssociationSet Name="FK_ExercicioBloco" Association="CollegeModel.FK_ExercicioBloco">
+            <End Role="Bloco" EntitySet="Bloco" />
+            <End Role="Exercicio" EntitySet="Exercicio" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_USUARIOS_BLOCOS_ACAD_BLOCOS" Association="CollegeModel.FK_ACAD_USUARIOS_BLOCOS_ACAD_BLOCOS">
-            <End Role="ACAD_BLOCOS" EntitySet="ACAD_BLOCOS" />
-            <End Role="ACAD_USUARIOS_BLOCOS" EntitySet="ACAD_USUARIOS_BLOCOS" />
+          <AssociationSet Name="FK_UsuarioBlocoBloco" Association="CollegeModel.FK_UsuarioBlocoBloco">
+            <End Role="Bloco" EntitySet="Bloco" />
+            <End Role="UsuarioBloco" EntitySet="UsuarioBloco" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_CODIGOS_ACAD_CURSOS" Association="CollegeModel.FK_ACAD_CODIGOS_ACAD_CURSOS">
-            <End Role="ACAD_CURSOS" EntitySet="ACAD_CURSOS" />
-            <End Role="ACAD_CODIGOS" EntitySet="ACAD_CODIGOS" />
+          <AssociationSet Name="FK_CodigoCurso" Association="CollegeModel.FK_CodigoCurso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Codigo" EntitySet="Codigo" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_CURSOS_ACAD_USUARIOS" Association="CollegeModel.FK_ACAD_CURSOS_ACAD_USUARIOS">
-            <End Role="ACAD_USUARIOS" EntitySet="ACAD_USUARIOS" />
-            <End Role="ACAD_CURSOS" EntitySet="ACAD_CURSOS" />
+          <AssociationSet Name="FK_CursoUsuario" Association="CollegeModel.FK_CursoUsuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Curso" EntitySet="Curso" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_MATRICULAS_ACAD_CURSOS" Association="CollegeModel.FK_ACAD_MATRICULAS_ACAD_CURSOS">
-            <End Role="ACAD_CURSOS" EntitySet="ACAD_CURSOS" />
-            <End Role="ACAD_MATRICULAS" EntitySet="ACAD_MATRICULAS" />
+          <AssociationSet Name="FK_MatriculaCurso" Association="CollegeModel.FK_MatriculaCurso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Matricula" EntitySet="Matricula" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_MODULOS_ACAD_CURSOS" Association="CollegeModel.FK_ACAD_MODULOS_ACAD_CURSOS">
-            <End Role="ACAD_CURSOS" EntitySet="ACAD_CURSOS" />
-            <End Role="ACAD_MODULOS" EntitySet="ACAD_MODULOS" />
+          <AssociationSet Name="FK_ModuloCurso" Association="CollegeModel.FK_ModuloCurso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Modulo" EntitySet="Modulo" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_USUARIOS_EXERCICIOS_ACAD_EXERCICIOS" Association="CollegeModel.FK_ACAD_USUARIOS_EXERCICIOS_ACAD_EXERCICIOS">
-            <End Role="ACAD_EXERCICIOS" EntitySet="ACAD_EXERCICIOS" />
-            <End Role="ACAD_USUARIOS_EXERCICIOS" EntitySet="ACAD_USUARIOS_EXERCICIOS" />
+          <AssociationSet Name="FK_UsuarioExercicioExercicio" Association="CollegeModel.FK_UsuarioExercicioExercicio">
+            <End Role="Exercicio" EntitySet="Exercicio" />
+            <End Role="UsuarioExercicio" EntitySet="UsuarioExercicio" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_MATRICULAS_ACAD_USUARIOS" Association="CollegeModel.FK_ACAD_MATRICULAS_ACAD_USUARIOS">
-            <End Role="ACAD_USUARIOS" EntitySet="ACAD_USUARIOS" />
-            <End Role="ACAD_MATRICULAS" EntitySet="ACAD_MATRICULAS" />
+          <AssociationSet Name="FK_MatriculaUsuario" Association="CollegeModel.FK_MatriculaUsuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Matricula" EntitySet="Matricula" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_USUARIOS_EXERCICIOS_ACAD_MATRICULAS" Association="CollegeModel.FK_ACAD_USUARIOS_EXERCICIOS_ACAD_MATRICULAS">
-            <End Role="ACAD_MATRICULAS" EntitySet="ACAD_MATRICULAS" />
-            <End Role="ACAD_USUARIOS_EXERCICIOS" EntitySet="ACAD_USUARIOS_EXERCICIOS" />
+          <AssociationSet Name="FK_UsuarioExercicioMatricula" Association="CollegeModel.FK_UsuarioExercicioMatricula">
+            <End Role="Matricula" EntitySet="Matricula" />
+            <End Role="UsuarioExercicio" EntitySet="UsuarioExercicio" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_USUARIOS_PROVAS_QUESTOES_ACAD_MATRICULAS" Association="CollegeModel.FK_ACAD_USUARIOS_PROVAS_QUESTOES_ACAD_MATRICULAS">
-            <End Role="ACAD_MATRICULAS" EntitySet="ACAD_MATRICULAS" />
-            <End Role="ACAD_USUARIOS_PROVAS_QUESTOES" EntitySet="ACAD_USUARIOS_PROVAS_QUESTOES" />
+          <AssociationSet Name="FK_UsuarioProvaQuestaoMatricula" Association="CollegeModel.FK_UsuarioProvaQuestaoMatricula">
+            <End Role="Matricula" EntitySet="Matricula" />
+            <End Role="UsuarioProvaQuestao" EntitySet="UsuarioProvaQuestao" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_QUESTOES_ACAD_MODULOS" Association="CollegeModel.FK_ACAD_QUESTOES_ACAD_MODULOS">
-            <End Role="ACAD_MODULOS" EntitySet="ACAD_MODULOS" />
-            <End Role="ACAD_QUESTOES" EntitySet="ACAD_QUESTOES" />
+          <AssociationSet Name="FK_QuestaoModulo" Association="CollegeModel.FK_QuestaoModulo">
+            <End Role="Modulo" EntitySet="Modulo" />
+            <End Role="Questao" EntitySet="Questao" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_RECURSOS_ACAD_MODULOS" Association="CollegeModel.FK_ACAD_RECURSOS_ACAD_MODULOS">
-            <End Role="ACAD_MODULOS" EntitySet="ACAD_MODULOS" />
-            <End Role="ACAD_RECURSOS" EntitySet="ACAD_RECURSOS" />
+          <AssociationSet Name="FK_RecursoModulo" Association="CollegeModel.FK_RecursoModulo">
+            <End Role="Modulo" EntitySet="Modulo" />
+            <End Role="Recurso" EntitySet="Recurso" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_USUARIOS_PROVAS_QUESTOES_ACAD_QUESTOES" Association="CollegeModel.FK_ACAD_USUARIOS_PROVAS_QUESTOES_ACAD_QUESTOES">
-            <End Role="ACAD_QUESTOES" EntitySet="ACAD_QUESTOES" />
-            <End Role="ACAD_USUARIOS_PROVAS_QUESTOES" EntitySet="ACAD_USUARIOS_PROVAS_QUESTOES" />
+          <AssociationSet Name="FK_UsuarioProvaQuestaoQuestao" Association="CollegeModel.FK_UsuarioProvaQuestaoQuestao">
+            <End Role="Questao" EntitySet="Questao" />
+            <End Role="UsuarioProvaQuestao" EntitySet="UsuarioProvaQuestao" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_USUARIOS_BLOCOS_ACAD_USUARIOS" Association="CollegeModel.FK_ACAD_USUARIOS_BLOCOS_ACAD_USUARIOS">
-            <End Role="ACAD_USUARIOS" EntitySet="ACAD_USUARIOS" />
-            <End Role="ACAD_USUARIOS_BLOCOS" EntitySet="ACAD_USUARIOS_BLOCOS" />
+          <AssociationSet Name="FK_UsuarioBlocoUsuario" Association="CollegeModel.FK_UsuarioBlocoUsuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="UsuarioBloco" EntitySet="UsuarioBloco" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_USUARIOS_EXERCICIOS_ACAD_USUARIOS" Association="CollegeModel.FK_ACAD_USUARIOS_EXERCICIOS_ACAD_USUARIOS">
-            <End Role="ACAD_USUARIOS" EntitySet="ACAD_USUARIOS" />
-            <End Role="ACAD_USUARIOS_EXERCICIOS" EntitySet="ACAD_USUARIOS_EXERCICIOS" />
+          <AssociationSet Name="FK_UsuarioExercicioUsuario" Association="CollegeModel.FK_UsuarioExercicioUsuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="UsuarioExercicio" EntitySet="UsuarioExercicio" />
           </AssociationSet>
-          <AssociationSet Name="FK_ACAD_USUARIOS_PROVAS_QUESTOES_ACAD_USUARIOS" Association="CollegeModel.FK_ACAD_USUARIOS_PROVAS_QUESTOES_ACAD_USUARIOS">
-            <End Role="ACAD_USUARIOS" EntitySet="ACAD_USUARIOS" />
-            <End Role="ACAD_USUARIOS_PROVAS_QUESTOES" EntitySet="ACAD_USUARIOS_PROVAS_QUESTOES" />
+          <AssociationSet Name="FK_UsuarioProvaQuestaoUsuario" Association="CollegeModel.FK_UsuarioProvaQuestaoUsuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="UsuarioProvaQuestao" EntitySet="UsuarioProvaQuestao" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="ACAD_ACADEMIAS">
+        <EntityType Name="Academia">
           <Key>
-            <PropertyRef Name="CD_ACADEMIA" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int64" Name="CD_ACADEMIA" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="NM_ACADEMIA" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_DESCRICAO" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_EMAIL" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_SENHA_EMAIL" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_SMTP" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="TX_SMTP_PORTA" Nullable="false" />
-          <Property Type="String" Name="TX_URL_BASE" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_URL" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_META_DESCRIPTION" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_META_KEYWORDS" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_META_ROBOTS" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_META_GOOGLEBOT" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_META_GENERATOR" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_META_REVISITE_AFTER" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_CNPJ" Nullable="false" MaxLength="18" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_TEL" Nullable="false" MaxLength="14" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_ENDERECO" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_NUMERO" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_COMPLEMENTO" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_BAIRRO" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_CIDADE" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_ESTADO" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
-          <Property Type="String" Name="TX_CEP" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="DT_CRIACAO" Nullable="false" Precision="3" />
-          <Property Type="Boolean" Name="FL_ATIVO" Nullable="false" />
-          <NavigationProperty Name="ACAD_BANNERS" Relationship="CollegeModel.FK_ACAD_BANNERS_ACAD_ACADEMIAS" FromRole="ACAD_ACADEMIAS" ToRole="ACAD_BANNERS" />
-          <NavigationProperty Name="ACAD_CURSOS" Relationship="CollegeModel.FK_ACAD_CURSOS_ACAD_ACADEMIAS" FromRole="ACAD_ACADEMIAS" ToRole="ACAD_CURSOS" />
-          <NavigationProperty Name="ACAD_EVENTOS" Relationship="CollegeModel.FK_ACAD_EVENTOS_ACAD_ACADEMIAS" FromRole="ACAD_ACADEMIAS" ToRole="ACAD_EVENTOS" />
-          <NavigationProperty Name="ACAD_FAQS" Relationship="CollegeModel.FK_ACAD_FAQS_ACAD_ACADEMIAS" FromRole="ACAD_ACADEMIAS" ToRole="ACAD_FAQS" />
-          <NavigationProperty Name="ACAD_TESTEMUNHOS" Relationship="CollegeModel.FK_ACAD_TESTEMUNHOS_ACAD_ACADEMIAS" FromRole="ACAD_ACADEMIAS" ToRole="ACAD_TESTEMUNHOS" />
-          <NavigationProperty Name="ACAD_USUARIOS" Relationship="CollegeModel.FK_ACAD_USUARIOS_ACAD_ACADEMIAS" FromRole="ACAD_ACADEMIAS" ToRole="ACAD_USUARIOS" />
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Descricao" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="SenhaEmail" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Smtp" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="SmtpPorta" Type="Int32" Nullable="false" />
+          <Property Name="UrlBase" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Url" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="MetaDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MetaKeywords" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MetaRobots" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MetaGoogleBot" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MetaGenerator" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MetaRevisiteAfter" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Cnpj" Type="String" Nullable="false" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="Telefone" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="Endereco" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Numero" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Complemento" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Bairro" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Cidade" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Uf" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="Cep" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DataCriacao" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Banner" Relationship="CollegeModel.FK_BannerAcademia" FromRole="Academia" ToRole="Banner" />
+          <NavigationProperty Name="Curso" Relationship="CollegeModel.FK_CursoAcademia" FromRole="Academia" ToRole="Curso" />
+          <NavigationProperty Name="Evento" Relationship="CollegeModel.FK_EventoAcademia" FromRole="Academia" ToRole="Evento" />
+          <NavigationProperty Name="Faq" Relationship="CollegeModel.FK_FaqAcademia" FromRole="Academia" ToRole="Faq" />
+          <NavigationProperty Name="Testemunho" Relationship="CollegeModel.FK_TestemunhoAcademia" FromRole="Academia" ToRole="Testemunho" />
+          <NavigationProperty Name="Usuario" Relationship="CollegeModel.FK_UsuarioAcademia" FromRole="Academia" ToRole="Usuario" />
         </EntityType>
-        <EntityType Name="ACAD_AREAS">
+        <EntityType Name="Area">
           <Key>
-            <PropertyRef Name="CD_AREA" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int32" Name="CD_AREA" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="NM_AREA" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ACAD_AREAS_CURSOS" Relationship="CollegeModel.FK_ACAD_AREAS_CURSOS_ACAD_AREAS" FromRole="ACAD_AREAS" ToRole="ACAD_AREAS_CURSOS" />
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AreaCurso" Relationship="CollegeModel.FK_AreaCursoArea" FromRole="Area" ToRole="AreaCurso" />
         </EntityType>
-        <EntityType Name="ACAD_AREAS_CURSOS">
+        <EntityType Name="AreaCurso">
           <Key>
-            <PropertyRef Name="CD_AREA_CURSO" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int64" Name="CD_AREA_CURSO" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="CD_AREA" Nullable="false" />
-          <Property Type="Int64" Name="CD_CURSO" Nullable="false" />
-          <NavigationProperty Name="ACAD_AREAS" Relationship="CollegeModel.FK_ACAD_AREAS_CURSOS_ACAD_AREAS" FromRole="ACAD_AREAS_CURSOS" ToRole="ACAD_AREAS" />
-          <NavigationProperty Name="ACAD_CURSOS" Relationship="CollegeModel.FK_ACAD_AREAS_CURSOS_ACAD_CURSOS" FromRole="ACAD_AREAS_CURSOS" ToRole="ACAD_CURSOS" />
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdArea" Type="Int32" Nullable="false" />
+          <Property Name="IdCurso" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Area" Relationship="CollegeModel.FK_AreaCursoArea" FromRole="AreaCurso" ToRole="Area" />
+          <NavigationProperty Name="Curso" Relationship="CollegeModel.FK_AreaCursoCurso" FromRole="AreaCurso" ToRole="Curso" />
         </EntityType>
-        <EntityType Name="ACAD_BANNERS">
+        <EntityType Name="Banner">
           <Key>
-            <PropertyRef Name="CD_BANNER" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int64" Name="CD_BANNER" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Type="Int64" Name="CD_ACADEMIA" Nullable="false" />
-          <Property Type="String" Name="TX_CAPTION" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_CAPTION2" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="DT_INICIO" Nullable="false" Precision="3" />
-          <Property Type="DateTime" Name="DT_FINAL" Precision="3" />
-          <Property Type="DateTime" Name="DT_DATA" Nullable="false" Precision="3" />
-          <Property Type="Boolean" Name="FL_ATIVO" Nullable="false" />
-          <NavigationProperty Name="ACAD_ACADEMIAS" Relationship="CollegeModel.FK_ACAD_BANNERS_ACAD_ACADEMIAS" FromRole="ACAD_BANNERS" ToRole="ACAD_ACADEMIAS" />
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAcademia" Type="Int32" Nullable="false" />
+          <Property Name="Caption" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Caption2" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DataInicio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataFinal" Type="DateTime" Precision="3" />
+          <Property Name="DataCriacao" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Academia" Relationship="CollegeModel.FK_BannerAcademia" FromRole="Banner" ToRole="Academia" />
         </EntityType>
-        <EntityType Name="ACAD_BLOCOS">
+        <EntityType Name="Bloco">
           <Key>
-            <PropertyRef Name="CD_BLOCO" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int64" Name="CD_BLOCO" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Type="Int64" Name="CD_MODULO" Nullable="false" />
-          <Property Type="String" Name="NM_BLOCO" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="NM_PAGE" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="NR_ORDEM" Nullable="false" />
-          <NavigationProperty Name="ACAD_MODULOS" Relationship="CollegeModel.FK_ACAD_BLOCOS_ACAD_MODULOS" FromRole="ACAD_BLOCOS" ToRole="ACAD_MODULOS" />
-          <NavigationProperty Name="ACAD_EXERCICIOS" Relationship="CollegeModel.FK_ACAD_EXERCICIOS_ACAD_BLOCOS" FromRole="ACAD_BLOCOS" ToRole="ACAD_EXERCICIOS" />
-          <NavigationProperty Name="ACAD_USUARIOS_BLOCOS" Relationship="CollegeModel.FK_ACAD_USUARIOS_BLOCOS_ACAD_BLOCOS" FromRole="ACAD_BLOCOS" ToRole="ACAD_USUARIOS_BLOCOS" />
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdModulo" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Pagina" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Ordem" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Modulo" Relationship="CollegeModel.FK_BlocoModulo" FromRole="Bloco" ToRole="Modulo" />
+          <NavigationProperty Name="Exercicio" Relationship="CollegeModel.FK_ExercicioBloco" FromRole="Bloco" ToRole="Exercicio" />
+          <NavigationProperty Name="UsuarioBloco" Relationship="CollegeModel.FK_UsuarioBlocoBloco" FromRole="Bloco" ToRole="UsuarioBloco" />
         </EntityType>
-        <EntityType Name="ACAD_CODIGOS">
+        <EntityType Name="Codigo">
           <Key>
-            <PropertyRef Name="CD_CODIGO" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Guid" Name="CD_CODIGO" Nullable="false" />
-          <Property Type="Int64" Name="CD_CURSO" Nullable="false" />
-          <Property Type="DateTime" Name="DT_DATA" Precision="0" />
-          <Property Type="Boolean" Name="FL_ATIVO" Nullable="false" />
-          <NavigationProperty Name="ACAD_CURSOS" Relationship="CollegeModel.FK_ACAD_CODIGOS_ACAD_CURSOS" FromRole="ACAD_CODIGOS" ToRole="ACAD_CURSOS" />
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="IdCurso" Type="Int32" Nullable="false" />
+          <Property Name="DataCriacao" Type="DateTime" Precision="3" />
+          <Property Name="Ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Curso" Relationship="CollegeModel.FK_CodigoCurso" FromRole="Codigo" ToRole="Curso" />
         </EntityType>
-        <EntityType Name="ACAD_CURSOS">
+        <EntityType Name="Curso">
           <Key>
-            <PropertyRef Name="CD_CURSO" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int64" Name="CD_CURSO" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Type="Int64" Name="CD_ACADEMIA" Nullable="false" />
-          <Property Type="Int64" Name="CD_PROFESSOR" Nullable="false" />
-          <Property Type="String" Name="NM_CURSO" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_RESUMO" Nullable="false" MaxLength="400" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_DESCRICAO" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_EMAIL" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_MOEDA" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="VL_CURSO" Nullable="false" Precision="10" Scale="2" />
-          <Property Type="DateTime" Name="DT_DATA" Nullable="false" Precision="3" />
-          <Property Type="Boolean" Name="FL_ATIVO" Nullable="false" />
-          <Property Type="Int32" Name="NR_ORDEM" Nullable="false" />
-          <NavigationProperty Name="ACAD_ACADEMIAS" Relationship="CollegeModel.FK_ACAD_CURSOS_ACAD_ACADEMIAS" FromRole="ACAD_CURSOS" ToRole="ACAD_ACADEMIAS" />
-          <NavigationProperty Name="ACAD_AREAS_CURSOS" Relationship="CollegeModel.FK_ACAD_AREAS_CURSOS_ACAD_CURSOS" FromRole="ACAD_CURSOS" ToRole="ACAD_AREAS_CURSOS" />
-          <NavigationProperty Name="ACAD_CODIGOS" Relationship="CollegeModel.FK_ACAD_CODIGOS_ACAD_CURSOS" FromRole="ACAD_CURSOS" ToRole="ACAD_CODIGOS" />
-          <NavigationProperty Name="ACAD_USUARIOS" Relationship="CollegeModel.FK_ACAD_CURSOS_ACAD_USUARIOS" FromRole="ACAD_CURSOS" ToRole="ACAD_USUARIOS" />
-          <NavigationProperty Name="ACAD_MATRICULAS" Relationship="CollegeModel.FK_ACAD_MATRICULAS_ACAD_CURSOS" FromRole="ACAD_CURSOS" ToRole="ACAD_MATRICULAS" />
-          <NavigationProperty Name="ACAD_MODULOS" Relationship="CollegeModel.FK_ACAD_MODULOS_ACAD_CURSOS" FromRole="ACAD_CURSOS" ToRole="ACAD_MODULOS" />
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAcademia" Type="Int32" Nullable="false" />
+          <Property Name="IdProfessor" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Resumo" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="Descricao" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Moeda" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Valor" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="DataCriacao" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Ativo" Type="Boolean" Nullable="false" />
+          <Property Name="Ordem" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Academia" Relationship="CollegeModel.FK_CursoAcademia" FromRole="Curso" ToRole="Academia" />
+          <NavigationProperty Name="AreaCurso" Relationship="CollegeModel.FK_AreaCursoCurso" FromRole="Curso" ToRole="AreaCurso" />
+          <NavigationProperty Name="Codigo" Relationship="CollegeModel.FK_CodigoCurso" FromRole="Curso" ToRole="Codigo" />
+          <NavigationProperty Name="Usuario" Relationship="CollegeModel.FK_CursoUsuario" FromRole="Curso" ToRole="Usuario" />
+          <NavigationProperty Name="Matricula" Relationship="CollegeModel.FK_MatriculaCurso" FromRole="Curso" ToRole="Matricula" />
+          <NavigationProperty Name="Modulo" Relationship="CollegeModel.FK_ModuloCurso" FromRole="Curso" ToRole="Modulo" />
         </EntityType>
-        <EntityType Name="ACAD_EVENTOS">
+        <EntityType Name="Evento">
           <Key>
-            <PropertyRef Name="CD_EVENTO" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int64" Name="CD_EVENTO" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Type="Int64" Name="CD_ACADEMIA" Nullable="false" />
-          <Property Type="String" Name="NM_EVENTO" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="DT_INICIO" Nullable="false" Precision="3" />
-          <Property Type="DateTime" Name="DT_FINAL" Precision="3" />
-          <Property Type="String" Name="TX_URL" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_DESCRICAO" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="DT_DATA" Nullable="false" Precision="3" />
-          <Property Type="Boolean" Name="FL_ATIVO" Nullable="false" />
-          <NavigationProperty Name="ACAD_ACADEMIAS" Relationship="CollegeModel.FK_ACAD_EVENTOS_ACAD_ACADEMIAS" FromRole="ACAD_EVENTOS" ToRole="ACAD_ACADEMIAS" />
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAcademia" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DataInicio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataFinal" Type="DateTime" Precision="3" />
+          <Property Name="Url" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Descricao" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DataCriacao" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Academia" Relationship="CollegeModel.FK_EventoAcademia" FromRole="Evento" ToRole="Academia" />
         </EntityType>
-        <EntityType Name="ACAD_EXERCICIOS">
+        <EntityType Name="Exercicio">
           <Key>
-            <PropertyRef Name="CD_EXERCICIO" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int64" Name="CD_EXERCICIO" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Type="Int64" Name="CD_BLOCO" Nullable="false" />
-          <Property Type="String" Name="TX_PERGUNTA" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_GABARITO" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="NR_ORDEM" Nullable="false" />
-          <NavigationProperty Name="ACAD_BLOCOS" Relationship="CollegeModel.FK_ACAD_EXERCICIOS_ACAD_BLOCOS" FromRole="ACAD_EXERCICIOS" ToRole="ACAD_BLOCOS" />
-          <NavigationProperty Name="ACAD_USUARIOS_EXERCICIOS" Relationship="CollegeModel.FK_ACAD_USUARIOS_EXERCICIOS_ACAD_EXERCICIOS" FromRole="ACAD_EXERCICIOS" ToRole="ACAD_USUARIOS_EXERCICIOS" />
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdBloco" Type="Int32" Nullable="false" />
+          <Property Name="Pergunta" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Gabarito" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ordem" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bloco" Relationship="CollegeModel.FK_ExercicioBloco" FromRole="Exercicio" ToRole="Bloco" />
+          <NavigationProperty Name="UsuarioExercicio" Relationship="CollegeModel.FK_UsuarioExercicioExercicio" FromRole="Exercicio" ToRole="UsuarioExercicio" />
         </EntityType>
-        <EntityType Name="ACAD_FAQS">
+        <EntityType Name="Faq">
           <Key>
-            <PropertyRef Name="CD_FAQ" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int64" Name="CD_FAQ" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Type="Int64" Name="CD_ACADEMIA" Nullable="false" />
-          <Property Type="String" Name="TX_PERGUNTA" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_RESPOSTA" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="NR_ORDEM" Nullable="false" />
-          <NavigationProperty Name="ACAD_ACADEMIAS" Relationship="CollegeModel.FK_ACAD_FAQS_ACAD_ACADEMIAS" FromRole="ACAD_FAQS" ToRole="ACAD_ACADEMIAS" />
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAcademia" Type="Int32" Nullable="false" />
+          <Property Name="Pergunta" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Resposta" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ordem" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Academia" Relationship="CollegeModel.FK_FaqAcademia" FromRole="Faq" ToRole="Academia" />
         </EntityType>
-        <EntityType Name="ACAD_MATRICULAS">
+        <EntityType Name="Matricula">
           <Key>
-            <PropertyRef Name="CD_MATRICULA" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int64" Name="CD_MATRICULA" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Type="Int64" Name="CD_USUARIO" Nullable="false" />
-          <Property Type="Int64" Name="CD_CURSO" Nullable="false" />
-          <Property Type="String" Name="TX_CODIGO" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_TRANSACAO" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="DT_DATA" Nullable="false" Precision="3" />
-          <NavigationProperty Name="ACAD_CURSOS" Relationship="CollegeModel.FK_ACAD_MATRICULAS_ACAD_CURSOS" FromRole="ACAD_MATRICULAS" ToRole="ACAD_CURSOS" />
-          <NavigationProperty Name="ACAD_USUARIOS" Relationship="CollegeModel.FK_ACAD_MATRICULAS_ACAD_USUARIOS" FromRole="ACAD_MATRICULAS" ToRole="ACAD_USUARIOS" />
-          <NavigationProperty Name="ACAD_USUARIOS_EXERCICIOS" Relationship="CollegeModel.FK_ACAD_USUARIOS_EXERCICIOS_ACAD_MATRICULAS" FromRole="ACAD_MATRICULAS" ToRole="ACAD_USUARIOS_EXERCICIOS" />
-          <NavigationProperty Name="ACAD_USUARIOS_PROVAS_QUESTOES" Relationship="CollegeModel.FK_ACAD_USUARIOS_PROVAS_QUESTOES_ACAD_MATRICULAS" FromRole="ACAD_MATRICULAS" ToRole="ACAD_USUARIOS_PROVAS_QUESTOES" />
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+          <Property Name="IdCurso" Type="Int32" Nullable="false" />
+          <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Transacao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DataCriacao" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Curso" Relationship="CollegeModel.FK_MatriculaCurso" FromRole="Matricula" ToRole="Curso" />
+          <NavigationProperty Name="Usuario" Relationship="CollegeModel.FK_MatriculaUsuario" FromRole="Matricula" ToRole="Usuario" />
+          <NavigationProperty Name="UsuarioExercicio" Relationship="CollegeModel.FK_UsuarioExercicioMatricula" FromRole="Matricula" ToRole="UsuarioExercicio" />
+          <NavigationProperty Name="UsuarioProvaQuestao" Relationship="CollegeModel.FK_UsuarioProvaQuestaoMatricula" FromRole="Matricula" ToRole="UsuarioProvaQuestao" />
         </EntityType>
-        <EntityType Name="ACAD_MODULOS">
+        <EntityType Name="Modulo">
           <Key>
-            <PropertyRef Name="CD_MODULO" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int64" Name="CD_MODULO" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Type="Int64" Name="CD_CURSO" Nullable="false" />
-          <Property Type="String" Name="NM_MODULO" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="NM_PAGE" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="NR_ORDEM" Nullable="false" />
-          <NavigationProperty Name="ACAD_BLOCOS" Relationship="CollegeModel.FK_ACAD_BLOCOS_ACAD_MODULOS" FromRole="ACAD_MODULOS" ToRole="ACAD_BLOCOS" />
-          <NavigationProperty Name="ACAD_CURSOS" Relationship="CollegeModel.FK_ACAD_MODULOS_ACAD_CURSOS" FromRole="ACAD_MODULOS" ToRole="ACAD_CURSOS" />
-          <NavigationProperty Name="ACAD_QUESTOES" Relationship="CollegeModel.FK_ACAD_QUESTOES_ACAD_MODULOS" FromRole="ACAD_MODULOS" ToRole="ACAD_QUESTOES" />
-          <NavigationProperty Name="ACAD_RECURSOS" Relationship="CollegeModel.FK_ACAD_RECURSOS_ACAD_MODULOS" FromRole="ACAD_MODULOS" ToRole="ACAD_RECURSOS" />
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCurso" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Pagina" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Ordem" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bloco" Relationship="CollegeModel.FK_BlocoModulo" FromRole="Modulo" ToRole="Bloco" />
+          <NavigationProperty Name="Curso" Relationship="CollegeModel.FK_ModuloCurso" FromRole="Modulo" ToRole="Curso" />
+          <NavigationProperty Name="Questao" Relationship="CollegeModel.FK_QuestaoModulo" FromRole="Modulo" ToRole="Questao" />
+          <NavigationProperty Name="Recurso" Relationship="CollegeModel.FK_RecursoModulo" FromRole="Modulo" ToRole="Recurso" />
         </EntityType>
-        <EntityType Name="ACAD_QUESTOES">
+        <EntityType Name="Questao">
           <Key>
-            <PropertyRef Name="CD_QUESTAO" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int64" Name="CD_QUESTAO" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Type="Int64" Name="CD_MODULO" Nullable="false" />
-          <Property Type="String" Name="TX_PERGUNTA" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_GABARITO" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ACAD_MODULOS" Relationship="CollegeModel.FK_ACAD_QUESTOES_ACAD_MODULOS" FromRole="ACAD_QUESTOES" ToRole="ACAD_MODULOS" />
-          <NavigationProperty Name="ACAD_USUARIOS_PROVAS_QUESTOES" Relationship="CollegeModel.FK_ACAD_USUARIOS_PROVAS_QUESTOES_ACAD_QUESTOES" FromRole="ACAD_QUESTOES" ToRole="ACAD_USUARIOS_PROVAS_QUESTOES" />
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdModulo" Type="Int32" Nullable="false" />
+          <Property Name="Pergunta" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Gabarito" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Modulo" Relationship="CollegeModel.FK_QuestaoModulo" FromRole="Questao" ToRole="Modulo" />
+          <NavigationProperty Name="UsuarioProvaQuestao" Relationship="CollegeModel.FK_UsuarioProvaQuestaoQuestao" FromRole="Questao" ToRole="UsuarioProvaQuestao" />
         </EntityType>
-        <EntityType Name="ACAD_RECURSOS">
+        <EntityType Name="Recurso">
           <Key>
-            <PropertyRef Name="CD_RECURSO" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int64" Name="CD_RECURSO" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Type="Int64" Name="CD_MODULO" Nullable="false" />
-          <Property Type="String" Name="NM_RECURSO" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="NM_PAGE" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ACAD_MODULOS" Relationship="CollegeModel.FK_ACAD_RECURSOS_ACAD_MODULOS" FromRole="ACAD_RECURSOS" ToRole="ACAD_MODULOS" />
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdModulo" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Pagina" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Modulo" Relationship="CollegeModel.FK_RecursoModulo" FromRole="Recurso" ToRole="Modulo" />
         </EntityType>
-        <EntityType Name="ACAD_TESTEMUNHOS">
+        <EntityType Name="Testemunho">
           <Key>
-            <PropertyRef Name="CD_TESTEMUNHO" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int64" Name="CD_TESTEMUNHO" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Type="Int64" Name="CD_ACADEMIA" Nullable="false" />
-          <Property Type="String" Name="TX_TESTEMUNHO" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="NM_AUTOR" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_LOCAL" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="DT_DATA" Nullable="false" Precision="3" />
-          <Property Type="Boolean" Name="FL_ATIVO" Nullable="false" />
-          <NavigationProperty Name="ACAD_ACADEMIAS" Relationship="CollegeModel.FK_ACAD_TESTEMUNHOS_ACAD_ACADEMIAS" FromRole="ACAD_TESTEMUNHOS" ToRole="ACAD_ACADEMIAS" />
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAcademia" Type="Int32" Nullable="false" />
+          <Property Name="Testemunho1" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Autor" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Local" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DataCriacao" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Academia" Relationship="CollegeModel.FK_TestemunhoAcademia" FromRole="Testemunho" ToRole="Academia" />
         </EntityType>
-        <EntityType Name="ACAD_USUARIOS">
+        <EntityType Name="Usuario">
           <Key>
-            <PropertyRef Name="CD_USUARIO" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int64" Name="CD_USUARIO" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Type="Int64" Name="CD_ACADEMIA" Nullable="false" />
-          <Property Type="String" Name="NM_USUARIO" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="NM_SOBRENOME" Nullable="false" MaxLength="180" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="NM_COMPLETO" Nullable="false" MaxLength="201" FixedLength="false" Unicode="false" p1:StoreGeneratedPattern="Computed" />
-          <Property Type="String" Name="TX_EMAIL" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_TELEFONE" MaxLength="14" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_CELULAR" MaxLength="14" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_CPF" Nullable="false" MaxLength="14" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_SENHA" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_IP" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="DT_DATA" Nullable="false" Precision="3" />
-          <Property Type="Boolean" Name="FL_ATIVO" Nullable="false" />
-          <NavigationProperty Name="ACAD_ACADEMIAS" Relationship="CollegeModel.FK_ACAD_USUARIOS_ACAD_ACADEMIAS" FromRole="ACAD_USUARIOS" ToRole="ACAD_ACADEMIAS" />
-          <NavigationProperty Name="ACAD_CURSOS" Relationship="CollegeModel.FK_ACAD_CURSOS_ACAD_USUARIOS" FromRole="ACAD_USUARIOS" ToRole="ACAD_CURSOS" />
-          <NavigationProperty Name="ACAD_MATRICULAS" Relationship="CollegeModel.FK_ACAD_MATRICULAS_ACAD_USUARIOS" FromRole="ACAD_USUARIOS" ToRole="ACAD_MATRICULAS" />
-          <NavigationProperty Name="ACAD_USUARIOS_BLOCOS" Relationship="CollegeModel.FK_ACAD_USUARIOS_BLOCOS_ACAD_USUARIOS" FromRole="ACAD_USUARIOS" ToRole="ACAD_USUARIOS_BLOCOS" />
-          <NavigationProperty Name="ACAD_USUARIOS_EXERCICIOS" Relationship="CollegeModel.FK_ACAD_USUARIOS_EXERCICIOS_ACAD_USUARIOS" FromRole="ACAD_USUARIOS" ToRole="ACAD_USUARIOS_EXERCICIOS" />
-          <NavigationProperty Name="ACAD_USUARIOS_PROVAS_QUESTOES" Relationship="CollegeModel.FK_ACAD_USUARIOS_PROVAS_QUESTOES_ACAD_USUARIOS" FromRole="ACAD_USUARIOS" ToRole="ACAD_USUARIOS_PROVAS_QUESTOES" />
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAcademia" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SobreNome" Type="String" Nullable="false" MaxLength="180" FixedLength="false" Unicode="false" />
+          <Property Name="NomeCompleto" Type="String" Nullable="false" MaxLength="201" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Telefone" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="Celular" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="Cpf" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="Senha" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Ip" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DataCriacao" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Academia" Relationship="CollegeModel.FK_UsuarioAcademia" FromRole="Usuario" ToRole="Academia" />
+          <NavigationProperty Name="Curso" Relationship="CollegeModel.FK_CursoUsuario" FromRole="Usuario" ToRole="Curso" />
+          <NavigationProperty Name="Matricula" Relationship="CollegeModel.FK_MatriculaUsuario" FromRole="Usuario" ToRole="Matricula" />
+          <NavigationProperty Name="UsuarioBloco" Relationship="CollegeModel.FK_UsuarioBlocoUsuario" FromRole="Usuario" ToRole="UsuarioBloco" />
+          <NavigationProperty Name="UsuarioExercicio" Relationship="CollegeModel.FK_UsuarioExercicioUsuario" FromRole="Usuario" ToRole="UsuarioExercicio" />
+          <NavigationProperty Name="UsuarioProvaQuestao" Relationship="CollegeModel.FK_UsuarioProvaQuestaoUsuario" FromRole="Usuario" ToRole="UsuarioProvaQuestao" />
         </EntityType>
-        <EntityType Name="ACAD_USUARIOS_BLOCOS">
+        <EntityType Name="UsuarioBloco">
           <Key>
-            <PropertyRef Name="CD_USUARIO" />
-            <PropertyRef Name="CD_BLOCO" />
+            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="IdBloco" />
           </Key>
-          <Property Type="Int64" Name="CD_USUARIO_BLOCO" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Type="Int64" Name="CD_USUARIO" Nullable="false" />
-          <Property Type="Int64" Name="CD_BLOCO" Nullable="false" />
-          <NavigationProperty Name="ACAD_BLOCOS" Relationship="CollegeModel.FK_ACAD_USUARIOS_BLOCOS_ACAD_BLOCOS" FromRole="ACAD_USUARIOS_BLOCOS" ToRole="ACAD_BLOCOS" />
-          <NavigationProperty Name="ACAD_USUARIOS" Relationship="CollegeModel.FK_ACAD_USUARIOS_BLOCOS_ACAD_USUARIOS" FromRole="ACAD_USUARIOS_BLOCOS" ToRole="ACAD_USUARIOS" />
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+          <Property Name="IdBloco" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bloco" Relationship="CollegeModel.FK_UsuarioBlocoBloco" FromRole="UsuarioBloco" ToRole="Bloco" />
+          <NavigationProperty Name="Usuario" Relationship="CollegeModel.FK_UsuarioBlocoUsuario" FromRole="UsuarioBloco" ToRole="Usuario" />
         </EntityType>
-        <EntityType Name="ACAD_USUARIOS_EXERCICIOS">
+        <EntityType Name="UsuarioExercicio">
           <Key>
-            <PropertyRef Name="CD_USUARIO_EXERCICIO" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int64" Name="CD_USUARIO_EXERCICIO" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Type="Int64" Name="CD_USUARIO" Nullable="false" />
-          <Property Type="Int64" Name="CD_EXERCICIO" Nullable="false" />
-          <Property Type="Int64" Name="CD_MATRICULA" Nullable="false" />
-          <Property Type="String" Name="TX_PERGUNTA" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_RESPOSTA" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_OBS_CORRECAO" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="DT_EXERCICIO" Nullable="false" Precision="3" />
-          <NavigationProperty Name="ACAD_EXERCICIOS" Relationship="CollegeModel.FK_ACAD_USUARIOS_EXERCICIOS_ACAD_EXERCICIOS" FromRole="ACAD_USUARIOS_EXERCICIOS" ToRole="ACAD_EXERCICIOS" />
-          <NavigationProperty Name="ACAD_MATRICULAS" Relationship="CollegeModel.FK_ACAD_USUARIOS_EXERCICIOS_ACAD_MATRICULAS" FromRole="ACAD_USUARIOS_EXERCICIOS" ToRole="ACAD_MATRICULAS" />
-          <NavigationProperty Name="ACAD_USUARIOS" Relationship="CollegeModel.FK_ACAD_USUARIOS_EXERCICIOS_ACAD_USUARIOS" FromRole="ACAD_USUARIOS_EXERCICIOS" ToRole="ACAD_USUARIOS" />
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+          <Property Name="IdExercicio" Type="Int32" Nullable="false" />
+          <Property Name="IdMatricula" Type="Int32" Nullable="false" />
+          <Property Name="Pergunta" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Resposta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ObsCorrecao" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DataCriacao" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Exercicio" Relationship="CollegeModel.FK_UsuarioExercicioExercicio" FromRole="UsuarioExercicio" ToRole="Exercicio" />
+          <NavigationProperty Name="Matricula" Relationship="CollegeModel.FK_UsuarioExercicioMatricula" FromRole="UsuarioExercicio" ToRole="Matricula" />
+          <NavigationProperty Name="Usuario" Relationship="CollegeModel.FK_UsuarioExercicioUsuario" FromRole="UsuarioExercicio" ToRole="Usuario" />
         </EntityType>
-        <EntityType Name="ACAD_USUARIOS_PROVAS_QUESTOES">
+        <EntityType Name="UsuarioProvaQuestao">
           <Key>
-            <PropertyRef Name="CD_PROVA" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int64" Name="CD_PROVA" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Type="Int64" Name="CD_USUARIO" Nullable="false" />
-          <Property Type="Int64" Name="CD_MATRICULA" Nullable="false" />
-          <Property Type="Int64" Name="CD_QUESTAO" Nullable="false" />
-          <Property Type="DateTime" Name="DT_INICIO" Nullable="false" Precision="3" />
-          <Property Type="String" Name="TX_PERGUNTA" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_RESPOSTA" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="Boolean" Name="FL_ACERTO" Nullable="false" />
-          <Property Type="String" Name="TX_OBS_CORRECAO" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TX_GABARITO" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ACAD_MATRICULAS" Relationship="CollegeModel.FK_ACAD_USUARIOS_PROVAS_QUESTOES_ACAD_MATRICULAS" FromRole="ACAD_USUARIOS_PROVAS_QUESTOES" ToRole="ACAD_MATRICULAS" />
-          <NavigationProperty Name="ACAD_QUESTOES" Relationship="CollegeModel.FK_ACAD_USUARIOS_PROVAS_QUESTOES_ACAD_QUESTOES" FromRole="ACAD_USUARIOS_PROVAS_QUESTOES" ToRole="ACAD_QUESTOES" />
-          <NavigationProperty Name="ACAD_USUARIOS" Relationship="CollegeModel.FK_ACAD_USUARIOS_PROVAS_QUESTOES_ACAD_USUARIOS" FromRole="ACAD_USUARIOS_PROVAS_QUESTOES" ToRole="ACAD_USUARIOS" />
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+          <Property Name="IdMatricula" Type="Int32" Nullable="false" />
+          <Property Name="IdQuestao" Type="Int32" Nullable="false" />
+          <Property Name="DataInicio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Pergunta" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Resposta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Acerto" Type="Boolean" Nullable="false" />
+          <Property Name="ObsCorrecao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Gabarito" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Matricula" Relationship="CollegeModel.FK_UsuarioProvaQuestaoMatricula" FromRole="UsuarioProvaQuestao" ToRole="Matricula" />
+          <NavigationProperty Name="Questao" Relationship="CollegeModel.FK_UsuarioProvaQuestaoQuestao" FromRole="UsuarioProvaQuestao" ToRole="Questao" />
+          <NavigationProperty Name="Usuario" Relationship="CollegeModel.FK_UsuarioProvaQuestaoUsuario" FromRole="UsuarioProvaQuestao" ToRole="Usuario" />
         </EntityType>
-        <Association Name="FK_ACAD_BANNERS_ACAD_ACADEMIAS">
-          <End Type="CollegeModel.ACAD_ACADEMIAS" Role="ACAD_ACADEMIAS" Multiplicity="1" />
-          <End Type="CollegeModel.ACAD_BANNERS" Role="ACAD_BANNERS" Multiplicity="*" />
+        <Association Name="FK_BannerAcademia">
+          <End Type="CollegeModel.Academia" Role="Academia" Multiplicity="1" />
+          <End Type="CollegeModel.Banner" Role="Banner" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ACAD_ACADEMIAS">
-              <PropertyRef Name="CD_ACADEMIA" />
+            <Principal Role="Academia">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ACAD_BANNERS">
-              <PropertyRef Name="CD_ACADEMIA" />
+            <Dependent Role="Banner">
+              <PropertyRef Name="IdAcademia" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ACAD_CURSOS_ACAD_ACADEMIAS">
-          <End Type="CollegeModel.ACAD_ACADEMIAS" Role="ACAD_ACADEMIAS" Multiplicity="1" />
-          <End Type="CollegeModel.ACAD_CURSOS" Role="ACAD_CURSOS" Multiplicity="*" />
+        <Association Name="FK_CursoAcademia">
+          <End Type="CollegeModel.Academia" Role="Academia" Multiplicity="1" />
+          <End Type="CollegeModel.Curso" Role="Curso" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ACAD_ACADEMIAS">
-              <PropertyRef Name="CD_ACADEMIA" />
+            <Principal Role="Academia">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ACAD_CURSOS">
-              <PropertyRef Name="CD_ACADEMIA" />
+            <Dependent Role="Curso">
+              <PropertyRef Name="IdAcademia" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ACAD_EVENTOS_ACAD_ACADEMIAS">
-          <End Type="CollegeModel.ACAD_ACADEMIAS" Role="ACAD_ACADEMIAS" Multiplicity="1" />
-          <End Type="CollegeModel.ACAD_EVENTOS" Role="ACAD_EVENTOS" Multiplicity="*" />
+        <Association Name="FK_EventoAcademia">
+          <End Type="CollegeModel.Academia" Role="Academia" Multiplicity="1" />
+          <End Type="CollegeModel.Evento" Role="Evento" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ACAD_ACADEMIAS">
-              <PropertyRef Name="CD_ACADEMIA" />
+            <Principal Role="Academia">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ACAD_EVENTOS">
-              <PropertyRef Name="CD_ACADEMIA" />
+            <Dependent Role="Evento">
+              <PropertyRef Name="IdAcademia" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ACAD_FAQS_ACAD_ACADEMIAS">
-          <End Type="CollegeModel.ACAD_ACADEMIAS" Role="ACAD_ACADEMIAS" Multiplicity="1" />
-          <End Type="CollegeModel.ACAD_FAQS" Role="ACAD_FAQS" Multiplicity="*" />
+        <Association Name="FK_FaqAcademia">
+          <End Type="CollegeModel.Academia" Role="Academia" Multiplicity="1" />
+          <End Type="CollegeModel.Faq" Role="Faq" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ACAD_ACADEMIAS">
-              <PropertyRef Name="CD_ACADEMIA" />
+            <Principal Role="Academia">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ACAD_FAQS">
-              <PropertyRef Name="CD_ACADEMIA" />
+            <Dependent Role="Faq">
+              <PropertyRef Name="IdAcademia" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ACAD_TESTEMUNHOS_ACAD_ACADEMIAS">
-          <End Type="CollegeModel.ACAD_ACADEMIAS" Role="ACAD_ACADEMIAS" Multiplicity="1" />
-          <End Type="CollegeModel.ACAD_TESTEMUNHOS" Role="ACAD_TESTEMUNHOS" Multiplicity="*" />
+        <Association Name="FK_TestemunhoAcademia">
+          <End Type="CollegeModel.Academia" Role="Academia" Multiplicity="1" />
+          <End Type="CollegeModel.Testemunho" Role="Testemunho" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ACAD_ACADEMIAS">
-              <PropertyRef Name="CD_ACADEMIA" />
+            <Principal Role="Academia">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ACAD_TESTEMUNHOS">
-              <PropertyRef Name="CD_ACADEMIA" />
+            <Dependent Role="Testemunho">
+              <PropertyRef Name="IdAcademia" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ACAD_USUARIOS_ACAD_ACADEMIAS">
-          <End Type="CollegeModel.ACAD_ACADEMIAS" Role="ACAD_ACADEMIAS" Multiplicity="1" />
-          <End Type="CollegeModel.ACAD_USUARIOS" Role="ACAD_USUARIOS" Multiplicity="*" />
+        <Association Name="FK_UsuarioAcademia">
+          <End Type="CollegeModel.Academia" Role="Academia" Multiplicity="1" />
+          <End Type="CollegeModel.Usuario" Role="Usuario" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ACAD_ACADEMIAS">
-              <PropertyRef Name="CD_ACADEMIA" />
+            <Principal Role="Academia">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ACAD_USUARIOS">
-              <PropertyRef Name="CD_ACADEMIA" />
+            <Dependent Role="Usuario">
+              <PropertyRef Name="IdAcademia" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ACAD_AREAS_CURSOS_ACAD_AREAS">
-          <End Type="CollegeModel.ACAD_AREAS" Role="ACAD_AREAS" Multiplicity="1" />
-          <End Type="CollegeModel.ACAD_AREAS_CURSOS" Role="ACAD_AREAS_CURSOS" Multiplicity="*" />
+        <Association Name="FK_AreaCursoArea">
+          <End Type="CollegeModel.Area" Role="Area" Multiplicity="1" />
+          <End Type="CollegeModel.AreaCurso" Role="AreaCurso" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ACAD_AREAS">
-              <PropertyRef Name="CD_AREA" />
+            <Principal Role="Area">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ACAD_AREAS_CURSOS">
-              <PropertyRef Name="CD_AREA" />
+            <Dependent Role="AreaCurso">
+              <PropertyRef Name="IdArea" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ACAD_AREAS_CURSOS_ACAD_CURSOS">
-          <End Type="CollegeModel.ACAD_CURSOS" Role="ACAD_CURSOS" Multiplicity="1" />
-          <End Type="CollegeModel.ACAD_AREAS_CURSOS" Role="ACAD_AREAS_CURSOS" Multiplicity="*" />
+        <Association Name="FK_AreaCursoCurso">
+          <End Type="CollegeModel.Curso" Role="Curso" Multiplicity="1" />
+          <End Type="CollegeModel.AreaCurso" Role="AreaCurso" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ACAD_CURSOS">
-              <PropertyRef Name="CD_CURSO" />
+            <Principal Role="Curso">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ACAD_AREAS_CURSOS">
-              <PropertyRef Name="CD_CURSO" />
+            <Dependent Role="AreaCurso">
+              <PropertyRef Name="IdCurso" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ACAD_BLOCOS_ACAD_MODULOS">
-          <End Type="CollegeModel.ACAD_MODULOS" Role="ACAD_MODULOS" Multiplicity="1" />
-          <End Type="CollegeModel.ACAD_BLOCOS" Role="ACAD_BLOCOS" Multiplicity="*" />
+        <Association Name="FK_BlocoModulo">
+          <End Type="CollegeModel.Modulo" Role="Modulo" Multiplicity="1" />
+          <End Type="CollegeModel.Bloco" Role="Bloco" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ACAD_MODULOS">
-              <PropertyRef Name="CD_MODULO" />
+            <Principal Role="Modulo">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ACAD_BLOCOS">
-              <PropertyRef Name="CD_MODULO" />
+            <Dependent Role="Bloco">
+              <PropertyRef Name="IdModulo" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ACAD_EXERCICIOS_ACAD_BLOCOS">
-          <End Type="CollegeModel.ACAD_BLOCOS" Role="ACAD_BLOCOS" Multiplicity="1" />
-          <End Type="CollegeModel.ACAD_EXERCICIOS" Role="ACAD_EXERCICIOS" Multiplicity="*" />
+        <Association Name="FK_ExercicioBloco">
+          <End Type="CollegeModel.Bloco" Role="Bloco" Multiplicity="1" />
+          <End Type="CollegeModel.Exercicio" Role="Exercicio" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ACAD_BLOCOS">
-              <PropertyRef Name="CD_BLOCO" />
+            <Principal Role="Bloco">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ACAD_EXERCICIOS">
-              <PropertyRef Name="CD_BLOCO" />
+            <Dependent Role="Exercicio">
+              <PropertyRef Name="IdBloco" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ACAD_USUARIOS_BLOCOS_ACAD_BLOCOS">
-          <End Type="CollegeModel.ACAD_BLOCOS" Role="ACAD_BLOCOS" Multiplicity="1" />
-          <End Type="CollegeModel.ACAD_USUARIOS_BLOCOS" Role="ACAD_USUARIOS_BLOCOS" Multiplicity="*" />
+        <Association Name="FK_UsuarioBlocoBloco">
+          <End Type="CollegeModel.Bloco" Role="Bloco" Multiplicity="1" />
+          <End Type="CollegeModel.UsuarioBloco" Role="UsuarioBloco" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ACAD_BLOCOS">
-              <PropertyRef Name="CD_BLOCO" />
+            <Principal Role="Bloco">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ACAD_USUARIOS_BLOCOS">
-              <PropertyRef Name="CD_BLOCO" />
+            <Dependent Role="UsuarioBloco">
+              <PropertyRef Name="IdBloco" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ACAD_CODIGOS_ACAD_CURSOS">
-          <End Type="CollegeModel.ACAD_CURSOS" Role="ACAD_CURSOS" Multiplicity="1" />
-          <End Type="CollegeModel.ACAD_CODIGOS" Role="ACAD_CODIGOS" Multiplicity="*" />
+        <Association Name="FK_CodigoCurso">
+          <End Type="CollegeModel.Curso" Role="Curso" Multiplicity="1" />
+          <End Type="CollegeModel.Codigo" Role="Codigo" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ACAD_CURSOS">
-              <PropertyRef Name="CD_CURSO" />
+            <Principal Role="Curso">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ACAD_CODIGOS">
-              <PropertyRef Name="CD_CURSO" />
+            <Dependent Role="Codigo">
+              <PropertyRef Name="IdCurso" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ACAD_CURSOS_ACAD_USUARIOS">
-          <End Type="CollegeModel.ACAD_USUARIOS" Role="ACAD_USUARIOS" Multiplicity="1" />
-          <End Type="CollegeModel.ACAD_CURSOS" Role="ACAD_CURSOS" Multiplicity="*" />
+        <Association Name="FK_CursoUsuario">
+          <End Type="CollegeModel.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="CollegeModel.Curso" Role="Curso" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ACAD_USUARIOS">
-              <PropertyRef Name="CD_USUARIO" />
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ACAD_CURSOS">
-              <PropertyRef Name="CD_PROFESSOR" />
+            <Dependent Role="Curso">
+              <PropertyRef Name="IdProfessor" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ACAD_MATRICULAS_ACAD_CURSOS">
-          <End Type="CollegeModel.ACAD_CURSOS" Role="ACAD_CURSOS" Multiplicity="1" />
-          <End Type="CollegeModel.ACAD_MATRICULAS" Role="ACAD_MATRICULAS" Multiplicity="*" />
+        <Association Name="FK_MatriculaCurso">
+          <End Type="CollegeModel.Curso" Role="Curso" Multiplicity="1" />
+          <End Type="CollegeModel.Matricula" Role="Matricula" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ACAD_CURSOS">
-              <PropertyRef Name="CD_CURSO" />
+            <Principal Role="Curso">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ACAD_MATRICULAS">
-              <PropertyRef Name="CD_CURSO" />
+            <Dependent Role="Matricula">
+              <PropertyRef Name="IdCurso" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ACAD_MODULOS_ACAD_CURSOS">
-          <End Type="CollegeModel.ACAD_CURSOS" Role="ACAD_CURSOS" Multiplicity="1" />
-          <End Type="CollegeModel.ACAD_MODULOS" Role="ACAD_MODULOS" Multiplicity="*" />
+        <Association Name="FK_ModuloCurso">
+          <End Type="CollegeModel.Curso" Role="Curso" Multiplicity="1" />
+          <End Type="CollegeModel.Modulo" Role="Modulo" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ACAD_CURSOS">
-              <PropertyRef Name="CD_CURSO" />
+            <Principal Role="Curso">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ACAD_MODULOS">
-              <PropertyRef Name="CD_CURSO" />
+            <Dependent Role="Modulo">
+              <PropertyRef Name="IdCurso" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ACAD_USUARIOS_EXERCICIOS_ACAD_EXERCICIOS">
-          <End Type="CollegeModel.ACAD_EXERCICIOS" Role="ACAD_EXERCICIOS" Multiplicity="1" />
-          <End Type="CollegeModel.ACAD_USUARIOS_EXERCICIOS" Role="ACAD_USUARIOS_EXERCICIOS" Multiplicity="*" />
+        <Association Name="FK_UsuarioExercicioExercicio">
+          <End Type="CollegeModel.Exercicio" Role="Exercicio" Multiplicity="1" />
+          <End Type="CollegeModel.UsuarioExercicio" Role="UsuarioExercicio" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ACAD_EXERCICIOS">
-              <PropertyRef Name="CD_EXERCICIO" />
+            <Principal Role="Exercicio">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ACAD_USUARIOS_EXERCICIOS">
-              <PropertyRef Name="CD_EXERCICIO" />
+            <Dependent Role="UsuarioExercicio">
+              <PropertyRef Name="IdExercicio" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ACAD_MATRICULAS_ACAD_USUARIOS">
-          <End Type="CollegeModel.ACAD_USUARIOS" Role="ACAD_USUARIOS" Multiplicity="1" />
-          <End Type="CollegeModel.ACAD_MATRICULAS" Role="ACAD_MATRICULAS" Multiplicity="*" />
+        <Association Name="FK_MatriculaUsuario">
+          <End Type="CollegeModel.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="CollegeModel.Matricula" Role="Matricula" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ACAD_USUARIOS">
-              <PropertyRef Name="CD_USUARIO" />
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ACAD_MATRICULAS">
-              <PropertyRef Name="CD_USUARIO" />
+            <Dependent Role="Matricula">
+              <PropertyRef Name="IdUsuario" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ACAD_USUARIOS_EXERCICIOS_ACAD_MATRICULAS">
-          <End Type="CollegeModel.ACAD_MATRICULAS" Role="ACAD_MATRICULAS" Multiplicity="1" />
-          <End Type="CollegeModel.ACAD_USUARIOS_EXERCICIOS" Role="ACAD_USUARIOS_EXERCICIOS" Multiplicity="*" />
+        <Association Name="FK_UsuarioExercicioMatricula">
+          <End Type="CollegeModel.Matricula" Role="Matricula" Multiplicity="1" />
+          <End Type="CollegeModel.UsuarioExercicio" Role="UsuarioExercicio" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ACAD_MATRICULAS">
-              <PropertyRef Name="CD_MATRICULA" />
+            <Principal Role="Matricula">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ACAD_USUARIOS_EXERCICIOS">
-              <PropertyRef Name="CD_MATRICULA" />
+            <Dependent Role="UsuarioExercicio">
+              <PropertyRef Name="IdMatricula" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ACAD_USUARIOS_PROVAS_QUESTOES_ACAD_MATRICULAS">
-          <End Type="CollegeModel.ACAD_MATRICULAS" Role="ACAD_MATRICULAS" Multiplicity="1" />
-          <End Type="CollegeModel.ACAD_USUARIOS_PROVAS_QUESTOES" Role="ACAD_USUARIOS_PROVAS_QUESTOES" Multiplicity="*" />
+        <Association Name="FK_UsuarioProvaQuestaoMatricula">
+          <End Type="CollegeModel.Matricula" Role="Matricula" Multiplicity="1" />
+          <End Type="CollegeModel.UsuarioProvaQuestao" Role="UsuarioProvaQuestao" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ACAD_MATRICULAS">
-              <PropertyRef Name="CD_MATRICULA" />
+            <Principal Role="Matricula">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ACAD_USUARIOS_PROVAS_QUESTOES">
-              <PropertyRef Name="CD_MATRICULA" />
+            <Dependent Role="UsuarioProvaQuestao">
+              <PropertyRef Name="IdMatricula" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ACAD_QUESTOES_ACAD_MODULOS">
-          <End Type="CollegeModel.ACAD_MODULOS" Role="ACAD_MODULOS" Multiplicity="1" />
-          <End Type="CollegeModel.ACAD_QUESTOES" Role="ACAD_QUESTOES" Multiplicity="*" />
+        <Association Name="FK_QuestaoModulo">
+          <End Type="CollegeModel.Modulo" Role="Modulo" Multiplicity="1" />
+          <End Type="CollegeModel.Questao" Role="Questao" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ACAD_MODULOS">
-              <PropertyRef Name="CD_MODULO" />
+            <Principal Role="Modulo">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ACAD_QUESTOES">
-              <PropertyRef Name="CD_MODULO" />
+            <Dependent Role="Questao">
+              <PropertyRef Name="IdModulo" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ACAD_RECURSOS_ACAD_MODULOS">
-          <End Type="CollegeModel.ACAD_MODULOS" Role="ACAD_MODULOS" Multiplicity="1" />
-          <End Type="CollegeModel.ACAD_RECURSOS" Role="ACAD_RECURSOS" Multiplicity="*" />
+        <Association Name="FK_RecursoModulo">
+          <End Type="CollegeModel.Modulo" Role="Modulo" Multiplicity="1" />
+          <End Type="CollegeModel.Recurso" Role="Recurso" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ACAD_MODULOS">
-              <PropertyRef Name="CD_MODULO" />
+            <Principal Role="Modulo">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ACAD_RECURSOS">
-              <PropertyRef Name="CD_MODULO" />
+            <Dependent Role="Recurso">
+              <PropertyRef Name="IdModulo" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ACAD_USUARIOS_PROVAS_QUESTOES_ACAD_QUESTOES">
-          <End Type="CollegeModel.ACAD_QUESTOES" Role="ACAD_QUESTOES" Multiplicity="1" />
-          <End Type="CollegeModel.ACAD_USUARIOS_PROVAS_QUESTOES" Role="ACAD_USUARIOS_PROVAS_QUESTOES" Multiplicity="*" />
+        <Association Name="FK_UsuarioProvaQuestaoQuestao">
+          <End Type="CollegeModel.Questao" Role="Questao" Multiplicity="1" />
+          <End Type="CollegeModel.UsuarioProvaQuestao" Role="UsuarioProvaQuestao" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ACAD_QUESTOES">
-              <PropertyRef Name="CD_QUESTAO" />
+            <Principal Role="Questao">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ACAD_USUARIOS_PROVAS_QUESTOES">
-              <PropertyRef Name="CD_QUESTAO" />
+            <Dependent Role="UsuarioProvaQuestao">
+              <PropertyRef Name="IdQuestao" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ACAD_USUARIOS_BLOCOS_ACAD_USUARIOS">
-          <End Type="CollegeModel.ACAD_USUARIOS" Role="ACAD_USUARIOS" Multiplicity="1" />
-          <End Type="CollegeModel.ACAD_USUARIOS_BLOCOS" Role="ACAD_USUARIOS_BLOCOS" Multiplicity="*" />
+        <Association Name="FK_UsuarioBlocoUsuario">
+          <End Type="CollegeModel.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="CollegeModel.UsuarioBloco" Role="UsuarioBloco" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ACAD_USUARIOS">
-              <PropertyRef Name="CD_USUARIO" />
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ACAD_USUARIOS_BLOCOS">
-              <PropertyRef Name="CD_USUARIO" />
+            <Dependent Role="UsuarioBloco">
+              <PropertyRef Name="IdUsuario" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ACAD_USUARIOS_EXERCICIOS_ACAD_USUARIOS">
-          <End Type="CollegeModel.ACAD_USUARIOS" Role="ACAD_USUARIOS" Multiplicity="1" />
-          <End Type="CollegeModel.ACAD_USUARIOS_EXERCICIOS" Role="ACAD_USUARIOS_EXERCICIOS" Multiplicity="*" />
+        <Association Name="FK_UsuarioExercicioUsuario">
+          <End Type="CollegeModel.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="CollegeModel.UsuarioExercicio" Role="UsuarioExercicio" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ACAD_USUARIOS">
-              <PropertyRef Name="CD_USUARIO" />
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ACAD_USUARIOS_EXERCICIOS">
-              <PropertyRef Name="CD_USUARIO" />
+            <Dependent Role="UsuarioExercicio">
+              <PropertyRef Name="IdUsuario" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ACAD_USUARIOS_PROVAS_QUESTOES_ACAD_USUARIOS">
-          <End Type="CollegeModel.ACAD_USUARIOS" Role="ACAD_USUARIOS" Multiplicity="1" />
-          <End Type="CollegeModel.ACAD_USUARIOS_PROVAS_QUESTOES" Role="ACAD_USUARIOS_PROVAS_QUESTOES" Multiplicity="*" />
+        <Association Name="FK_UsuarioProvaQuestaoUsuario">
+          <End Type="CollegeModel.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="CollegeModel.UsuarioProvaQuestao" Role="UsuarioProvaQuestao" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ACAD_USUARIOS">
-              <PropertyRef Name="CD_USUARIO" />
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ACAD_USUARIOS_PROVAS_QUESTOES">
-              <PropertyRef Name="CD_USUARIO" />
+            <Dependent Role="UsuarioProvaQuestao">
+              <PropertyRef Name="IdUsuario" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1375,258 +1375,258 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="SivaServerModelStoreContainer" CdmEntityContainer="CollegeEntities">
-          <EntitySetMapping Name="ACAD_ACADEMIAS">
-            <EntityTypeMapping TypeName="CollegeModel.ACAD_ACADEMIAS">
-              <MappingFragment StoreEntitySet="ACAD_ACADEMIAS">
-                <ScalarProperty Name="FL_ATIVO" ColumnName="FL_ATIVO" />
-                <ScalarProperty Name="DT_CRIACAO" ColumnName="DT_CRIACAO" />
-                <ScalarProperty Name="TX_CEP" ColumnName="TX_CEP" />
-                <ScalarProperty Name="TX_ESTADO" ColumnName="TX_ESTADO" />
-                <ScalarProperty Name="TX_CIDADE" ColumnName="TX_CIDADE" />
-                <ScalarProperty Name="TX_BAIRRO" ColumnName="TX_BAIRRO" />
-                <ScalarProperty Name="TX_COMPLEMENTO" ColumnName="TX_COMPLEMENTO" />
-                <ScalarProperty Name="TX_NUMERO" ColumnName="TX_NUMERO" />
-                <ScalarProperty Name="TX_ENDERECO" ColumnName="TX_ENDERECO" />
-                <ScalarProperty Name="TX_TEL" ColumnName="TX_TEL" />
-                <ScalarProperty Name="TX_CNPJ" ColumnName="TX_CNPJ" />
-                <ScalarProperty Name="TX_META_REVISITE_AFTER" ColumnName="TX_META_REVISITE_AFTER" />
-                <ScalarProperty Name="TX_META_GENERATOR" ColumnName="TX_META_GENERATOR" />
-                <ScalarProperty Name="TX_META_GOOGLEBOT" ColumnName="TX_META_GOOGLEBOT" />
-                <ScalarProperty Name="TX_META_ROBOTS" ColumnName="TX_META_ROBOTS" />
-                <ScalarProperty Name="TX_META_KEYWORDS" ColumnName="TX_META_KEYWORDS" />
-                <ScalarProperty Name="TX_META_DESCRIPTION" ColumnName="TX_META_DESCRIPTION" />
-                <ScalarProperty Name="TX_URL" ColumnName="TX_URL" />
-                <ScalarProperty Name="TX_URL_BASE" ColumnName="TX_URL_BASE" />
-                <ScalarProperty Name="TX_SMTP_PORTA" ColumnName="TX_SMTP_PORTA" />
-                <ScalarProperty Name="TX_SMTP" ColumnName="TX_SMTP" />
-                <ScalarProperty Name="TX_SENHA_EMAIL" ColumnName="TX_SENHA_EMAIL" />
-                <ScalarProperty Name="TX_EMAIL" ColumnName="TX_EMAIL" />
-                <ScalarProperty Name="TX_DESCRICAO" ColumnName="TX_DESCRICAO" />
-                <ScalarProperty Name="NM_ACADEMIA" ColumnName="NM_ACADEMIA" />
-                <ScalarProperty Name="CD_ACADEMIA" ColumnName="CD_ACADEMIA" />
+          <EntitySetMapping Name="Academia">
+            <EntityTypeMapping TypeName="CollegeModel.Academia">
+              <MappingFragment StoreEntitySet="Academia">
+                <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="Cep" ColumnName="Cep" />
+                <ScalarProperty Name="Uf" ColumnName="Uf" />
+                <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+                <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+                <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+                <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+                <ScalarProperty Name="Cnpj" ColumnName="Cnpj" />
+                <ScalarProperty Name="MetaRevisiteAfter" ColumnName="MetaRevisiteAfter" />
+                <ScalarProperty Name="MetaGenerator" ColumnName="MetaGenerator" />
+                <ScalarProperty Name="MetaGoogleBot" ColumnName="MetaGoogleBot" />
+                <ScalarProperty Name="MetaRobots" ColumnName="MetaRobots" />
+                <ScalarProperty Name="MetaKeywords" ColumnName="MetaKeywords" />
+                <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="UrlBase" ColumnName="UrlBase" />
+                <ScalarProperty Name="SmtpPorta" ColumnName="SmtpPorta" />
+                <ScalarProperty Name="Smtp" ColumnName="Smtp" />
+                <ScalarProperty Name="SenhaEmail" ColumnName="SenhaEmail" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ACAD_AREAS">
-            <EntityTypeMapping TypeName="CollegeModel.ACAD_AREAS">
-              <MappingFragment StoreEntitySet="ACAD_AREAS">
-                <ScalarProperty Name="NM_AREA" ColumnName="NM_AREA" />
-                <ScalarProperty Name="CD_AREA" ColumnName="CD_AREA" />
+          <EntitySetMapping Name="Area">
+            <EntityTypeMapping TypeName="CollegeModel.Area">
+              <MappingFragment StoreEntitySet="Area">
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ACAD_AREAS_CURSOS">
-            <EntityTypeMapping TypeName="CollegeModel.ACAD_AREAS_CURSOS">
-              <MappingFragment StoreEntitySet="ACAD_AREAS_CURSOS">
-                <ScalarProperty Name="CD_CURSO" ColumnName="CD_CURSO" />
-                <ScalarProperty Name="CD_AREA" ColumnName="CD_AREA" />
-                <ScalarProperty Name="CD_AREA_CURSO" ColumnName="CD_AREA_CURSO" />
+          <EntitySetMapping Name="AreaCurso">
+            <EntityTypeMapping TypeName="CollegeModel.AreaCurso">
+              <MappingFragment StoreEntitySet="AreaCurso">
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+                <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ACAD_BANNERS">
-            <EntityTypeMapping TypeName="CollegeModel.ACAD_BANNERS">
-              <MappingFragment StoreEntitySet="ACAD_BANNERS">
-                <ScalarProperty Name="FL_ATIVO" ColumnName="FL_ATIVO" />
-                <ScalarProperty Name="DT_DATA" ColumnName="DT_DATA" />
-                <ScalarProperty Name="DT_FINAL" ColumnName="DT_FINAL" />
-                <ScalarProperty Name="DT_INICIO" ColumnName="DT_INICIO" />
-                <ScalarProperty Name="TX_CAPTION2" ColumnName="TX_CAPTION2" />
-                <ScalarProperty Name="TX_CAPTION" ColumnName="TX_CAPTION" />
-                <ScalarProperty Name="CD_ACADEMIA" ColumnName="CD_ACADEMIA" />
-                <ScalarProperty Name="CD_BANNER" ColumnName="CD_BANNER" />
+          <EntitySetMapping Name="Banner">
+            <EntityTypeMapping TypeName="CollegeModel.Banner">
+              <MappingFragment StoreEntitySet="Banner">
+                <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="DataFinal" ColumnName="DataFinal" />
+                <ScalarProperty Name="DataInicio" ColumnName="DataInicio" />
+                <ScalarProperty Name="Caption2" ColumnName="Caption2" />
+                <ScalarProperty Name="Caption" ColumnName="Caption" />
+                <ScalarProperty Name="IdAcademia" ColumnName="IdAcademia" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ACAD_BLOCOS">
-            <EntityTypeMapping TypeName="CollegeModel.ACAD_BLOCOS">
-              <MappingFragment StoreEntitySet="ACAD_BLOCOS">
-                <ScalarProperty Name="NR_ORDEM" ColumnName="NR_ORDEM" />
-                <ScalarProperty Name="NM_PAGE" ColumnName="NM_PAGE" />
-                <ScalarProperty Name="NM_BLOCO" ColumnName="NM_BLOCO" />
-                <ScalarProperty Name="CD_MODULO" ColumnName="CD_MODULO" />
-                <ScalarProperty Name="CD_BLOCO" ColumnName="CD_BLOCO" />
+          <EntitySetMapping Name="Bloco">
+            <EntityTypeMapping TypeName="CollegeModel.Bloco">
+              <MappingFragment StoreEntitySet="Bloco">
+                <ScalarProperty Name="Ordem" ColumnName="Ordem" />
+                <ScalarProperty Name="Pagina" ColumnName="Pagina" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="IdModulo" ColumnName="IdModulo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ACAD_CODIGOS">
-            <EntityTypeMapping TypeName="CollegeModel.ACAD_CODIGOS">
-              <MappingFragment StoreEntitySet="ACAD_CODIGOS">
-                <ScalarProperty Name="FL_ATIVO" ColumnName="FL_ATIVO" />
-                <ScalarProperty Name="DT_DATA" ColumnName="DT_DATA" />
-                <ScalarProperty Name="CD_CURSO" ColumnName="CD_CURSO" />
-                <ScalarProperty Name="CD_CODIGO" ColumnName="CD_CODIGO" />
+          <EntitySetMapping Name="Codigo">
+            <EntityTypeMapping TypeName="CollegeModel.Codigo">
+              <MappingFragment StoreEntitySet="Codigo">
+                <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ACAD_CURSOS">
-            <EntityTypeMapping TypeName="CollegeModel.ACAD_CURSOS">
-              <MappingFragment StoreEntitySet="ACAD_CURSOS">
-                <ScalarProperty Name="NR_ORDEM" ColumnName="NR_ORDEM" />
-                <ScalarProperty Name="FL_ATIVO" ColumnName="FL_ATIVO" />
-                <ScalarProperty Name="DT_DATA" ColumnName="DT_DATA" />
-                <ScalarProperty Name="VL_CURSO" ColumnName="VL_CURSO" />
-                <ScalarProperty Name="TX_MOEDA" ColumnName="TX_MOEDA" />
-                <ScalarProperty Name="TX_EMAIL" ColumnName="TX_EMAIL" />
-                <ScalarProperty Name="TX_DESCRICAO" ColumnName="TX_DESCRICAO" />
-                <ScalarProperty Name="TX_RESUMO" ColumnName="TX_RESUMO" />
-                <ScalarProperty Name="NM_CURSO" ColumnName="NM_CURSO" />
-                <ScalarProperty Name="CD_PROFESSOR" ColumnName="CD_PROFESSOR" />
-                <ScalarProperty Name="CD_ACADEMIA" ColumnName="CD_ACADEMIA" />
-                <ScalarProperty Name="CD_CURSO" ColumnName="CD_CURSO" />
+          <EntitySetMapping Name="Curso">
+            <EntityTypeMapping TypeName="CollegeModel.Curso">
+              <MappingFragment StoreEntitySet="Curso">
+                <ScalarProperty Name="Ordem" ColumnName="Ordem" />
+                <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="Moeda" ColumnName="Moeda" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Resumo" ColumnName="Resumo" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="IdProfessor" ColumnName="IdProfessor" />
+                <ScalarProperty Name="IdAcademia" ColumnName="IdAcademia" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ACAD_EVENTOS">
-            <EntityTypeMapping TypeName="CollegeModel.ACAD_EVENTOS">
-              <MappingFragment StoreEntitySet="ACAD_EVENTOS">
-                <ScalarProperty Name="FL_ATIVO" ColumnName="FL_ATIVO" />
-                <ScalarProperty Name="DT_DATA" ColumnName="DT_DATA" />
-                <ScalarProperty Name="TX_DESCRICAO" ColumnName="TX_DESCRICAO" />
-                <ScalarProperty Name="TX_URL" ColumnName="TX_URL" />
-                <ScalarProperty Name="DT_FINAL" ColumnName="DT_FINAL" />
-                <ScalarProperty Name="DT_INICIO" ColumnName="DT_INICIO" />
-                <ScalarProperty Name="NM_EVENTO" ColumnName="NM_EVENTO" />
-                <ScalarProperty Name="CD_ACADEMIA" ColumnName="CD_ACADEMIA" />
-                <ScalarProperty Name="CD_EVENTO" ColumnName="CD_EVENTO" />
+          <EntitySetMapping Name="Evento">
+            <EntityTypeMapping TypeName="CollegeModel.Evento">
+              <MappingFragment StoreEntitySet="Evento">
+                <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="DataFinal" ColumnName="DataFinal" />
+                <ScalarProperty Name="DataInicio" ColumnName="DataInicio" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="IdAcademia" ColumnName="IdAcademia" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ACAD_EXERCICIOS">
-            <EntityTypeMapping TypeName="CollegeModel.ACAD_EXERCICIOS">
-              <MappingFragment StoreEntitySet="ACAD_EXERCICIOS">
-                <ScalarProperty Name="NR_ORDEM" ColumnName="NR_ORDEM" />
-                <ScalarProperty Name="TX_GABARITO" ColumnName="TX_GABARITO" />
-                <ScalarProperty Name="TX_PERGUNTA" ColumnName="TX_PERGUNTA" />
-                <ScalarProperty Name="CD_BLOCO" ColumnName="CD_BLOCO" />
-                <ScalarProperty Name="CD_EXERCICIO" ColumnName="CD_EXERCICIO" />
+          <EntitySetMapping Name="Exercicio">
+            <EntityTypeMapping TypeName="CollegeModel.Exercicio">
+              <MappingFragment StoreEntitySet="Exercicio">
+                <ScalarProperty Name="Ordem" ColumnName="Ordem" />
+                <ScalarProperty Name="Gabarito" ColumnName="Gabarito" />
+                <ScalarProperty Name="Pergunta" ColumnName="Pergunta" />
+                <ScalarProperty Name="IdBloco" ColumnName="IdBloco" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ACAD_FAQS">
-            <EntityTypeMapping TypeName="CollegeModel.ACAD_FAQS">
-              <MappingFragment StoreEntitySet="ACAD_FAQS">
-                <ScalarProperty Name="NR_ORDEM" ColumnName="NR_ORDEM" />
-                <ScalarProperty Name="TX_RESPOSTA" ColumnName="TX_RESPOSTA" />
-                <ScalarProperty Name="TX_PERGUNTA" ColumnName="TX_PERGUNTA" />
-                <ScalarProperty Name="CD_ACADEMIA" ColumnName="CD_ACADEMIA" />
-                <ScalarProperty Name="CD_FAQ" ColumnName="CD_FAQ" />
+          <EntitySetMapping Name="Faq">
+            <EntityTypeMapping TypeName="CollegeModel.Faq">
+              <MappingFragment StoreEntitySet="Faq">
+                <ScalarProperty Name="Ordem" ColumnName="Ordem" />
+                <ScalarProperty Name="Resposta" ColumnName="Resposta" />
+                <ScalarProperty Name="Pergunta" ColumnName="Pergunta" />
+                <ScalarProperty Name="IdAcademia" ColumnName="IdAcademia" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ACAD_MATRICULAS">
-            <EntityTypeMapping TypeName="CollegeModel.ACAD_MATRICULAS">
-              <MappingFragment StoreEntitySet="ACAD_MATRICULAS">
-                <ScalarProperty Name="DT_DATA" ColumnName="DT_DATA" />
-                <ScalarProperty Name="TX_TRANSACAO" ColumnName="TX_TRANSACAO" />
-                <ScalarProperty Name="TX_CODIGO" ColumnName="TX_CODIGO" />
-                <ScalarProperty Name="CD_CURSO" ColumnName="CD_CURSO" />
-                <ScalarProperty Name="CD_USUARIO" ColumnName="CD_USUARIO" />
-                <ScalarProperty Name="CD_MATRICULA" ColumnName="CD_MATRICULA" />
+          <EntitySetMapping Name="Matricula">
+            <EntityTypeMapping TypeName="CollegeModel.Matricula">
+              <MappingFragment StoreEntitySet="Matricula">
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="Transacao" ColumnName="Transacao" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ACAD_MODULOS">
-            <EntityTypeMapping TypeName="CollegeModel.ACAD_MODULOS">
-              <MappingFragment StoreEntitySet="ACAD_MODULOS">
-                <ScalarProperty Name="NR_ORDEM" ColumnName="NR_ORDEM" />
-                <ScalarProperty Name="NM_PAGE" ColumnName="NM_PAGE" />
-                <ScalarProperty Name="NM_MODULO" ColumnName="NM_MODULO" />
-                <ScalarProperty Name="CD_CURSO" ColumnName="CD_CURSO" />
-                <ScalarProperty Name="CD_MODULO" ColumnName="CD_MODULO" />
+          <EntitySetMapping Name="Modulo">
+            <EntityTypeMapping TypeName="CollegeModel.Modulo">
+              <MappingFragment StoreEntitySet="Modulo">
+                <ScalarProperty Name="Ordem" ColumnName="Ordem" />
+                <ScalarProperty Name="Pagina" ColumnName="Pagina" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ACAD_QUESTOES">
-            <EntityTypeMapping TypeName="CollegeModel.ACAD_QUESTOES">
-              <MappingFragment StoreEntitySet="ACAD_QUESTOES">
-                <ScalarProperty Name="TX_GABARITO" ColumnName="TX_GABARITO" />
-                <ScalarProperty Name="TX_PERGUNTA" ColumnName="TX_PERGUNTA" />
-                <ScalarProperty Name="CD_MODULO" ColumnName="CD_MODULO" />
-                <ScalarProperty Name="CD_QUESTAO" ColumnName="CD_QUESTAO" />
+          <EntitySetMapping Name="Questao">
+            <EntityTypeMapping TypeName="CollegeModel.Questao">
+              <MappingFragment StoreEntitySet="Questao">
+                <ScalarProperty Name="Gabarito" ColumnName="Gabarito" />
+                <ScalarProperty Name="Pergunta" ColumnName="Pergunta" />
+                <ScalarProperty Name="IdModulo" ColumnName="IdModulo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ACAD_RECURSOS">
-            <EntityTypeMapping TypeName="CollegeModel.ACAD_RECURSOS">
-              <MappingFragment StoreEntitySet="ACAD_RECURSOS">
-                <ScalarProperty Name="NM_PAGE" ColumnName="NM_PAGE" />
-                <ScalarProperty Name="NM_RECURSO" ColumnName="NM_RECURSO" />
-                <ScalarProperty Name="CD_MODULO" ColumnName="CD_MODULO" />
-                <ScalarProperty Name="CD_RECURSO" ColumnName="CD_RECURSO" />
+          <EntitySetMapping Name="Recurso">
+            <EntityTypeMapping TypeName="CollegeModel.Recurso">
+              <MappingFragment StoreEntitySet="Recurso">
+                <ScalarProperty Name="Pagina" ColumnName="Pagina" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="IdModulo" ColumnName="IdModulo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ACAD_TESTEMUNHOS">
-            <EntityTypeMapping TypeName="CollegeModel.ACAD_TESTEMUNHOS">
-              <MappingFragment StoreEntitySet="ACAD_TESTEMUNHOS">
-                <ScalarProperty Name="FL_ATIVO" ColumnName="FL_ATIVO" />
-                <ScalarProperty Name="DT_DATA" ColumnName="DT_DATA" />
-                <ScalarProperty Name="TX_LOCAL" ColumnName="TX_LOCAL" />
-                <ScalarProperty Name="NM_AUTOR" ColumnName="NM_AUTOR" />
-                <ScalarProperty Name="TX_TESTEMUNHO" ColumnName="TX_TESTEMUNHO" />
-                <ScalarProperty Name="CD_ACADEMIA" ColumnName="CD_ACADEMIA" />
-                <ScalarProperty Name="CD_TESTEMUNHO" ColumnName="CD_TESTEMUNHO" />
+          <EntitySetMapping Name="Testemunho">
+            <EntityTypeMapping TypeName="CollegeModel.Testemunho">
+              <MappingFragment StoreEntitySet="Testemunho">
+                <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="Local" ColumnName="Local" />
+                <ScalarProperty Name="Autor" ColumnName="Autor" />
+                <ScalarProperty Name="Testemunho1" ColumnName="Testemunho" />
+                <ScalarProperty Name="IdAcademia" ColumnName="IdAcademia" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ACAD_USUARIOS">
-            <EntityTypeMapping TypeName="CollegeModel.ACAD_USUARIOS">
-              <MappingFragment StoreEntitySet="ACAD_USUARIOS">
-                <ScalarProperty Name="FL_ATIVO" ColumnName="FL_ATIVO" />
-                <ScalarProperty Name="DT_DATA" ColumnName="DT_DATA" />
-                <ScalarProperty Name="TX_IP" ColumnName="TX_IP" />
-                <ScalarProperty Name="TX_SENHA" ColumnName="TX_SENHA" />
-                <ScalarProperty Name="TX_CPF" ColumnName="TX_CPF" />
-                <ScalarProperty Name="TX_CELULAR" ColumnName="TX_CELULAR" />
-                <ScalarProperty Name="TX_TELEFONE" ColumnName="TX_TELEFONE" />
-                <ScalarProperty Name="TX_EMAIL" ColumnName="TX_EMAIL" />
-                <ScalarProperty Name="NM_COMPLETO" ColumnName="NM_COMPLETO" />
-                <ScalarProperty Name="NM_SOBRENOME" ColumnName="NM_SOBRENOME" />
-                <ScalarProperty Name="NM_USUARIO" ColumnName="NM_USUARIO" />
-                <ScalarProperty Name="CD_ACADEMIA" ColumnName="CD_ACADEMIA" />
-                <ScalarProperty Name="CD_USUARIO" ColumnName="CD_USUARIO" />
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="CollegeModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="Ip" ColumnName="Ip" />
+                <ScalarProperty Name="Senha" ColumnName="Senha" />
+                <ScalarProperty Name="Cpf" ColumnName="Cpf" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="NomeCompleto" ColumnName="NomeCompleto" />
+                <ScalarProperty Name="SobreNome" ColumnName="SobreNome" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="IdAcademia" ColumnName="IdAcademia" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ACAD_USUARIOS_BLOCOS">
-            <EntityTypeMapping TypeName="CollegeModel.ACAD_USUARIOS_BLOCOS">
-              <MappingFragment StoreEntitySet="ACAD_USUARIOS_BLOCOS">
-                <ScalarProperty Name="CD_BLOCO" ColumnName="CD_BLOCO" />
-                <ScalarProperty Name="CD_USUARIO" ColumnName="CD_USUARIO" />
-                <ScalarProperty Name="CD_USUARIO_BLOCO" ColumnName="CD_USUARIO_BLOCO" />
+          <EntitySetMapping Name="UsuarioBloco">
+            <EntityTypeMapping TypeName="CollegeModel.UsuarioBloco">
+              <MappingFragment StoreEntitySet="UsuarioBloco">
+                <ScalarProperty Name="IdBloco" ColumnName="IdBloco" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ACAD_USUARIOS_EXERCICIOS">
-            <EntityTypeMapping TypeName="CollegeModel.ACAD_USUARIOS_EXERCICIOS">
-              <MappingFragment StoreEntitySet="ACAD_USUARIOS_EXERCICIOS">
-                <ScalarProperty Name="DT_EXERCICIO" ColumnName="DT_EXERCICIO" />
-                <ScalarProperty Name="TX_OBS_CORRECAO" ColumnName="TX_OBS_CORRECAO" />
-                <ScalarProperty Name="TX_RESPOSTA" ColumnName="TX_RESPOSTA" />
-                <ScalarProperty Name="TX_PERGUNTA" ColumnName="TX_PERGUNTA" />
-                <ScalarProperty Name="CD_MATRICULA" ColumnName="CD_MATRICULA" />
-                <ScalarProperty Name="CD_EXERCICIO" ColumnName="CD_EXERCICIO" />
-                <ScalarProperty Name="CD_USUARIO" ColumnName="CD_USUARIO" />
-                <ScalarProperty Name="CD_USUARIO_EXERCICIO" ColumnName="CD_USUARIO_EXERCICIO" />
+          <EntitySetMapping Name="UsuarioExercicio">
+            <EntityTypeMapping TypeName="CollegeModel.UsuarioExercicio">
+              <MappingFragment StoreEntitySet="UsuarioExercicio">
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="ObsCorrecao" ColumnName="ObsCorrecao" />
+                <ScalarProperty Name="Resposta" ColumnName="Resposta" />
+                <ScalarProperty Name="Pergunta" ColumnName="Pergunta" />
+                <ScalarProperty Name="IdMatricula" ColumnName="IdMatricula" />
+                <ScalarProperty Name="IdExercicio" ColumnName="IdExercicio" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ACAD_USUARIOS_PROVAS_QUESTOES">
-            <EntityTypeMapping TypeName="CollegeModel.ACAD_USUARIOS_PROVAS_QUESTOES">
-              <MappingFragment StoreEntitySet="ACAD_USUARIOS_PROVAS_QUESTOES">
-                <ScalarProperty Name="TX_GABARITO" ColumnName="TX_GABARITO" />
-                <ScalarProperty Name="TX_OBS_CORRECAO" ColumnName="TX_OBS_CORRECAO" />
-                <ScalarProperty Name="FL_ACERTO" ColumnName="FL_ACERTO" />
-                <ScalarProperty Name="TX_RESPOSTA" ColumnName="TX_RESPOSTA" />
-                <ScalarProperty Name="TX_PERGUNTA" ColumnName="TX_PERGUNTA" />
-                <ScalarProperty Name="DT_INICIO" ColumnName="DT_INICIO" />
-                <ScalarProperty Name="CD_QUESTAO" ColumnName="CD_QUESTAO" />
-                <ScalarProperty Name="CD_MATRICULA" ColumnName="CD_MATRICULA" />
-                <ScalarProperty Name="CD_USUARIO" ColumnName="CD_USUARIO" />
-                <ScalarProperty Name="CD_PROVA" ColumnName="CD_PROVA" />
+          <EntitySetMapping Name="UsuarioProvaQuestao">
+            <EntityTypeMapping TypeName="CollegeModel.UsuarioProvaQuestao">
+              <MappingFragment StoreEntitySet="UsuarioProvaQuestao">
+                <ScalarProperty Name="Gabarito" ColumnName="Gabarito" />
+                <ScalarProperty Name="ObsCorrecao" ColumnName="ObsCorrecao" />
+                <ScalarProperty Name="Acerto" ColumnName="Acerto" />
+                <ScalarProperty Name="Resposta" ColumnName="Resposta" />
+                <ScalarProperty Name="Pergunta" ColumnName="Pergunta" />
+                <ScalarProperty Name="DataInicio" ColumnName="DataInicio" />
+                <ScalarProperty Name="IdQuestao" ColumnName="IdQuestao" />
+                <ScalarProperty Name="IdMatricula" ColumnName="IdMatricula" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1635,21 +1635,22 @@
     </edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
-  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
-    <Connection>
-      <DesignerInfoPropertySet>
-        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
-      </DesignerInfoPropertySet>
-    </Connection>
-    <Options>
-      <DesignerInfoPropertySet>
-        <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="False" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
-      </DesignerInfoPropertySet>
-    </Options>
+  <edmx:Designer>
+    <edmx:Connection>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <edmx:DesignerProperty Name="EnablePluralization" Value="False" />
+        <edmx:DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <edmx:DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <edmx:DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
-    <Diagrams />
-  </Designer>
+    <edmx:Diagrams />
+  </edmx:Designer>
 </edmx:Edmx>

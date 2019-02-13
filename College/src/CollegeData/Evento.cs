@@ -12,13 +12,18 @@ namespace CollegeData
     using System;
     using System.Collections.Generic;
     
-    public partial class ACAD_AREAS_CURSOS
+    public partial class Evento
     {
-        public long CD_AREA_CURSO { get; set; }
-        public int CD_AREA { get; set; }
-        public long CD_CURSO { get; set; }
+        public int Id { get; set; }
+        public int IdAcademia { get; set; }
+        public string Nome { get; set; }
+        public System.DateTime DataInicio { get; set; }
+        public Nullable<System.DateTime> DataFinal { get; set; }
+        public string Url { get; set; }
+        public string Descricao { get; set; }
+        public System.DateTime DataCriacao { get; set; }
+        public bool Ativo { get; set; }
     
-        public virtual ACAD_AREAS ACAD_AREAS { get; set; }
-        public virtual ACAD_CURSOS ACAD_CURSOS { get; set; }
+        public virtual Academia Academia { get; set; }
     }
 }

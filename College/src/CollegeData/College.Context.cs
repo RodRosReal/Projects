@@ -26,24 +26,24 @@ namespace CollegeData
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<ACAD_ACADEMIAS> ACAD_ACADEMIAS { get; set; }
-        public DbSet<ACAD_AREAS> ACAD_AREAS { get; set; }
-        public DbSet<ACAD_AREAS_CURSOS> ACAD_AREAS_CURSOS { get; set; }
-        public DbSet<ACAD_BANNERS> ACAD_BANNERS { get; set; }
-        public DbSet<ACAD_BLOCOS> ACAD_BLOCOS { get; set; }
-        public DbSet<ACAD_CODIGOS> ACAD_CODIGOS { get; set; }
-        public DbSet<ACAD_CURSOS> ACAD_CURSOS { get; set; }
-        public DbSet<ACAD_EVENTOS> ACAD_EVENTOS { get; set; }
-        public DbSet<ACAD_EXERCICIOS> ACAD_EXERCICIOS { get; set; }
-        public DbSet<ACAD_FAQS> ACAD_FAQS { get; set; }
-        public DbSet<ACAD_MATRICULAS> ACAD_MATRICULAS { get; set; }
-        public DbSet<ACAD_MODULOS> ACAD_MODULOS { get; set; }
-        public DbSet<ACAD_QUESTOES> ACAD_QUESTOES { get; set; }
-        public DbSet<ACAD_RECURSOS> ACAD_RECURSOS { get; set; }
-        public DbSet<ACAD_TESTEMUNHOS> ACAD_TESTEMUNHOS { get; set; }
-        public DbSet<ACAD_USUARIOS> ACAD_USUARIOS { get; set; }
-        public DbSet<ACAD_USUARIOS_BLOCOS> ACAD_USUARIOS_BLOCOS { get; set; }
-        public DbSet<ACAD_USUARIOS_EXERCICIOS> ACAD_USUARIOS_EXERCICIOS { get; set; }
-        public DbSet<ACAD_USUARIOS_PROVAS_QUESTOES> ACAD_USUARIOS_PROVAS_QUESTOES { get; set; }
+        public DbSet<Academia> Academia { get; set; }
+        public DbSet<Area> Area { get; set; }
+        public DbSet<AreaCurso> AreaCurso { get; set; }
+        public DbSet<Banner> Banner { get; set; }
+        public DbSet<Bloco> Bloco { get; set; }
+        public DbSet<Codigo> Codigo { get; set; }
+        public DbSet<Curso> Curso { get; set; }
+        public DbSet<Evento> Evento { get; set; }
+        public DbSet<Exercicio> Exercicio { get; set; }
+        public DbSet<Faq> Faq { get; set; }
+        public DbSet<Matricula> Matricula { get; set; }
+        public DbSet<Modulo> Modulo { get; set; }
+        public DbSet<Questao> Questao { get; set; }
+        public DbSet<Recurso> Recurso { get; set; }
+        public DbSet<Testemunho> Testemunho { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<UsuarioBloco> UsuarioBloco { get; set; }
+        public DbSet<UsuarioExercicio> UsuarioExercicio { get; set; }
+        public DbSet<UsuarioProvaQuestao> UsuarioProvaQuestao { get; set; }
     }
 }

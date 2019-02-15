@@ -1,0 +1,85 @@
+<#@ import namespace="System" #>
+<#@ import namespace="System.Collections.Generic" #>
+
+<#+
+public class ServiceInterfaceTemplate : Template
+{
+	private readonly string rootNamespace;
+	private readonly string serviceName;
+	private readonly List<String> operations;
+	private readonly string generatorName;
+	private readonly string generatorVersion;
+	private readonly bool hasGeneratorInfo;
+    public bool GenerateWcfDecorators {get;set;}
+
+	public ServiceInterfaceTemplate(
+		string rootNamespace, 
+		string serviceName, 
+		List<String> operations)
+	{
+		this.rootNamespace = rootNamespace;
+		this.serviceName = serviceName;
+		this.operations = operations;
+		this.hasGeneratorInfo = false;
+		this.GenerateWcfDecorators = true;
+	}
+	
+	public ServiceInterfaceTemplate(
+		string rootNamespace, 
+		string serviceName, 
+		List<String> operations,
+		string generatorName,
+		string generatorVersion)
+	{
+		this.rootNamespace = rootNamespace;
+		this.serviceName = serviceName;
+		this.operations = operations;
+		this.generatorName = generatorName;
+		this.generatorVersion = generatorVersion;
+		this.hasGeneratorInfo = true;
+		this.GenerateWcfDecorators = true;
+	}
+	
+	public string  PrintClassDecorator()
+	{
+		if(this.GenerateWcfDecorators)
+			return "[ServiceContract]";
+		
+		return "";
+	}
+
+	
+	public string  PrintMethodDecorator()
+	{
+		if(this.GenerateWcfDecorators)
+			return "[OperationContract]";
+		
+		return "";
+	}
+
+	public override string TransformText()
+	{
+#>
+<#+ if (hasGeneratorInfo) { #>using System.CodeDom.Compiler;
+<#+ } #>
+using System.ServiceModel;
+using <#=rootNamespace#>.Messages;
+
+namespace <#=rootNamespace#>.Interfaces
+{
+<#+ if (hasGeneratorInfo) { #>	[GeneratedCode("<#= generatorName #>", "<#= generatorVersion #>")]
+<#+ } #>
+	<#=PrintClassDecorator()#>
+	public partial interface I<#=serviceName#>
+	{
+		<#+ foreach (var operation in operations){#><#=PrintMethodDecorator()#>
+		<#=operation#>Response <#=operation#> (<#=operation#>Request request);
+		<#+ } #>
+	
+	}
+}
+<#+
+        return this.GenerationEnvironment.ToString();
+	}
+}
+#>

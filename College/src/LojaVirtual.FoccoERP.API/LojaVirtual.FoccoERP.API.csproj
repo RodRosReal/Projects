@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8B4645B7-5016-49EE-B1C5-BA69A570F81D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LojaVirtual.FoccoERP.API</RootNamespace>
+    <AssemblyName>LojaVirtual.FoccoERP.API</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DynamicExpresso.Core, Version=1.3.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamicExpresso.Core.1.3.4.8\lib\net40\DynamicExpresso.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Domain\Core\Constants\RepositoryConstants.cs" />
+    <Compile Include="Domain\Core\Dtos\IDto.cs" />
+    <Compile Include="Domain\Core\Dtos\IKeyValueResult`2.cs" />
+    <Compile Include="Domain\Core\Dtos\KeyValueResult`2.cs" />
+    <Compile Include="Domain\Core\Dtos\PagedOptions.cs" />
+    <Compile Include="Domain\Core\Dtos\PagedResult`1.cs" />
+    <Compile Include="Domain\Core\Repositories\IRepository.cs" />
+    <Compile Include="Domain\Core\Repositories\IUnitOfWork.cs" />
+    <Compile Include="Domain\Entities\Relacional\FoccoWebApiClienteProduto.cs">
+      <DependentUpon>PrincipalDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Entities\Relacional\FoccoWebApiConfiguracao.cs">
+      <DependentUpon>PrincipalDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Entities\Relacional\FoccoWebApiFormaPagamento.cs">
+      <DependentUpon>PrincipalDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Entities\Relacional\FoccoWebApiPrazo.cs">
+      <DependentUpon>PrincipalDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Entities\Relacional\FoccoWebApiProduto.cs">
+      <DependentUpon>PrincipalDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Entities\Relacional\PrincipalDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrincipalDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Repositories\IFoccoWebClienteProdutoRepository.cs" />
+    <Compile Include="Domain\Repositories\IFoccoWebPrazoRepository.cs" />
+    <Compile Include="Domain\Repositories\IFoccoWebFormaPagamentoRepository.cs" />
+    <Compile Include="Domain\Repositories\IFoccoWebProdutoRepository.cs" />
+    <Compile Include="Domain\Repositories\IFoccoWebConfigRepository.cs" />
+    <Compile Include="Domain\ValueObjects\Authentication.cs" />
+    <Compile Include="Domain\ValueObjects\BaseResponse.cs" />
+    <Compile Include="Domain\ValueObjects\Base\DeliveryTime.cs" />
+    <Compile Include="Domain\ValueObjects\Base\BagItem.cs" />
+    <Compile Include="Domain\ValueObjects\Base\Order.cs" />
+    <Compile Include="Domain\ValueObjects\Base\Budget.cs" />
+    <Compile Include="Domain\ValueObjects\DeleteBudget.cs" />
+    <Compile Include="Domain\ValueObjects\DeleteBudgetItem.cs" />
+    <Compile Include="Domain\ValueObjects\GetBudget.cs" />
+    <Compile Include="Domain\ValueObjects\CreateOrder.cs" />
+    <Compile Include="Domain\ValueObjects\Integration\ListStocks.cs" />
+    <Compile Include="Domain\ValueObjects\Integration\ListPrices.cs" />
+    <Compile Include="Domain\ValueObjects\Integration\SyncItems.cs" />
+    <Compile Include="Domain\ValueObjects\SortDirection.cs" />
+    <Compile Include="Domain\ValueObjects\UpdateBudgetPaymentCondition.cs" />
+    <Compile Include="Domain\ValueObjects\UpdateBudgetItem.cs" />
+    <Compile Include="Domain\ValueObjects\CreateBudgetItem.cs" />
+    <Compile Include="Domain\ValueObjects\GetPaymentConditions.cs" />
+    <Compile Include="Domain\ValueObjects\GetClientes.cs" />
+    <Compile Include="Domain\ValueObjects\GetStockItem.cs" />
+    <Compile Include="Domain\ValueObjects\GetClientItems.cs" />
+    <Compile Include="Domain\ValueObjects\GetItems.cs" />
+    <Compile Include="Domain\ValueObjects\Settings.cs" />
+    <Compile Include="Infrastructure\Extensions\DbContextExtensions.cs" />
+    <Compile Include="Infrastructure\Extensions\EntityFrameworkQueryableInterfaceExtensions.cs" />
+    <Compile Include="Infrastructure\Extensions\QueryableInterfaceExtensions.cs" />
+    <Compile Include="Infrastructure\Factories\DataContextFactory.cs" />
+    <Compile Include="Infrastructure\Diagram\PrincipalDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrincipalDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\Diagram\PrincipalDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrincipalDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\FoccoErpApi\ApiAuthentication.cs" />
+    <Compile Include="Infrastructure\FoccoErpApi\ApiClient.cs" />
+    <Compile Include="Infrastructure\FoccoErpApi\ApiCommands.cs" />
+    <Compile Include="Infrastructure\Repositories\MoreLinq\MoreLinq.cs" />
+    <Compile Include="Infrastructure\Repositories\Relational\FoccoWebClienteProdutoRepository.cs" />
+    <Compile Include="Infrastructure\Repositories\Relational\FoccoWebPrazoRepository.cs" />
+    <Compile Include="Infrastructure\Repositories\Relational\FoccoWebFormaPagamentoRepository.cs" />
+    <Compile Include="Infrastructure\Repositories\Relational\FoccoWebProdutoRepository.cs" />
+    <Compile Include="Infrastructure\Repositories\Relational\Repository.cs" />
+    <Compile Include="Infrastructure\Repositories\Relational\FoccoWebConfigRepository.cs" />
+    <Compile Include="Infrastructure\Repositories\UnitOfWork.cs" />
+    <Compile Include="Infrastructure\Storage\DataContextStorage\DataContextStorageFactory.cs" />
+    <Compile Include="Infrastructure\Storage\DataContextStorage\HttpDataContextStorageContainer.cs" />
+    <Compile Include="Infrastructure\Storage\DataContextStorage\IDataContextStorageContainer.cs" />
+    <Compile Include="Infrastructure\Storage\DataContextStorage\ThreadDataContextStorageContainer.cs" />
+    <Compile Include="Infrastructure\Storage\ObjectStorage\ObjectStorageContainer.cs" />
+    <Compile Include="Infrastructure\Storage\ServiceContextStorage\ServiceContextStorage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Application\base\FoccoErpApiCommands\CreateBudgetItemCommandRequest.cs" />
+    <Compile Include="Services\Application\base\FoccoErpApiCommands\CreateBudgetItemCommandResponse.cs" />
+    <Compile Include="Services\Application\base\FoccoErpApiCommands\CreateOrderCommandRequest.cs" />
+    <Compile Include="Services\Application\base\FoccoErpApiCommands\CreateOrderCommandResponse.cs" />
+    <Compile Include="Services\Application\base\FoccoErpApiCommands\DeleteBudgetCommandRequest.cs" />
+    <Compile Include="Services\Application\base\FoccoErpApiCommands\DeleteBudgetCommandResponse.cs" />
+    <Compile Include="Services\Application\base\FoccoErpApiCommands\DeleteBudgetItemCommandRequest.cs" />
+    <Compile Include="Services\Application\base\FoccoErpApiCommands\DeleteBudgetItemCommandResponse.cs" />
+    <Compile Include="Services\Application\base\FoccoErpApiCommands\FoccoErpApiCommandsBase.cs" />
+    <Compile Include="Services\Application\base\FoccoErpApiCommands\FoccoErpApiCommandsRequest.cs" />
+    <Compile Include="Services\Application\base\FoccoErpApiCommands\FoccoErpApiCommandsResponse.cs" />
+    <Compile Include="Services\Application\base\FoccoErpApiCommands\GetBudgetCommandRequest.cs" />
+    <Compile Include="Services\Application\base\FoccoErpApiCommands\GetBudgetCommandResponse.cs" />
+    <Compile Include="Services\Application\base\FoccoErpApiCommands\GetClientItemsCommandRequest.cs" />
+    <Compile Include="Services\Application\base\FoccoErpApiCommands\GetClientItemsCommandResponse.cs" />
+    <Compile Include="Services\Application\base\FoccoErpApiCommands\GetClientsCommandRequest.cs" />
+    <Compile Include="Services\Application\base\FoccoErpApiCommands\GetClientsCommandResponse.cs" />
+    <Compile Include="Services\Application\base\FoccoErpApiCommands\GetItemsCommandRequest.cs" />
+    <Compile Include="Services\Application\base\FoccoErpApiCommands\GetItemsCommandResponse.cs" />
+    <Compile Include="Services\Application\base\FoccoErpApiCommands\GetPaymentConditionsCommandRequest.cs" />
+    <Compile Include="Services\Application\base\FoccoErpApiCommands\GetPaymentConditionsCommandResponse.cs" />
+    <Compile Include="Services\Application\base\FoccoErpApiCommands\GetStockItemCommandRequest.cs" />
+    <Compile Include="Services\Application\base\FoccoErpApiCommands\GetStockItemCommandResponse.cs" />
+    <Compile Include="Services\Application\base\FoccoErpApiCommands\UpdateBudgetItemCommandRequest.cs" />
+    <Compile Include="Services\Application\base\FoccoErpApiCommands\UpdateBudgetItemCommandResponse.cs" />
+    <Compile Include="Services\Application\base\FoccoErpApiCommands\UpdateBudgetPaymentConditionCommandRequest.cs" />
+    <Compile Include="Services\Application\base\FoccoErpApiCommands\UpdateBudgetPaymentConditionCommandResponse.cs" />
+    <Compile Include="Services\Application\Interfaces\FoccoErpApiCommands\IFoccoErpApiCommands.cs" />
+    <Compile Include="Services\Application\Messages\FoccoErpApiCommands\CreateBudgetItemCommand\CreateBudgetItemCommandRequest.cs" />
+    <Compile Include="Services\Application\Messages\FoccoErpApiCommands\CreateBudgetItemCommand\CreateBudgetItemCommandResponse.cs" />
+    <Compile Include="Services\Application\Messages\FoccoErpApiCommands\CreateOrderCommand\CreateOrderCommandRequest.cs" />
+    <Compile Include="Services\Application\Messages\FoccoErpApiCommands\CreateOrderCommand\CreateOrderCommandResponse.cs" />
+    <Compile Include="Services\Application\Messages\FoccoErpApiCommands\DeleteBudgetCommand\DeleteBudgetCommandRequest.cs" />
+    <Compile Include="Services\Application\Messages\FoccoErpApiCommands\DeleteBudgetCommand\DeleteBudgetCommandResponse.cs" />
+    <Compile Include="Services\Application\Messages\FoccoErpApiCommands\DeleteBudgetItemCommand\DeleteBudgetItemCommandRequest.cs" />
+    <Compile Include="Services\Application\Messages\FoccoErpApiCommands\DeleteBudgetItemCommand\DeleteBudgetItemCommandResponse.cs" />
+    <Compile Include="Services\Application\Messages\FoccoErpApiCommands\FoccoErpApiCommandsRequest.cs" />
+    <Compile Include="Services\Application\Messages\FoccoErpApiCommands\FoccoErpApiCommandsResponse.cs" />
+    <Compile Include="Services\Application\Messages\FoccoErpApiCommands\GetBudgetCommand\GetBudgetCommandRequest.cs" />
+    <Compile Include="Services\Application\Messages\FoccoErpApiCommands\GetBudgetCommand\GetBudgetCommandResponse.cs" />
+    <Compile Include="Services\Application\Messages\FoccoErpApiCommands\GetClientItemsCommand\GetClientItemsCommandRequest.cs" />
+    <Compile Include="Services\Application\Messages\FoccoErpApiCommands\GetClientItemsCommand\GetClientItemsCommandResponse.cs" />
+    <Compile Include="Services\Application\Messages\FoccoErpApiCommands\GetClientsCommand\GetClientsCommandRequest.cs" />
+    <Compile Include="Services\Application\Messages\FoccoErpApiCommands\GetClientsCommand\GetClientsCommandResponse.cs" />
+    <Compile Include="Services\Application\Messages\FoccoErpApiCommands\GetItemsCommand\GetItemsCommandRequest.cs" />
+    <Compile Include="Services\Application\Messages\FoccoErpApiCommands\GetItemsCommand\GetItemsCommandResponse.cs" />
+    <Compile Include="Services\Application\Messages\FoccoErpApiCommands\GetPaymentConditionsCommand\GetPaymentConditionsCommandRequest.cs" />
+    <Compile Include="Services\Application\Messages\FoccoErpApiCommands\GetPaymentConditionsCommand\GetPaymentConditionsCommandResponse.cs" />
+    <Compile Include="Services\Application\Messages\FoccoErpApiCommands\GetStockItemCommand\GetStockItemCommandRequest.cs" />
+    <Compile Include="Services\Application\Messages\FoccoErpApiCommands\GetStockItemCommand\GetStockItemCommandResponse.cs" />
+    <Compile Include="Services\Application\Messages\FoccoErpApiCommands\UpdateBudgetItemCommand\UpdateBudgetItemCommandRequest.cs" />
+    <Compile Include="Services\Application\Messages\FoccoErpApiCommands\UpdateBudgetItemCommand\UpdateBudgetItemCommandResponse.cs" />
+    <Compile Include="Services\Application\Messages\FoccoErpApiCommands\UpdateBudgetPaymentConditionCommand\UpdateBudgetPaymentConditionCommandRequest.cs" />
+    <Compile Include="Services\Application\Messages\FoccoErpApiCommands\UpdateBudgetPaymentConditionCommand\UpdateBudgetPaymentConditionCommandResponse.cs" />
+    <Compile Include="Services\Application\ServiceCodeGen.cs">
+      <DependentUpon>ServiceCodeGen.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Services\Application\Services\FoccoErpApiCommands.cs" />
+    <Compile Include="Services\Integration\base\FoccoErpApiIntegration\CreateBudgetRequest.cs" />
+    <Compile Include="Services\Integration\base\FoccoErpApiIntegration\CreateBudgetResponse.cs" />
+    <Compile Include="Services\Integration\base\FoccoErpApiIntegration\CreateOrderRequest.cs" />
+    <Compile Include="Services\Integration\base\FoccoErpApiIntegration\CreateOrderResponse.cs" />
+    <Compile Include="Services\Integration\base\FoccoErpApiIntegration\FoccoErpApiIntegrationBase.cs" />
+    <Compile Include="Services\Integration\base\FoccoErpApiIntegration\FoccoErpApiIntegrationRequest.cs" />
+    <Compile Include="Services\Integration\base\FoccoErpApiIntegration\FoccoErpApiIntegrationResponse.cs" />
+    <Compile Include="Services\Integration\base\FoccoErpApiIntegration\GetDeliveryTimeRequest.cs" />
+    <Compile Include="Services\Integration\base\FoccoErpApiIntegration\GetDeliveryTimeResponse.cs" />
+    <Compile Include="Services\Integration\base\FoccoErpApiIntegration\ListPricesRequest.cs" />
+    <Compile Include="Services\Integration\base\FoccoErpApiIntegration\ListPricesResponse.cs" />
+    <Compile Include="Services\Integration\base\FoccoErpApiIntegration\ListStocksRequest.cs" />
+    <Compile Include="Services\Integration\base\FoccoErpApiIntegration\ListStocksResponse.cs" />
+    <Compile Include="Services\Integration\base\FoccoErpApiIntegration\SaveDeliveryTimeRequest.cs" />
+    <Compile Include="Services\Integration\base\FoccoErpApiIntegration\SaveDeliveryTimeResponse.cs" />
+    <Compile Include="Services\Integration\base\FoccoErpApiIntegration\SyncClientsProductsRequest.cs" />
+    <Compile Include="Services\Integration\base\FoccoErpApiIntegration\SyncClientsProductsResponse.cs" />
+    <Compile Include="Services\Integration\base\FoccoErpApiIntegration\SyncPaymentMethodsRequest.cs" />
+    <Compile Include="Services\Integration\base\FoccoErpApiIntegration\SyncPaymentMethodsResponse.cs" />
+    <Compile Include="Services\Integration\base\FoccoErpApiIntegration\SyncProductsRequest.cs" />
+    <Compile Include="Services\Integration\base\FoccoErpApiIntegration\SyncProductsResponse.cs" />
+    <Compile Include="Services\Integration\Factories\StockFactory.cs" />
+    <Compile Include="Services\Integration\Factories\IntegrationFactory.cs" />
+    <Compile Include="Services\Integration\Factories\SyncPaymentMethodsFactory.cs" />
+    <Compile Include="Services\Integration\Factories\SyncClientsProductsFactory.cs" />
+    <Compile Include="Services\Integration\Factories\BudgetFactory.cs" />
+    <Compile Include="Services\Integration\Factories\SyncProductsFactory.cs" />
+    <Compile Include="Services\Integration\Interfaces\FoccoErpApiIntegration\IFoccoErpApiIntegration.cs" />
+    <Compile Include="Services\Integration\Messages\FoccoErpApiIntegration\CreateBudget\CreateBudgetRequest.cs" />
+    <Compile Include="Services\Integration\Messages\FoccoErpApiIntegration\CreateBudget\CreateBudgetResponse.cs" />
+    <Compile Include="Services\Integration\Messages\FoccoErpApiIntegration\CreateOrder\CreateOrderRequest.cs" />
+    <Compile Include="Services\Integration\Messages\FoccoErpApiIntegration\CreateOrder\CreateOrderResponse.cs" />
+    <Compile Include="Services\Integration\Messages\FoccoErpApiIntegration\FoccoErpApiIntegrationRequest.cs" />
+    <Compile Include="Services\Integration\Messages\FoccoErpApiIntegration\FoccoErpApiIntegrationResponse.cs" />
+    <Compile Include="Services\Integration\Messages\FoccoErpApiIntegration\GetDeliveryTime\GetDeliveryTimeRequest.cs" />
+    <Compile Include="Services\Integration\Messages\FoccoErpApiIntegration\GetDeliveryTime\GetDeliveryTimeResponse.cs" />
+    <Compile Include="Services\Integration\Messages\FoccoErpApiIntegration\ListPrices\ListPricesRequest.cs" />
+    <Compile Include="Services\Integration\Messages\FoccoErpApiIntegration\ListPrices\ListPricesResponse.cs" />
+    <Compile Include="Services\Integration\Messages\FoccoErpApiIntegration\ListStocks\ListStocksRequest.cs" />
+    <Compile Include="Services\Integration\Messages\FoccoErpApiIntegration\ListStocks\ListStocksResponse.cs" />
+    <Compile Include="Services\Integration\Messages\FoccoErpApiIntegration\SaveDeliveryTime\SaveDeliveryTimeRequest.cs" />
+    <Compile Include="Services\Integration\Messages\FoccoErpApiIntegration\SaveDeliveryTime\SaveDeliveryTimeResponse.cs" />
+    <Compile Include="Services\Integration\Messages\FoccoErpApiIntegration\SyncClientsProducts\SyncClientsProductsRequest.cs" />
+    <Compile Include="Services\Integration\Messages\FoccoErpApiIntegration\SyncClientsProducts\SyncClientsProductsResponse.cs" />
+    <Compile Include="Services\Integration\Messages\FoccoErpApiIntegration\SyncPaymentMethods\SyncPaymentMethodsRequest.cs" />
+    <Compile Include="Services\Integration\Messages\FoccoErpApiIntegration\SyncPaymentMethods\SyncPaymentMethodsResponse.cs" />
+    <Compile Include="Services\Integration\Messages\FoccoErpApiIntegration\SyncProducts\SyncProductsRequest.cs" />
+    <Compile Include="Services\Integration\Messages\FoccoErpApiIntegration\SyncProducts\SyncProductsResponse.cs" />
+    <Compile Include="Services\Integration\ServiceCodeGen.cs">
+      <DependentUpon>ServiceCodeGen.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Services\Integration\Services\FoccoErpApiIntegration.cs" />
+    <Compile Include="Services\Templates\Service\MessageTemplate.cs">
+      <DependentUpon>MessageTemplate.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Services\Templates\Service\ServiceBaseTemplate.cs">
+      <DependentUpon>ServiceBaseTemplate.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Services\Templates\Service\ServiceContractGenerator.cs">
+      <DependentUpon>ServiceContractGenerator.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Services\Templates\Service\ServiceImplementationTemplate.cs">
+      <DependentUpon>ServiceImplementationTemplate.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Services\Templates\Service\ServiceInterfaceTemplate.cs">
+      <DependentUpon>ServiceInterfaceTemplate.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Domain\Entities\Relacional\PrincipalDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PrincipalDB.cs</LastGenOutput>
+    </Content>
+    <Content Include="Infrastructure\Diagram\PrincipalDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PrincipalDB.Context.cs</LastGenOutput>
+      <DependentUpon>PrincipalDB.edmx</DependentUpon>
+    </Content>
+    <Content Include="Services\Application\ServiceCodeGen.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ServiceCodeGen.cs</LastGenOutput>
+      <LastOutputs>
+.\base\FoccoErpApiCommands\CreateBudgetItemCommandRequest.cs
+.\base\FoccoErpApiCommands\CreateBudgetItemCommandResponse.cs
+.\base\FoccoErpApiCommands\CreateOrderCommandRequest.cs
+.\base\FoccoErpApiCommands\CreateOrderCommandResponse.cs
+.\base\FoccoErpApiCommands\DeleteBudgetCommandRequest.cs
+.\base\FoccoErpApiCommands\DeleteBudgetCommandResponse.cs
+.\base\FoccoErpApiCommands\DeleteBudgetItemCommandRequest.cs
+.\base\FoccoErpApiCommands\DeleteBudgetItemCommandResponse.cs
+.\base\FoccoErpApiCommands\FoccoErpApiCommandsBase.cs
+.\base\FoccoErpApiCommands\FoccoErpApiCommandsRequest.cs
+.\base\FoccoErpApiCommands\FoccoErpApiCommandsResponse.cs
+.\base\FoccoErpApiCommands\GetBudgetCommandRequest.cs
+.\base\FoccoErpApiCommands\GetBudgetCommandResponse.cs
+.\base\FoccoErpApiCommands\GetClientItemsCommandRequest.cs
+.\base\FoccoErpApiCommands\GetClientItemsCommandResponse.cs
+.\base\FoccoErpApiCommands\GetClientsCommandRequest.cs
+.\base\FoccoErpApiCommands\GetClientsCommandResponse.cs
+.\base\FoccoErpApiCommands\GetItemsCommandRequest.cs
+.\base\FoccoErpApiCommands\GetItemsCommandResponse.cs
+.\base\FoccoErpApiCommands\GetPaymentConditionsCommandRequest.cs
+.\base\FoccoErpApiCommands\GetPaymentConditionsCommandResponse.cs
+.\base\FoccoErpApiCommands\GetStockItemCommandRequest.cs
+.\base\FoccoErpApiCommands\GetStockItemCommandResponse.cs
+.\base\FoccoErpApiCommands\UpdateBudgetItemCommandRequest.cs
+.\base\FoccoErpApiCommands\UpdateBudgetItemCommandResponse.cs
+.\base\FoccoErpApiCommands\UpdateBudgetPaymentConditionCommandRequest.cs
+.\base\FoccoErpApiCommands\UpdateBudgetPaymentConditionCommandResponse.cs
+.\Interfaces\FoccoErpApiCommands\IFoccoErpApiCommands.cs
+.\ServiceCodeGen.cs
+</LastOutputs>
+    </Content>
+    <Content Include="Services\Integration\ServiceCodeGen.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ServiceCodeGen.cs</LastGenOutput>
+      <LastOutputs>
+.\base\FoccoErpApiIntegration\CreateBudgetRequest.cs
+.\base\FoccoErpApiIntegration\CreateBudgetResponse.cs
+.\base\FoccoErpApiIntegration\CreateOrderRequest.cs
+.\base\FoccoErpApiIntegration\CreateOrderResponse.cs
+.\base\FoccoErpApiIntegration\FoccoErpApiIntegrationBase.cs
+.\base\FoccoErpApiIntegration\FoccoErpApiIntegrationRequest.cs
+.\base\FoccoErpApiIntegration\FoccoErpApiIntegrationResponse.cs
+.\base\FoccoErpApiIntegration\GetDeliveryTimeRequest.cs
+.\base\FoccoErpApiIntegration\GetDeliveryTimeResponse.cs
+.\base\FoccoErpApiIntegration\ListPricesRequest.cs
+.\base\FoccoErpApiIntegration\ListPricesResponse.cs
+.\base\FoccoErpApiIntegration\ListStocksRequest.cs
+.\base\FoccoErpApiIntegration\ListStocksResponse.cs
+.\base\FoccoErpApiIntegration\SaveDeliveryTimeRequest.cs
+.\base\FoccoErpApiIntegration\SaveDeliveryTimeResponse.cs
+.\base\FoccoErpApiIntegration\SyncClientsProductsRequest.cs
+.\base\FoccoErpApiIntegration\SyncClientsProductsResponse.cs
+.\base\FoccoErpApiIntegration\SyncPaymentMethodsRequest.cs
+.\base\FoccoErpApiIntegration\SyncPaymentMethodsResponse.cs
+.\base\FoccoErpApiIntegration\SyncProductsRequest.cs
+.\base\FoccoErpApiIntegration\SyncProductsResponse.cs
+.\Interfaces\FoccoErpApiIntegration\IFoccoErpApiIntegration.cs
+.\ServiceCodeGen.cs
+</LastOutputs>
+    </Content>
+    <Content Include="Services\Templates\Service\MessageTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MessageTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="Services\Templates\Service\ServiceBaseTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ServiceBaseTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="Services\Templates\Service\ServiceContractGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ServiceContractGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="Services\Templates\Service\ServiceImplementationTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ServiceImplementationTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="Services\Templates\Service\ServiceInterfaceTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ServiceInterfaceTemplate.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="Infrastructure\Diagram\PrincipalDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PrincipalDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Infrastructure\Diagram\PrincipalDB.edmx.diagram">
+      <DependentUpon>PrincipalDB.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Domain\Specifications\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

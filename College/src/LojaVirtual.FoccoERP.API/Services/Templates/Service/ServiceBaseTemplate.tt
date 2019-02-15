@@ -1,0 +1,112 @@
+<#@ import namespace="System" #>
+<#@ import namespace="System.Collections.Generic" #>
+
+<#+
+public class ServiceBaseTemplate : Template
+{
+	
+	private readonly string rootNamespace;
+	private readonly string serviceName;
+	private readonly List<String> operations;
+	
+	public ServiceBaseTemplate(string rootNamespace, string serviceName, List<String> operations)
+	{
+		this.rootNamespace = rootNamespace;
+		this.serviceName = serviceName;
+		this.operations = operations;
+	}
+	
+	public override string TransformText()
+	{
+#>
+using System;
+using <#=rootNamespace#>.Interfaces;
+using <#=rootNamespace#>.Messages;
+
+namespace <#=rootNamespace#>.Services
+{
+	public abstract partial class <#=serviceName#>Base : I<#=serviceName#>
+	{
+		#region Constructor
+		protected <#=serviceName#>Base()
+		{
+		<#+
+		foreach (var operation in operations)
+		{#>
+		
+			<#=operation#>Initialization += On<#=serviceName#>Initialization;
+        	<#=operation#>Execute += On<#=operation#>Execute;
+        	<#=operation#>Complete += On<#=serviceName#>Complete;
+        	<#=operation#>Error += On<#=serviceName#>Error;
+		<#+
+		}
+		#>
+		
+		}
+		#endregion
+		
+		#region Operation Events
+		<#+
+		foreach (var operation in operations)
+		{#>
+
+		public event Action< <#=operation#>Request, <#=operation#>Response> <#=operation#>Initialization;
+		public event Func< <#=operation#>Request, <#=operation#>Response> <#=operation#>Execute;
+		public event Action< <#=operation#>Request, <#=operation#>Response> <#=operation#>Complete;
+		public event Action< <#=operation#>Request, <#=operation#>Response, Exception> <#=operation#>Error;
+		<#+ 
+		}
+		#>#endregion
+		
+		#region Abstract Service Methods
+		public virtual void On<#=serviceName#>Initialization(<#=serviceName#>Request request, <#=serviceName#>Response response) {}
+      	public virtual void On<#=serviceName#>Complete(<#=serviceName#>Request request, <#=serviceName#>Response response) {}
+        public virtual void On<#=serviceName#>Error(<#=serviceName#>Request request, <#=serviceName#>Response response, Exception exception) { throw exception; }
+		#endregion
+		
+		#region Abstract Operation Methods
+		<#+
+		foreach (var operation in operations)
+		{#>
+		
+		public abstract <#=operation#>Response On<#=operation#>Execute(<#=operation#>Request request);
+		<#+ 
+		}
+		#>#endregion
+		
+		#region Operation Implementations
+		<#+
+		foreach (var operation in operations)
+		{#>
+		
+		public virtual <#=operation#>Response <#=operation#>(<#=operation#>Request request) {
+			var response = new <#=operation#>Response();
+			try {
+				// Raise Initialization Event
+				var initialization = <#=operation#>Initialization;
+				if (initialization != null) initialization(request, response);
+				// Raise Execute Event
+				var execute = <#=operation#>Execute;
+				if (execute != null) response = execute(request);
+				// Raise Complete Event
+				var complete = <#=operation#>Complete;
+				if (complete != null) complete(request, response);
+			}
+			catch (Exception exception) {
+				// Raise Error Event
+				var error = <#=operation#>Error;
+				if (error != null) error(request, response, exception);
+			}
+			return response;
+		}
+		<#+
+		}
+		#>
+		#endregion
+	}
+}
+<#+
+        return this.GenerationEnvironment.ToString();
+	}
+}
+#>

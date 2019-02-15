@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AA0D1E7D-78C9-4FEF-8848-9E3846F7E095}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Services</RootNamespace>
+    <AssemblyName>Services</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Application\base\ApiCommand\ApiCommandBase.cs" />
+    <Compile Include="Application\base\ApiCommand\ApiCommandRequest.cs" />
+    <Compile Include="Application\base\ApiCommand\ApiCommandResponse.cs" />
+    <Compile Include="Application\base\ApiCommand\GetAcademyRequest.cs" />
+    <Compile Include="Application\base\ApiCommand\GetAcademyResponse.cs" />
+    <Compile Include="Application\Interfaces\ApiCommand\IApiCommand.cs" />
+    <Compile Include="Application\Messages\ApiCommand\ApiCommandRequest.cs" />
+    <Compile Include="Application\Messages\ApiCommand\ApiCommandResponse.cs" />
+    <Compile Include="Application\Messages\ApiCommand\GetAcademy\GetAcademyRequest.cs" />
+    <Compile Include="Application\Messages\ApiCommand\GetAcademy\GetAcademyResponse.cs" />
+    <Compile Include="Application\ServiceCodeGen.cs">
+      <DependentUpon>ServiceCodeGen.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Application\Services\ApiCommand.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Templates\Service\MessageTemplate.cs">
+      <DependentUpon>MessageTemplate.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Templates\Service\ServiceBaseTemplate.cs">
+      <DependentUpon>ServiceBaseTemplate.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Templates\Service\ServiceContractGenerator.cs">
+      <DependentUpon>ServiceContractGenerator.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Templates\Service\ServiceImplementationTemplate.cs">
+      <DependentUpon>ServiceImplementationTemplate.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Templates\Service\ServiceInterfaceTemplate.cs">
+      <DependentUpon>ServiceInterfaceTemplate.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Application\ServiceCodeGen.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ServiceCodeGen.cs</LastGenOutput>
+      <LastOutputs>
+.\base\ApiCommand\ApiCommandBase.cs
+.\base\ApiCommand\ApiCommandRequest.cs
+.\base\ApiCommand\ApiCommandResponse.cs
+.\base\ApiCommand\GetAcademyRequest.cs
+.\base\ApiCommand\GetAcademyResponse.cs
+.\Interfaces\ApiCommand\IApiCommand.cs
+.\ServiceCodeGen.cs
+</LastOutputs>
+    </Content>
+    <Content Include="Templates\Service\MessageTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MessageTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\Service\ServiceBaseTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ServiceBaseTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\Service\ServiceContractGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ServiceContractGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\Service\ServiceImplementationTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ServiceImplementationTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\Service\ServiceInterfaceTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ServiceInterfaceTemplate.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

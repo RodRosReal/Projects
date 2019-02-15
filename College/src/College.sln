@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollegeUI", "CollegeUI\CollegeUI.csproj", "{0E2C9F92-89ED-41F0-A1AC-4AD35E19CA6E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollegeData", "CollegeData\CollegeData.csproj", "{3A18BD61-F7AE-414C-A6DA-F861791D5F74}"
@@ -10,6 +12,14 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollegeService", "CollegeService\CollegeService.csproj", "{1673F6A9-A759-40D6-B9D9-6E5E35F25A74}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uol.PagSeguro", "Uol.PagSeguro\Uol.PagSeguro.csproj", "{BABC5658-6AFD-4F8E-81F1-434553663D99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojaVirtual.FoccoERP.API", "LojaVirtual.FoccoERP.API\LojaVirtual.FoccoERP.API.csproj", "{8B4645B7-5016-49EE-B1C5-BA69A570F81D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{B070376F-C9B1-4019-A5B9-60F1E89D8990}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{D460FBFB-5336-4C03-B004-B0CABCC2D72C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{AA0D1E7D-78C9-4FEF-8848-9E3846F7E095}"
 EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
@@ -52,8 +62,35 @@ Global
 		{BABC5658-6AFD-4F8E-81F1-434553663D99}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BABC5658-6AFD-4F8E-81F1-434553663D99}.VIGOR|Any CPU.ActiveCfg = Release|Any CPU
 		{BABC5658-6AFD-4F8E-81F1-434553663D99}.VIGOR|Any CPU.Build.0 = Release|Any CPU
+		{8B4645B7-5016-49EE-B1C5-BA69A570F81D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B4645B7-5016-49EE-B1C5-BA69A570F81D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B4645B7-5016-49EE-B1C5-BA69A570F81D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B4645B7-5016-49EE-B1C5-BA69A570F81D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B4645B7-5016-49EE-B1C5-BA69A570F81D}.VIGOR|Any CPU.ActiveCfg = Release|Any CPU
+		{8B4645B7-5016-49EE-B1C5-BA69A570F81D}.VIGOR|Any CPU.Build.0 = Release|Any CPU
+		{B070376F-C9B1-4019-A5B9-60F1E89D8990}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B070376F-C9B1-4019-A5B9-60F1E89D8990}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B070376F-C9B1-4019-A5B9-60F1E89D8990}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B070376F-C9B1-4019-A5B9-60F1E89D8990}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B070376F-C9B1-4019-A5B9-60F1E89D8990}.VIGOR|Any CPU.ActiveCfg = Release|Any CPU
+		{B070376F-C9B1-4019-A5B9-60F1E89D8990}.VIGOR|Any CPU.Build.0 = Release|Any CPU
+		{D460FBFB-5336-4C03-B004-B0CABCC2D72C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D460FBFB-5336-4C03-B004-B0CABCC2D72C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D460FBFB-5336-4C03-B004-B0CABCC2D72C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D460FBFB-5336-4C03-B004-B0CABCC2D72C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D460FBFB-5336-4C03-B004-B0CABCC2D72C}.VIGOR|Any CPU.ActiveCfg = Release|Any CPU
+		{D460FBFB-5336-4C03-B004-B0CABCC2D72C}.VIGOR|Any CPU.Build.0 = Release|Any CPU
+		{AA0D1E7D-78C9-4FEF-8848-9E3846F7E095}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA0D1E7D-78C9-4FEF-8848-9E3846F7E095}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA0D1E7D-78C9-4FEF-8848-9E3846F7E095}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA0D1E7D-78C9-4FEF-8848-9E3846F7E095}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA0D1E7D-78C9-4FEF-8848-9E3846F7E095}.VIGOR|Any CPU.ActiveCfg = Release|Any CPU
+		{AA0D1E7D-78C9-4FEF-8848-9E3846F7E095}.VIGOR|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D8C821B3-7521-42F4-BC41-82506B0300C8}
 	EndGlobalSection
 EndGlobal

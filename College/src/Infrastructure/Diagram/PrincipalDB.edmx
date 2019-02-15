@@ -1,0 +1,1659 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PrincipalDB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Academia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Descricao" Type="varchar(max)" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="SenhaEmail" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Smtp" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="SmtpPorta" Type="int" Nullable="false" />
+          <Property Name="UrlBase" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Url" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="MetaDescription" Type="varchar(max)" />
+          <Property Name="MetaKeywords" Type="varchar(max)" />
+          <Property Name="MetaRobots" Type="varchar" MaxLength="20" />
+          <Property Name="MetaGoogleBot" Type="varchar" MaxLength="20" />
+          <Property Name="MetaGenerator" Type="varchar(max)" />
+          <Property Name="MetaRevisiteAfter" Type="varchar" MaxLength="20" />
+          <Property Name="Cnpj" Type="varchar" MaxLength="18" Nullable="false" />
+          <Property Name="Telefone" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="Endereco" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Numero" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Complemento" Type="varchar" MaxLength="10" />
+          <Property Name="Bairro" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Cidade" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Uf" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="Cep" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+          <Property Name="Ativo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AreaCurso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdArea" Type="int" Nullable="false" />
+          <Property Name="IdCurso" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Banner">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAcademia" Type="int" Nullable="false" />
+          <Property Name="Caption" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Caption2" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DataInicio" Type="datetime" Nullable="false" />
+          <Property Name="DataFinal" Type="datetime" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+          <Property Name="Ativo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bloco">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdModulo" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Pagina" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Ordem" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Codigo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdCurso" Type="int" Nullable="false" />
+          <Property Name="DataCriacao" Type="datetime" />
+          <Property Name="Ativo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Curso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAcademia" Type="int" Nullable="false" />
+          <Property Name="IdProfessor" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Resumo" Type="varchar" MaxLength="400" Nullable="false" />
+          <Property Name="Descricao" Type="varchar(max)" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Moeda" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="Valor" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+          <Property Name="Ativo" Type="bit" Nullable="false" />
+          <Property Name="Ordem" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Evento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAcademia" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="DataInicio" Type="datetime" Nullable="false" />
+          <Property Name="DataFinal" Type="datetime" />
+          <Property Name="Url" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Descricao" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+          <Property Name="Ativo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Exercicio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdBloco" Type="int" Nullable="false" />
+          <Property Name="Pergunta" Type="varchar(max)" Nullable="false" />
+          <Property Name="Gabarito" Type="varchar(max)" Nullable="false" />
+          <Property Name="Ordem" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Faq">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAcademia" Type="int" Nullable="false" />
+          <Property Name="Pergunta" Type="varchar(max)" Nullable="false" />
+          <Property Name="Resposta" Type="varchar(max)" Nullable="false" />
+          <Property Name="Ordem" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Matricula">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUsuario" Type="int" Nullable="false" />
+          <Property Name="IdCurso" Type="int" Nullable="false" />
+          <Property Name="Codigo" Type="varchar" MaxLength="50" />
+          <Property Name="Transacao" Type="varchar" MaxLength="50" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Modulo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCurso" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Pagina" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Ordem" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Questao">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdModulo" Type="int" Nullable="false" />
+          <Property Name="Pergunta" Type="varchar(max)" Nullable="false" />
+          <Property Name="Gabarito" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Recurso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdModulo" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Pagina" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Testemunho">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAcademia" Type="int" Nullable="false" />
+          <Property Name="Testemunho" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Autor" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Local" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+          <Property Name="Ativo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAcademia" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SobreNome" Type="varchar" MaxLength="180" Nullable="false" />
+          <Property Name="NomeCompleto" Type="varchar" MaxLength="201" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Telefone" Type="varchar" MaxLength="14" />
+          <Property Name="Celular" Type="varchar" MaxLength="14" />
+          <Property Name="Cpf" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="Senha" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Ip" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+          <Property Name="Ativo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UsuarioBloco">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="IdBloco" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUsuario" Type="int" Nullable="false" />
+          <Property Name="IdBloco" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UsuarioExercicio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUsuario" Type="int" Nullable="false" />
+          <Property Name="IdExercicio" Type="int" Nullable="false" />
+          <Property Name="IdMatricula" Type="int" Nullable="false" />
+          <Property Name="Pergunta" Type="varchar(max)" Nullable="false" />
+          <Property Name="Resposta" Type="varchar(max)" />
+          <Property Name="ObsCorrecao" Type="varchar(max)" Nullable="false" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UsuarioProvaQuestao">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUsuario" Type="int" Nullable="false" />
+          <Property Name="IdMatricula" Type="int" Nullable="false" />
+          <Property Name="IdQuestao" Type="int" Nullable="false" />
+          <Property Name="DataInicio" Type="datetime" Nullable="false" />
+          <Property Name="Pergunta" Type="varchar(max)" Nullable="false" />
+          <Property Name="Resposta" Type="varchar(max)" />
+          <Property Name="Acerto" Type="bit" Nullable="false" />
+          <Property Name="ObsCorrecao" Type="varchar(max)" />
+          <Property Name="Gabarito" Type="varchar(max)" />
+        </EntityType>
+        <Association Name="FK_AreaCursoArea">
+          <End Role="Area" Type="Self.Area" Multiplicity="1" />
+          <End Role="AreaCurso" Type="Self.AreaCurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AreaCurso">
+              <PropertyRef Name="IdArea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AreaCursoCurso">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+          <End Role="AreaCurso" Type="Self.AreaCurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AreaCurso">
+              <PropertyRef Name="IdCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BannerAcademia">
+          <End Role="Academia" Type="Self.Academia" Multiplicity="1" />
+          <End Role="Banner" Type="Self.Banner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Academia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Banner">
+              <PropertyRef Name="IdAcademia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlocoModulo">
+          <End Role="Modulo" Type="Self.Modulo" Multiplicity="1" />
+          <End Role="Bloco" Type="Self.Bloco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Bloco">
+              <PropertyRef Name="IdModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CodigoCurso">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+          <End Role="Codigo" Type="Self.Codigo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Codigo">
+              <PropertyRef Name="IdCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CursoAcademia">
+          <End Role="Academia" Type="Self.Academia" Multiplicity="1" />
+          <End Role="Curso" Type="Self.Curso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Academia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Curso">
+              <PropertyRef Name="IdAcademia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CursoUsuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Curso" Type="Self.Curso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Curso">
+              <PropertyRef Name="IdProfessor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventoAcademia">
+          <End Role="Academia" Type="Self.Academia" Multiplicity="1" />
+          <End Role="Evento" Type="Self.Evento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Academia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Evento">
+              <PropertyRef Name="IdAcademia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExercicioBloco">
+          <End Role="Bloco" Type="Self.Bloco" Multiplicity="1" />
+          <End Role="Exercicio" Type="Self.Exercicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bloco">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Exercicio">
+              <PropertyRef Name="IdBloco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FaqAcademia">
+          <End Role="Academia" Type="Self.Academia" Multiplicity="1" />
+          <End Role="Faq" Type="Self.Faq" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Academia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Faq">
+              <PropertyRef Name="IdAcademia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatriculaCurso">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+          <End Role="Matricula" Type="Self.Matricula" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Matricula">
+              <PropertyRef Name="IdCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatriculaUsuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Matricula" Type="Self.Matricula" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Matricula">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModuloCurso">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+          <End Role="Modulo" Type="Self.Modulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Modulo">
+              <PropertyRef Name="IdCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QuestaoModulo">
+          <End Role="Modulo" Type="Self.Modulo" Multiplicity="1" />
+          <End Role="Questao" Type="Self.Questao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Questao">
+              <PropertyRef Name="IdModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecursoModulo">
+          <End Role="Modulo" Type="Self.Modulo" Multiplicity="1" />
+          <End Role="Recurso" Type="Self.Recurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Recurso">
+              <PropertyRef Name="IdModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TestemunhoAcademia">
+          <End Role="Academia" Type="Self.Academia" Multiplicity="1" />
+          <End Role="Testemunho" Type="Self.Testemunho" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Academia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Testemunho">
+              <PropertyRef Name="IdAcademia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioAcademia">
+          <End Role="Academia" Type="Self.Academia" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Academia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="IdAcademia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioBlocoBloco">
+          <End Role="Bloco" Type="Self.Bloco" Multiplicity="1" />
+          <End Role="UsuarioBloco" Type="Self.UsuarioBloco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bloco">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioBloco">
+              <PropertyRef Name="IdBloco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioBlocoUsuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="UsuarioBloco" Type="Self.UsuarioBloco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioBloco">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioExercicioExercicio">
+          <End Role="Exercicio" Type="Self.Exercicio" Multiplicity="1" />
+          <End Role="UsuarioExercicio" Type="Self.UsuarioExercicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exercicio">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioExercicio">
+              <PropertyRef Name="IdExercicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioExercicioMatricula">
+          <End Role="Matricula" Type="Self.Matricula" Multiplicity="1" />
+          <End Role="UsuarioExercicio" Type="Self.UsuarioExercicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Matricula">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioExercicio">
+              <PropertyRef Name="IdMatricula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioExercicioUsuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="UsuarioExercicio" Type="Self.UsuarioExercicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioExercicio">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioProvaQuestaoMatricula">
+          <End Role="Matricula" Type="Self.Matricula" Multiplicity="1" />
+          <End Role="UsuarioProvaQuestao" Type="Self.UsuarioProvaQuestao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Matricula">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioProvaQuestao">
+              <PropertyRef Name="IdMatricula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioProvaQuestaoQuestao">
+          <End Role="Questao" Type="Self.Questao" Multiplicity="1" />
+          <End Role="UsuarioProvaQuestao" Type="Self.UsuarioProvaQuestao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questao">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioProvaQuestao">
+              <PropertyRef Name="IdQuestao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioProvaQuestaoUsuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="UsuarioProvaQuestao" Type="Self.UsuarioProvaQuestao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioProvaQuestao">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PrincipalDBStoreContainer">
+          <EntitySet Name="Academia" EntityType="Self.Academia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Area" EntityType="Self.Area" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AreaCurso" EntityType="Self.AreaCurso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Banner" EntityType="Self.Banner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bloco" EntityType="Self.Bloco" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Codigo" EntityType="Self.Codigo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Curso" EntityType="Self.Curso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Evento" EntityType="Self.Evento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Exercicio" EntityType="Self.Exercicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Faq" EntityType="Self.Faq" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Matricula" EntityType="Self.Matricula" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Modulo" EntityType="Self.Modulo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Questao" EntityType="Self.Questao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recurso" EntityType="Self.Recurso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Testemunho" EntityType="Self.Testemunho" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsuarioBloco" EntityType="Self.UsuarioBloco" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsuarioExercicio" EntityType="Self.UsuarioExercicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsuarioProvaQuestao" EntityType="Self.UsuarioProvaQuestao" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AreaCursoArea" Association="Self.FK_AreaCursoArea">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="AreaCurso" EntitySet="AreaCurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AreaCursoCurso" Association="Self.FK_AreaCursoCurso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="AreaCurso" EntitySet="AreaCurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BannerAcademia" Association="Self.FK_BannerAcademia">
+            <End Role="Academia" EntitySet="Academia" />
+            <End Role="Banner" EntitySet="Banner" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlocoModulo" Association="Self.FK_BlocoModulo">
+            <End Role="Modulo" EntitySet="Modulo" />
+            <End Role="Bloco" EntitySet="Bloco" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CodigoCurso" Association="Self.FK_CodigoCurso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Codigo" EntitySet="Codigo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CursoAcademia" Association="Self.FK_CursoAcademia">
+            <End Role="Academia" EntitySet="Academia" />
+            <End Role="Curso" EntitySet="Curso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CursoUsuario" Association="Self.FK_CursoUsuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Curso" EntitySet="Curso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventoAcademia" Association="Self.FK_EventoAcademia">
+            <End Role="Academia" EntitySet="Academia" />
+            <End Role="Evento" EntitySet="Evento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExercicioBloco" Association="Self.FK_ExercicioBloco">
+            <End Role="Bloco" EntitySet="Bloco" />
+            <End Role="Exercicio" EntitySet="Exercicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FaqAcademia" Association="Self.FK_FaqAcademia">
+            <End Role="Academia" EntitySet="Academia" />
+            <End Role="Faq" EntitySet="Faq" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MatriculaCurso" Association="Self.FK_MatriculaCurso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Matricula" EntitySet="Matricula" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MatriculaUsuario" Association="Self.FK_MatriculaUsuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Matricula" EntitySet="Matricula" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModuloCurso" Association="Self.FK_ModuloCurso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Modulo" EntitySet="Modulo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QuestaoModulo" Association="Self.FK_QuestaoModulo">
+            <End Role="Modulo" EntitySet="Modulo" />
+            <End Role="Questao" EntitySet="Questao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecursoModulo" Association="Self.FK_RecursoModulo">
+            <End Role="Modulo" EntitySet="Modulo" />
+            <End Role="Recurso" EntitySet="Recurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TestemunhoAcademia" Association="Self.FK_TestemunhoAcademia">
+            <End Role="Academia" EntitySet="Academia" />
+            <End Role="Testemunho" EntitySet="Testemunho" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioAcademia" Association="Self.FK_UsuarioAcademia">
+            <End Role="Academia" EntitySet="Academia" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioBlocoBloco" Association="Self.FK_UsuarioBlocoBloco">
+            <End Role="Bloco" EntitySet="Bloco" />
+            <End Role="UsuarioBloco" EntitySet="UsuarioBloco" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioBlocoUsuario" Association="Self.FK_UsuarioBlocoUsuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="UsuarioBloco" EntitySet="UsuarioBloco" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioExercicioExercicio" Association="Self.FK_UsuarioExercicioExercicio">
+            <End Role="Exercicio" EntitySet="Exercicio" />
+            <End Role="UsuarioExercicio" EntitySet="UsuarioExercicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioExercicioMatricula" Association="Self.FK_UsuarioExercicioMatricula">
+            <End Role="Matricula" EntitySet="Matricula" />
+            <End Role="UsuarioExercicio" EntitySet="UsuarioExercicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioExercicioUsuario" Association="Self.FK_UsuarioExercicioUsuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="UsuarioExercicio" EntitySet="UsuarioExercicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioProvaQuestaoMatricula" Association="Self.FK_UsuarioProvaQuestaoMatricula">
+            <End Role="Matricula" EntitySet="Matricula" />
+            <End Role="UsuarioProvaQuestao" EntitySet="UsuarioProvaQuestao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioProvaQuestaoQuestao" Association="Self.FK_UsuarioProvaQuestaoQuestao">
+            <End Role="Questao" EntitySet="Questao" />
+            <End Role="UsuarioProvaQuestao" EntitySet="UsuarioProvaQuestao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioProvaQuestaoUsuario" Association="Self.FK_UsuarioProvaQuestaoUsuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="UsuarioProvaQuestao" EntitySet="UsuarioProvaQuestao" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="PrincipalDB" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="PrincipalDBContainer" annotation:LazyLoadingEnabled="false">
+          <EntitySet Name="Academia" EntityType="PrincipalDB.Academia" />
+          <EntitySet Name="Area" EntityType="PrincipalDB.Area" />
+          <EntitySet Name="AreaCurso" EntityType="PrincipalDB.AreaCurso" />
+          <EntitySet Name="Banner" EntityType="PrincipalDB.Banner" />
+          <EntitySet Name="Bloco" EntityType="PrincipalDB.Bloco" />
+          <EntitySet Name="Codigo" EntityType="PrincipalDB.Codigo" />
+          <EntitySet Name="Curso" EntityType="PrincipalDB.Curso" />
+          <EntitySet Name="Evento" EntityType="PrincipalDB.Evento" />
+          <EntitySet Name="Exercicio" EntityType="PrincipalDB.Exercicio" />
+          <EntitySet Name="Faq" EntityType="PrincipalDB.Faq" />
+          <EntitySet Name="Matricula" EntityType="PrincipalDB.Matricula" />
+          <EntitySet Name="Modulo" EntityType="PrincipalDB.Modulo" />
+          <EntitySet Name="Questao" EntityType="PrincipalDB.Questao" />
+          <EntitySet Name="Recurso" EntityType="PrincipalDB.Recurso" />
+          <EntitySet Name="Testemunho" EntityType="PrincipalDB.Testemunho" />
+          <EntitySet Name="Usuario" EntityType="PrincipalDB.Usuario" />
+          <EntitySet Name="UsuarioBloco" EntityType="PrincipalDB.UsuarioBloco" />
+          <EntitySet Name="UsuarioExercicio" EntityType="PrincipalDB.UsuarioExercicio" />
+          <EntitySet Name="UsuarioProvaQuestao" EntityType="PrincipalDB.UsuarioProvaQuestao" />
+          <AssociationSet Name="FK_BannerAcademia" Association="PrincipalDB.FK_BannerAcademia">
+            <End Role="Academia" EntitySet="Academia" />
+            <End Role="Banner" EntitySet="Banner" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CursoAcademia" Association="PrincipalDB.FK_CursoAcademia">
+            <End Role="Academia" EntitySet="Academia" />
+            <End Role="Curso" EntitySet="Curso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventoAcademia" Association="PrincipalDB.FK_EventoAcademia">
+            <End Role="Academia" EntitySet="Academia" />
+            <End Role="Evento" EntitySet="Evento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FaqAcademia" Association="PrincipalDB.FK_FaqAcademia">
+            <End Role="Academia" EntitySet="Academia" />
+            <End Role="Faq" EntitySet="Faq" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TestemunhoAcademia" Association="PrincipalDB.FK_TestemunhoAcademia">
+            <End Role="Academia" EntitySet="Academia" />
+            <End Role="Testemunho" EntitySet="Testemunho" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioAcademia" Association="PrincipalDB.FK_UsuarioAcademia">
+            <End Role="Academia" EntitySet="Academia" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AreaCursoArea" Association="PrincipalDB.FK_AreaCursoArea">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="AreaCurso" EntitySet="AreaCurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AreaCursoCurso" Association="PrincipalDB.FK_AreaCursoCurso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="AreaCurso" EntitySet="AreaCurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlocoModulo" Association="PrincipalDB.FK_BlocoModulo">
+            <End Role="Modulo" EntitySet="Modulo" />
+            <End Role="Bloco" EntitySet="Bloco" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExercicioBloco" Association="PrincipalDB.FK_ExercicioBloco">
+            <End Role="Bloco" EntitySet="Bloco" />
+            <End Role="Exercicio" EntitySet="Exercicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioBlocoBloco" Association="PrincipalDB.FK_UsuarioBlocoBloco">
+            <End Role="Bloco" EntitySet="Bloco" />
+            <End Role="UsuarioBloco" EntitySet="UsuarioBloco" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CodigoCurso" Association="PrincipalDB.FK_CodigoCurso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Codigo" EntitySet="Codigo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CursoUsuario" Association="PrincipalDB.FK_CursoUsuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Curso" EntitySet="Curso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MatriculaCurso" Association="PrincipalDB.FK_MatriculaCurso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Matricula" EntitySet="Matricula" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModuloCurso" Association="PrincipalDB.FK_ModuloCurso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Modulo" EntitySet="Modulo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioExercicioExercicio" Association="PrincipalDB.FK_UsuarioExercicioExercicio">
+            <End Role="Exercicio" EntitySet="Exercicio" />
+            <End Role="UsuarioExercicio" EntitySet="UsuarioExercicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MatriculaUsuario" Association="PrincipalDB.FK_MatriculaUsuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Matricula" EntitySet="Matricula" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioExercicioMatricula" Association="PrincipalDB.FK_UsuarioExercicioMatricula">
+            <End Role="Matricula" EntitySet="Matricula" />
+            <End Role="UsuarioExercicio" EntitySet="UsuarioExercicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioProvaQuestaoMatricula" Association="PrincipalDB.FK_UsuarioProvaQuestaoMatricula">
+            <End Role="Matricula" EntitySet="Matricula" />
+            <End Role="UsuarioProvaQuestao" EntitySet="UsuarioProvaQuestao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QuestaoModulo" Association="PrincipalDB.FK_QuestaoModulo">
+            <End Role="Modulo" EntitySet="Modulo" />
+            <End Role="Questao" EntitySet="Questao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecursoModulo" Association="PrincipalDB.FK_RecursoModulo">
+            <End Role="Modulo" EntitySet="Modulo" />
+            <End Role="Recurso" EntitySet="Recurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioProvaQuestaoQuestao" Association="PrincipalDB.FK_UsuarioProvaQuestaoQuestao">
+            <End Role="Questao" EntitySet="Questao" />
+            <End Role="UsuarioProvaQuestao" EntitySet="UsuarioProvaQuestao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioBlocoUsuario" Association="PrincipalDB.FK_UsuarioBlocoUsuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="UsuarioBloco" EntitySet="UsuarioBloco" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioExercicioUsuario" Association="PrincipalDB.FK_UsuarioExercicioUsuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="UsuarioExercicio" EntitySet="UsuarioExercicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioProvaQuestaoUsuario" Association="PrincipalDB.FK_UsuarioProvaQuestaoUsuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="UsuarioProvaQuestao" EntitySet="UsuarioProvaQuestao" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Academia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Descricao" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="SenhaEmail" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Smtp" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="SmtpPorta" Type="Int32" Nullable="false" />
+          <Property Name="UrlBase" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Url" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="MetaDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MetaKeywords" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MetaRobots" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MetaGoogleBot" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MetaGenerator" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MetaRevisiteAfter" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Cnpj" Type="String" Nullable="false" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="Telefone" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="Endereco" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Numero" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Complemento" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Bairro" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Cidade" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Uf" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="Cep" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DataCriacao" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Banner" Relationship="PrincipalDB.FK_BannerAcademia" FromRole="Academia" ToRole="Banner" />
+          <NavigationProperty Name="Curso" Relationship="PrincipalDB.FK_CursoAcademia" FromRole="Academia" ToRole="Curso" />
+          <NavigationProperty Name="Evento" Relationship="PrincipalDB.FK_EventoAcademia" FromRole="Academia" ToRole="Evento" />
+          <NavigationProperty Name="Faq" Relationship="PrincipalDB.FK_FaqAcademia" FromRole="Academia" ToRole="Faq" />
+          <NavigationProperty Name="Testemunho" Relationship="PrincipalDB.FK_TestemunhoAcademia" FromRole="Academia" ToRole="Testemunho" />
+          <NavigationProperty Name="Usuario" Relationship="PrincipalDB.FK_UsuarioAcademia" FromRole="Academia" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AreaCurso" Relationship="PrincipalDB.FK_AreaCursoArea" FromRole="Area" ToRole="AreaCurso" />
+        </EntityType>
+        <EntityType Name="AreaCurso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdArea" Type="Int32" Nullable="false" />
+          <Property Name="IdCurso" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Area" Relationship="PrincipalDB.FK_AreaCursoArea" FromRole="AreaCurso" ToRole="Area" />
+          <NavigationProperty Name="Curso" Relationship="PrincipalDB.FK_AreaCursoCurso" FromRole="AreaCurso" ToRole="Curso" />
+        </EntityType>
+        <EntityType Name="Banner">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAcademia" Type="Int32" Nullable="false" />
+          <Property Name="Caption" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Caption2" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DataInicio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataFinal" Type="DateTime" Precision="3" />
+          <Property Name="DataCriacao" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Academia" Relationship="PrincipalDB.FK_BannerAcademia" FromRole="Banner" ToRole="Academia" />
+        </EntityType>
+        <EntityType Name="Bloco">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdModulo" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Pagina" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Ordem" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Modulo" Relationship="PrincipalDB.FK_BlocoModulo" FromRole="Bloco" ToRole="Modulo" />
+          <NavigationProperty Name="Exercicio" Relationship="PrincipalDB.FK_ExercicioBloco" FromRole="Bloco" ToRole="Exercicio" />
+          <NavigationProperty Name="UsuarioBloco" Relationship="PrincipalDB.FK_UsuarioBlocoBloco" FromRole="Bloco" ToRole="UsuarioBloco" />
+        </EntityType>
+        <EntityType Name="Codigo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="IdCurso" Type="Int32" Nullable="false" />
+          <Property Name="DataCriacao" Type="DateTime" Precision="3" />
+          <Property Name="Ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Curso" Relationship="PrincipalDB.FK_CodigoCurso" FromRole="Codigo" ToRole="Curso" />
+        </EntityType>
+        <EntityType Name="Curso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAcademia" Type="Int32" Nullable="false" />
+          <Property Name="IdProfessor" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Resumo" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="Descricao" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Moeda" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Valor" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="DataCriacao" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Ativo" Type="Boolean" Nullable="false" />
+          <Property Name="Ordem" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Academia" Relationship="PrincipalDB.FK_CursoAcademia" FromRole="Curso" ToRole="Academia" />
+          <NavigationProperty Name="AreaCurso" Relationship="PrincipalDB.FK_AreaCursoCurso" FromRole="Curso" ToRole="AreaCurso" />
+          <NavigationProperty Name="Codigo" Relationship="PrincipalDB.FK_CodigoCurso" FromRole="Curso" ToRole="Codigo" />
+          <NavigationProperty Name="Usuario" Relationship="PrincipalDB.FK_CursoUsuario" FromRole="Curso" ToRole="Usuario" />
+          <NavigationProperty Name="Matricula" Relationship="PrincipalDB.FK_MatriculaCurso" FromRole="Curso" ToRole="Matricula" />
+          <NavigationProperty Name="Modulo" Relationship="PrincipalDB.FK_ModuloCurso" FromRole="Curso" ToRole="Modulo" />
+        </EntityType>
+        <EntityType Name="Evento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAcademia" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DataInicio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataFinal" Type="DateTime" Precision="3" />
+          <Property Name="Url" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Descricao" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DataCriacao" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Academia" Relationship="PrincipalDB.FK_EventoAcademia" FromRole="Evento" ToRole="Academia" />
+        </EntityType>
+        <EntityType Name="Exercicio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdBloco" Type="Int32" Nullable="false" />
+          <Property Name="Pergunta" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Gabarito" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ordem" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bloco" Relationship="PrincipalDB.FK_ExercicioBloco" FromRole="Exercicio" ToRole="Bloco" />
+          <NavigationProperty Name="UsuarioExercicio" Relationship="PrincipalDB.FK_UsuarioExercicioExercicio" FromRole="Exercicio" ToRole="UsuarioExercicio" />
+        </EntityType>
+        <EntityType Name="Faq">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAcademia" Type="Int32" Nullable="false" />
+          <Property Name="Pergunta" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Resposta" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ordem" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Academia" Relationship="PrincipalDB.FK_FaqAcademia" FromRole="Faq" ToRole="Academia" />
+        </EntityType>
+        <EntityType Name="Matricula">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+          <Property Name="IdCurso" Type="Int32" Nullable="false" />
+          <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Transacao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DataCriacao" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Curso" Relationship="PrincipalDB.FK_MatriculaCurso" FromRole="Matricula" ToRole="Curso" />
+          <NavigationProperty Name="Usuario" Relationship="PrincipalDB.FK_MatriculaUsuario" FromRole="Matricula" ToRole="Usuario" />
+          <NavigationProperty Name="UsuarioExercicio" Relationship="PrincipalDB.FK_UsuarioExercicioMatricula" FromRole="Matricula" ToRole="UsuarioExercicio" />
+          <NavigationProperty Name="UsuarioProvaQuestao" Relationship="PrincipalDB.FK_UsuarioProvaQuestaoMatricula" FromRole="Matricula" ToRole="UsuarioProvaQuestao" />
+        </EntityType>
+        <EntityType Name="Modulo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCurso" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Pagina" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Ordem" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bloco" Relationship="PrincipalDB.FK_BlocoModulo" FromRole="Modulo" ToRole="Bloco" />
+          <NavigationProperty Name="Curso" Relationship="PrincipalDB.FK_ModuloCurso" FromRole="Modulo" ToRole="Curso" />
+          <NavigationProperty Name="Questao" Relationship="PrincipalDB.FK_QuestaoModulo" FromRole="Modulo" ToRole="Questao" />
+          <NavigationProperty Name="Recurso" Relationship="PrincipalDB.FK_RecursoModulo" FromRole="Modulo" ToRole="Recurso" />
+        </EntityType>
+        <EntityType Name="Questao">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdModulo" Type="Int32" Nullable="false" />
+          <Property Name="Pergunta" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Gabarito" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Modulo" Relationship="PrincipalDB.FK_QuestaoModulo" FromRole="Questao" ToRole="Modulo" />
+          <NavigationProperty Name="UsuarioProvaQuestao" Relationship="PrincipalDB.FK_UsuarioProvaQuestaoQuestao" FromRole="Questao" ToRole="UsuarioProvaQuestao" />
+        </EntityType>
+        <EntityType Name="Recurso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdModulo" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Pagina" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Modulo" Relationship="PrincipalDB.FK_RecursoModulo" FromRole="Recurso" ToRole="Modulo" />
+        </EntityType>
+        <EntityType Name="Testemunho">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAcademia" Type="Int32" Nullable="false" />
+          <Property Name="Conteudo" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Autor" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Local" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DataCriacao" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Academia" Relationship="PrincipalDB.FK_TestemunhoAcademia" FromRole="Testemunho" ToRole="Academia" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAcademia" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SobreNome" Type="String" Nullable="false" MaxLength="180" FixedLength="false" Unicode="false" />
+          <Property Name="NomeCompleto" Type="String" Nullable="false" MaxLength="201" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Telefone" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="Celular" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="Cpf" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="Senha" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Ip" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DataCriacao" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Academia" Relationship="PrincipalDB.FK_UsuarioAcademia" FromRole="Usuario" ToRole="Academia" />
+          <NavigationProperty Name="Curso" Relationship="PrincipalDB.FK_CursoUsuario" FromRole="Usuario" ToRole="Curso" />
+          <NavigationProperty Name="Matricula" Relationship="PrincipalDB.FK_MatriculaUsuario" FromRole="Usuario" ToRole="Matricula" />
+          <NavigationProperty Name="UsuarioBloco" Relationship="PrincipalDB.FK_UsuarioBlocoUsuario" FromRole="Usuario" ToRole="UsuarioBloco" />
+          <NavigationProperty Name="UsuarioExercicio" Relationship="PrincipalDB.FK_UsuarioExercicioUsuario" FromRole="Usuario" ToRole="UsuarioExercicio" />
+          <NavigationProperty Name="UsuarioProvaQuestao" Relationship="PrincipalDB.FK_UsuarioProvaQuestaoUsuario" FromRole="Usuario" ToRole="UsuarioProvaQuestao" />
+        </EntityType>
+        <EntityType Name="UsuarioBloco">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="IdBloco" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+          <Property Name="IdBloco" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bloco" Relationship="PrincipalDB.FK_UsuarioBlocoBloco" FromRole="UsuarioBloco" ToRole="Bloco" />
+          <NavigationProperty Name="Usuario" Relationship="PrincipalDB.FK_UsuarioBlocoUsuario" FromRole="UsuarioBloco" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="UsuarioExercicio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+          <Property Name="IdExercicio" Type="Int32" Nullable="false" />
+          <Property Name="IdMatricula" Type="Int32" Nullable="false" />
+          <Property Name="Pergunta" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Resposta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ObsCorrecao" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DataCriacao" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Exercicio" Relationship="PrincipalDB.FK_UsuarioExercicioExercicio" FromRole="UsuarioExercicio" ToRole="Exercicio" />
+          <NavigationProperty Name="Matricula" Relationship="PrincipalDB.FK_UsuarioExercicioMatricula" FromRole="UsuarioExercicio" ToRole="Matricula" />
+          <NavigationProperty Name="Usuario" Relationship="PrincipalDB.FK_UsuarioExercicioUsuario" FromRole="UsuarioExercicio" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="UsuarioProvaQuestao">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+          <Property Name="IdMatricula" Type="Int32" Nullable="false" />
+          <Property Name="IdQuestao" Type="Int32" Nullable="false" />
+          <Property Name="DataInicio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Pergunta" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Resposta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Acerto" Type="Boolean" Nullable="false" />
+          <Property Name="ObsCorrecao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Gabarito" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Matricula" Relationship="PrincipalDB.FK_UsuarioProvaQuestaoMatricula" FromRole="UsuarioProvaQuestao" ToRole="Matricula" />
+          <NavigationProperty Name="Questao" Relationship="PrincipalDB.FK_UsuarioProvaQuestaoQuestao" FromRole="UsuarioProvaQuestao" ToRole="Questao" />
+          <NavigationProperty Name="Usuario" Relationship="PrincipalDB.FK_UsuarioProvaQuestaoUsuario" FromRole="UsuarioProvaQuestao" ToRole="Usuario" />
+        </EntityType>
+        <Association Name="FK_BannerAcademia">
+          <End Type="PrincipalDB.Academia" Role="Academia" Multiplicity="1" />
+          <End Type="PrincipalDB.Banner" Role="Banner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Academia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Banner">
+              <PropertyRef Name="IdAcademia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CursoAcademia">
+          <End Type="PrincipalDB.Academia" Role="Academia" Multiplicity="1" />
+          <End Type="PrincipalDB.Curso" Role="Curso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Academia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Curso">
+              <PropertyRef Name="IdAcademia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventoAcademia">
+          <End Type="PrincipalDB.Academia" Role="Academia" Multiplicity="1" />
+          <End Type="PrincipalDB.Evento" Role="Evento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Academia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Evento">
+              <PropertyRef Name="IdAcademia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FaqAcademia">
+          <End Type="PrincipalDB.Academia" Role="Academia" Multiplicity="1" />
+          <End Type="PrincipalDB.Faq" Role="Faq" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Academia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Faq">
+              <PropertyRef Name="IdAcademia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TestemunhoAcademia">
+          <End Type="PrincipalDB.Academia" Role="Academia" Multiplicity="1" />
+          <End Type="PrincipalDB.Testemunho" Role="Testemunho" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Academia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Testemunho">
+              <PropertyRef Name="IdAcademia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioAcademia">
+          <End Type="PrincipalDB.Academia" Role="Academia" Multiplicity="1" />
+          <End Type="PrincipalDB.Usuario" Role="Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Academia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="IdAcademia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AreaCursoArea">
+          <End Type="PrincipalDB.Area" Role="Area" Multiplicity="1" />
+          <End Type="PrincipalDB.AreaCurso" Role="AreaCurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AreaCurso">
+              <PropertyRef Name="IdArea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AreaCursoCurso">
+          <End Type="PrincipalDB.Curso" Role="Curso" Multiplicity="1" />
+          <End Type="PrincipalDB.AreaCurso" Role="AreaCurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AreaCurso">
+              <PropertyRef Name="IdCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlocoModulo">
+          <End Type="PrincipalDB.Modulo" Role="Modulo" Multiplicity="1" />
+          <End Type="PrincipalDB.Bloco" Role="Bloco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Bloco">
+              <PropertyRef Name="IdModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExercicioBloco">
+          <End Type="PrincipalDB.Bloco" Role="Bloco" Multiplicity="1" />
+          <End Type="PrincipalDB.Exercicio" Role="Exercicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bloco">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Exercicio">
+              <PropertyRef Name="IdBloco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioBlocoBloco">
+          <End Type="PrincipalDB.Bloco" Role="Bloco" Multiplicity="1" />
+          <End Type="PrincipalDB.UsuarioBloco" Role="UsuarioBloco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bloco">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioBloco">
+              <PropertyRef Name="IdBloco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CodigoCurso">
+          <End Type="PrincipalDB.Curso" Role="Curso" Multiplicity="1" />
+          <End Type="PrincipalDB.Codigo" Role="Codigo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Codigo">
+              <PropertyRef Name="IdCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CursoUsuario">
+          <End Type="PrincipalDB.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="PrincipalDB.Curso" Role="Curso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Curso">
+              <PropertyRef Name="IdProfessor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatriculaCurso">
+          <End Type="PrincipalDB.Curso" Role="Curso" Multiplicity="1" />
+          <End Type="PrincipalDB.Matricula" Role="Matricula" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Matricula">
+              <PropertyRef Name="IdCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModuloCurso">
+          <End Type="PrincipalDB.Curso" Role="Curso" Multiplicity="1" />
+          <End Type="PrincipalDB.Modulo" Role="Modulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Modulo">
+              <PropertyRef Name="IdCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioExercicioExercicio">
+          <End Type="PrincipalDB.Exercicio" Role="Exercicio" Multiplicity="1" />
+          <End Type="PrincipalDB.UsuarioExercicio" Role="UsuarioExercicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exercicio">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioExercicio">
+              <PropertyRef Name="IdExercicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatriculaUsuario">
+          <End Type="PrincipalDB.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="PrincipalDB.Matricula" Role="Matricula" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Matricula">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioExercicioMatricula">
+          <End Type="PrincipalDB.Matricula" Role="Matricula" Multiplicity="1" />
+          <End Type="PrincipalDB.UsuarioExercicio" Role="UsuarioExercicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Matricula">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioExercicio">
+              <PropertyRef Name="IdMatricula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioProvaQuestaoMatricula">
+          <End Type="PrincipalDB.Matricula" Role="Matricula" Multiplicity="1" />
+          <End Type="PrincipalDB.UsuarioProvaQuestao" Role="UsuarioProvaQuestao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Matricula">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioProvaQuestao">
+              <PropertyRef Name="IdMatricula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QuestaoModulo">
+          <End Type="PrincipalDB.Modulo" Role="Modulo" Multiplicity="1" />
+          <End Type="PrincipalDB.Questao" Role="Questao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Questao">
+              <PropertyRef Name="IdModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecursoModulo">
+          <End Type="PrincipalDB.Modulo" Role="Modulo" Multiplicity="1" />
+          <End Type="PrincipalDB.Recurso" Role="Recurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Recurso">
+              <PropertyRef Name="IdModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioProvaQuestaoQuestao">
+          <End Type="PrincipalDB.Questao" Role="Questao" Multiplicity="1" />
+          <End Type="PrincipalDB.UsuarioProvaQuestao" Role="UsuarioProvaQuestao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questao">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioProvaQuestao">
+              <PropertyRef Name="IdQuestao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioBlocoUsuario">
+          <End Type="PrincipalDB.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="PrincipalDB.UsuarioBloco" Role="UsuarioBloco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioBloco">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioExercicioUsuario">
+          <End Type="PrincipalDB.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="PrincipalDB.UsuarioExercicio" Role="UsuarioExercicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioExercicio">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioProvaQuestaoUsuario">
+          <End Type="PrincipalDB.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="PrincipalDB.UsuarioProvaQuestao" Role="UsuarioProvaQuestao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioProvaQuestao">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="PrincipalDB" />
+        <Alias Key="Target" Value="PrincipalDB.Store" />
+        <EntityContainerMapping CdmEntityContainer="PrincipalDBContainer" StorageEntityContainer="PrincipalDBStoreContainer">
+          <EntitySetMapping Name="Academia">
+            <EntityTypeMapping TypeName="PrincipalDB.Academia">
+              <MappingFragment StoreEntitySet="Academia">
+                <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="Cep" ColumnName="Cep" />
+                <ScalarProperty Name="Uf" ColumnName="Uf" />
+                <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+                <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+                <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+                <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+                <ScalarProperty Name="Cnpj" ColumnName="Cnpj" />
+                <ScalarProperty Name="MetaRevisiteAfter" ColumnName="MetaRevisiteAfter" />
+                <ScalarProperty Name="MetaGenerator" ColumnName="MetaGenerator" />
+                <ScalarProperty Name="MetaGoogleBot" ColumnName="MetaGoogleBot" />
+                <ScalarProperty Name="MetaRobots" ColumnName="MetaRobots" />
+                <ScalarProperty Name="MetaKeywords" ColumnName="MetaKeywords" />
+                <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="UrlBase" ColumnName="UrlBase" />
+                <ScalarProperty Name="SmtpPorta" ColumnName="SmtpPorta" />
+                <ScalarProperty Name="Smtp" ColumnName="Smtp" />
+                <ScalarProperty Name="SenhaEmail" ColumnName="SenhaEmail" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Area">
+            <EntityTypeMapping TypeName="PrincipalDB.Area">
+              <MappingFragment StoreEntitySet="Area">
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AreaCurso">
+            <EntityTypeMapping TypeName="PrincipalDB.AreaCurso">
+              <MappingFragment StoreEntitySet="AreaCurso">
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+                <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Banner">
+            <EntityTypeMapping TypeName="PrincipalDB.Banner">
+              <MappingFragment StoreEntitySet="Banner">
+                <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="DataFinal" ColumnName="DataFinal" />
+                <ScalarProperty Name="DataInicio" ColumnName="DataInicio" />
+                <ScalarProperty Name="Caption2" ColumnName="Caption2" />
+                <ScalarProperty Name="Caption" ColumnName="Caption" />
+                <ScalarProperty Name="IdAcademia" ColumnName="IdAcademia" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bloco">
+            <EntityTypeMapping TypeName="PrincipalDB.Bloco">
+              <MappingFragment StoreEntitySet="Bloco">
+                <ScalarProperty Name="Ordem" ColumnName="Ordem" />
+                <ScalarProperty Name="Pagina" ColumnName="Pagina" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="IdModulo" ColumnName="IdModulo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Codigo">
+            <EntityTypeMapping TypeName="PrincipalDB.Codigo">
+              <MappingFragment StoreEntitySet="Codigo">
+                <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Curso">
+            <EntityTypeMapping TypeName="PrincipalDB.Curso">
+              <MappingFragment StoreEntitySet="Curso">
+                <ScalarProperty Name="Ordem" ColumnName="Ordem" />
+                <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="Moeda" ColumnName="Moeda" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Resumo" ColumnName="Resumo" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="IdProfessor" ColumnName="IdProfessor" />
+                <ScalarProperty Name="IdAcademia" ColumnName="IdAcademia" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Evento">
+            <EntityTypeMapping TypeName="PrincipalDB.Evento">
+              <MappingFragment StoreEntitySet="Evento">
+                <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="DataFinal" ColumnName="DataFinal" />
+                <ScalarProperty Name="DataInicio" ColumnName="DataInicio" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="IdAcademia" ColumnName="IdAcademia" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Exercicio">
+            <EntityTypeMapping TypeName="PrincipalDB.Exercicio">
+              <MappingFragment StoreEntitySet="Exercicio">
+                <ScalarProperty Name="Ordem" ColumnName="Ordem" />
+                <ScalarProperty Name="Gabarito" ColumnName="Gabarito" />
+                <ScalarProperty Name="Pergunta" ColumnName="Pergunta" />
+                <ScalarProperty Name="IdBloco" ColumnName="IdBloco" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Faq">
+            <EntityTypeMapping TypeName="PrincipalDB.Faq">
+              <MappingFragment StoreEntitySet="Faq">
+                <ScalarProperty Name="Ordem" ColumnName="Ordem" />
+                <ScalarProperty Name="Resposta" ColumnName="Resposta" />
+                <ScalarProperty Name="Pergunta" ColumnName="Pergunta" />
+                <ScalarProperty Name="IdAcademia" ColumnName="IdAcademia" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Matricula">
+            <EntityTypeMapping TypeName="PrincipalDB.Matricula">
+              <MappingFragment StoreEntitySet="Matricula">
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="Transacao" ColumnName="Transacao" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modulo">
+            <EntityTypeMapping TypeName="PrincipalDB.Modulo">
+              <MappingFragment StoreEntitySet="Modulo">
+                <ScalarProperty Name="Ordem" ColumnName="Ordem" />
+                <ScalarProperty Name="Pagina" ColumnName="Pagina" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Questao">
+            <EntityTypeMapping TypeName="PrincipalDB.Questao">
+              <MappingFragment StoreEntitySet="Questao">
+                <ScalarProperty Name="Gabarito" ColumnName="Gabarito" />
+                <ScalarProperty Name="Pergunta" ColumnName="Pergunta" />
+                <ScalarProperty Name="IdModulo" ColumnName="IdModulo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recurso">
+            <EntityTypeMapping TypeName="PrincipalDB.Recurso">
+              <MappingFragment StoreEntitySet="Recurso">
+                <ScalarProperty Name="Pagina" ColumnName="Pagina" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="IdModulo" ColumnName="IdModulo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Testemunho">
+            <EntityTypeMapping TypeName="PrincipalDB.Testemunho">
+              <MappingFragment StoreEntitySet="Testemunho">
+                <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="Local" ColumnName="Local" />
+                <ScalarProperty Name="Autor" ColumnName="Autor" />
+                <ScalarProperty Name="Conteudo" ColumnName="Testemunho" />
+                <ScalarProperty Name="IdAcademia" ColumnName="IdAcademia" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="PrincipalDB.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="Ip" ColumnName="Ip" />
+                <ScalarProperty Name="Senha" ColumnName="Senha" />
+                <ScalarProperty Name="Cpf" ColumnName="Cpf" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="NomeCompleto" ColumnName="NomeCompleto" />
+                <ScalarProperty Name="SobreNome" ColumnName="SobreNome" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="IdAcademia" ColumnName="IdAcademia" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsuarioBloco">
+            <EntityTypeMapping TypeName="PrincipalDB.UsuarioBloco">
+              <MappingFragment StoreEntitySet="UsuarioBloco">
+                <ScalarProperty Name="IdBloco" ColumnName="IdBloco" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsuarioExercicio">
+            <EntityTypeMapping TypeName="PrincipalDB.UsuarioExercicio">
+              <MappingFragment StoreEntitySet="UsuarioExercicio">
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="ObsCorrecao" ColumnName="ObsCorrecao" />
+                <ScalarProperty Name="Resposta" ColumnName="Resposta" />
+                <ScalarProperty Name="Pergunta" ColumnName="Pergunta" />
+                <ScalarProperty Name="IdMatricula" ColumnName="IdMatricula" />
+                <ScalarProperty Name="IdExercicio" ColumnName="IdExercicio" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsuarioProvaQuestao">
+            <EntityTypeMapping TypeName="PrincipalDB.UsuarioProvaQuestao">
+              <MappingFragment StoreEntitySet="UsuarioProvaQuestao">
+                <ScalarProperty Name="Gabarito" ColumnName="Gabarito" />
+                <ScalarProperty Name="ObsCorrecao" ColumnName="ObsCorrecao" />
+                <ScalarProperty Name="Acerto" ColumnName="Acerto" />
+                <ScalarProperty Name="Resposta" ColumnName="Resposta" />
+                <ScalarProperty Name="Pergunta" ColumnName="Pergunta" />
+                <ScalarProperty Name="DataInicio" ColumnName="DataInicio" />
+                <ScalarProperty Name="IdQuestao" ColumnName="IdQuestao" />
+                <ScalarProperty Name="IdMatricula" ColumnName="IdMatricula" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

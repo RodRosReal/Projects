@@ -1,0 +1,23 @@
+﻿<#@ template language="C#" hostspecific="True" debug="True" #>
+<#@ output extension="cs" #>   
+<#@ include file="T4Toolbox.tt" #>    
+<#@ include file="../Templates/Service/ServiceContractGenerator.tt" #>
+
+<#
+	var rootNamespace = "Application";
+	var dic = new Dictionary<string, List<string>>();
+	
+
+	dic.Add("ApiCommand", new List<string>()
+	{    
+		"GetAcademy"
+	});
+	
+	// Criando estrutura dos serviços
+	foreach (var service in dic.Keys)
+	{
+		var servicesGenerator = new ServiceContractGenerator(rootNamespace, service, dic[service]);
+		servicesGenerator.GenerateWcfDecorators = true;
+		servicesGenerator.Run();
+	}	
+#>  

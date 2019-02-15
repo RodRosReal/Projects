@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="91a37e26d4204ec5ab662347061da468" Name="Diagram1" >
+        <EntityTypeShape EntityType="PrincipalDB.Academia" Width="1.5" PointX="0.75" PointY="21" />
+        <EntityTypeShape EntityType="PrincipalDB.Area" Width="1.5" PointX="5.25" PointY="26.875" />
+        <EntityTypeShape EntityType="PrincipalDB.AreaCurso" Width="1.5" PointX="7.5" PointY="28.75" />
+        <EntityTypeShape EntityType="PrincipalDB.Banner" Width="1.5" PointX="3" PointY="22.5" />
+        <EntityTypeShape EntityType="PrincipalDB.Bloco" Width="1.5" PointX="9.75" PointY="38.25" />
+        <EntityTypeShape EntityType="PrincipalDB.Codigo" Width="1.5" PointX="7.5" PointY="41.625" />
+        <EntityTypeShape EntityType="PrincipalDB.Curso" Width="1.5" PointX="5.25" PointY="29.5" />
+        <EntityTypeShape EntityType="PrincipalDB.Evento" Width="1.5" PointX="3" PointY="15.5" />
+        <EntityTypeShape EntityType="PrincipalDB.Exercicio" Width="1.5" PointX="12" PointY="41.125" />
+        <EntityTypeShape EntityType="PrincipalDB.Faq" Width="1.5" PointX="3" PointY="43.125" />
+        <EntityTypeShape EntityType="PrincipalDB.Matricula" Width="1.5" PointX="7.5" PointY="31.5" />
+        <EntityTypeShape EntityType="PrincipalDB.Modulo" Width="1.5" PointX="7.5" PointY="35.375" />
+        <EntityTypeShape EntityType="PrincipalDB.Questao" Width="1.5" PointX="9.75" PointY="35.375" />
+        <EntityTypeShape EntityType="PrincipalDB.Recurso" Width="1.5" PointX="9.75" PointY="32.625" />
+        <EntityTypeShape EntityType="PrincipalDB.Testemunho" Width="1.5" PointX="3" PointY="19.25" />
+        <EntityTypeShape EntityType="PrincipalDB.Usuario" Width="1.5" PointX="3" PointY="37.75" />
+        <EntityTypeShape EntityType="PrincipalDB.UsuarioBloco" Width="1.5" PointX="12" PointY="38.125" />
+        <EntityTypeShape EntityType="PrincipalDB.UsuarioExercicio" Width="1.5" PointX="14.25" PointY="35.875" />
+        <EntityTypeShape EntityType="PrincipalDB.UsuarioProvaQuestao" Width="1.5" PointX="12" PointY="33.125" />
+        <AssociationConnector Association="PrincipalDB.FK_BannerAcademia" />
+        <AssociationConnector Association="PrincipalDB.FK_CursoAcademia" />
+        <AssociationConnector Association="PrincipalDB.FK_EventoAcademia" />
+        <AssociationConnector Association="PrincipalDB.FK_FaqAcademia" />
+        <AssociationConnector Association="PrincipalDB.FK_TestemunhoAcademia" />
+        <AssociationConnector Association="PrincipalDB.FK_UsuarioAcademia" />
+        <AssociationConnector Association="PrincipalDB.FK_AreaCursoArea" />
+        <AssociationConnector Association="PrincipalDB.FK_AreaCursoCurso" />
+        <AssociationConnector Association="PrincipalDB.FK_BlocoModulo" />
+        <AssociationConnector Association="PrincipalDB.FK_ExercicioBloco" />
+        <AssociationConnector Association="PrincipalDB.FK_UsuarioBlocoBloco" />
+        <AssociationConnector Association="PrincipalDB.FK_CodigoCurso" />
+        <AssociationConnector Association="PrincipalDB.FK_CursoUsuario" />
+        <AssociationConnector Association="PrincipalDB.FK_MatriculaCurso" />
+        <AssociationConnector Association="PrincipalDB.FK_ModuloCurso" />
+        <AssociationConnector Association="PrincipalDB.FK_UsuarioExercicioExercicio" />
+        <AssociationConnector Association="PrincipalDB.FK_MatriculaUsuario" />
+        <AssociationConnector Association="PrincipalDB.FK_UsuarioExercicioMatricula" />
+        <AssociationConnector Association="PrincipalDB.FK_UsuarioProvaQuestaoMatricula" />
+        <AssociationConnector Association="PrincipalDB.FK_QuestaoModulo" />
+        <AssociationConnector Association="PrincipalDB.FK_RecursoModulo" />
+        <AssociationConnector Association="PrincipalDB.FK_UsuarioProvaQuestaoQuestao" />
+        <AssociationConnector Association="PrincipalDB.FK_UsuarioBlocoUsuario" />
+        <AssociationConnector Association="PrincipalDB.FK_UsuarioExercicioUsuario" />
+        <AssociationConnector Association="PrincipalDB.FK_UsuarioProvaQuestaoUsuario" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

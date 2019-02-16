@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollegeData", "CollegeData\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollegeBusiness", "CollegeBusiness\CollegeBusiness.csproj", "{0B08A728-0980-4F85-9A26-7B057B3FB940}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollegeService", "CollegeService\CollegeService.csproj", "{1673F6A9-A759-40D6-B9D9-6E5E35F25A74}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uol.PagSeguro", "Uol.PagSeguro\Uol.PagSeguro.csproj", "{BABC5658-6AFD-4F8E-81F1-434553663D99}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojaVirtual.FoccoERP.API", "LojaVirtual.FoccoERP.API\LojaVirtual.FoccoERP.API.csproj", "{8B4645B7-5016-49EE-B1C5-BA69A570F81D}"
@@ -22,10 +20,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{AA0D1E7D-78C9-4FEF-8848-9E3846F7E095}"
 EndProject
 Global
-	GlobalSection(SubversionScc) = preSolution
-		Svn-Managed = True
-		Manager = AnkhSVN - Subversion Support for Visual Studio
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -50,12 +44,6 @@ Global
 		{0B08A728-0980-4F85-9A26-7B057B3FB940}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0B08A728-0980-4F85-9A26-7B057B3FB940}.VIGOR|Any CPU.ActiveCfg = Release|Any CPU
 		{0B08A728-0980-4F85-9A26-7B057B3FB940}.VIGOR|Any CPU.Build.0 = Release|Any CPU
-		{1673F6A9-A759-40D6-B9D9-6E5E35F25A74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1673F6A9-A759-40D6-B9D9-6E5E35F25A74}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1673F6A9-A759-40D6-B9D9-6E5E35F25A74}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1673F6A9-A759-40D6-B9D9-6E5E35F25A74}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1673F6A9-A759-40D6-B9D9-6E5E35F25A74}.VIGOR|Any CPU.ActiveCfg = VIGOR|Any CPU
-		{1673F6A9-A759-40D6-B9D9-6E5E35F25A74}.VIGOR|Any CPU.Build.0 = VIGOR|Any CPU
 		{BABC5658-6AFD-4F8E-81F1-434553663D99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BABC5658-6AFD-4F8E-81F1-434553663D99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BABC5658-6AFD-4F8E-81F1-434553663D99}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -92,5 +80,9 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D8C821B3-7521-42F4-BC41-82506B0300C8}
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
 	EndGlobalSection
 EndGlobal

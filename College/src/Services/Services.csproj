@@ -48,6 +48,8 @@
     <Compile Include="Application\base\ApiCommand\ApiCommandResponse.cs" />
     <Compile Include="Application\base\ApiCommand\GetAcademyRequest.cs" />
     <Compile Include="Application\base\ApiCommand\GetAcademyResponse.cs" />
+    <Compile Include="Application\Factories\ApplicationFactory.cs" />
+    <Compile Include="Application\Factories\AcademyFactory.cs" />
     <Compile Include="Application\Interfaces\ApiCommand\IApiCommand.cs" />
     <Compile Include="Application\Messages\ApiCommand\ApiCommandRequest.cs" />
     <Compile Include="Application\Messages\ApiCommand\ApiCommandResponse.cs" />
@@ -121,7 +123,16 @@
       <LastGenOutput>ServiceInterfaceTemplate.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{b070376f-c9b1-4019-a5b9-60f1e89d8990}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
+      <Project>{d460fbfb-5336-4c03-b004-b0cabcc2d72c}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

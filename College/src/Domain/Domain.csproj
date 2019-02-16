@@ -76,6 +76,7 @@
     <Compile Include="Core\Repositories\IRepository.cs" />
     <Compile Include="Core\Repositories\IRepository`1.cs" />
     <Compile Include="Core\Repositories\IUnitOfWork.cs" />
+    <Compile Include="Dtos\AcademyDto.cs" />
     <Compile Include="Entities\Document\Product.cs" />
     <Compile Include="Entities\Relacional\Academia.cs">
       <DependentUpon>PrincipalDB.tt</DependentUpon>
@@ -154,9 +155,7 @@
       <LastGenOutput>PrincipalDB.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Dtos\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

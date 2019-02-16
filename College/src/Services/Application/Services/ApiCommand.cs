@@ -17,7 +17,15 @@ namespace Application.Services
 		public override GetAcademyResponse OnGetAcademyExecute(GetAcademyRequest request)
         {
             var response = new GetAcademyResponse();
-            //<IMPLEMENT HERE>
+            try
+            {
+                response.GetItemsResponse = _apiCommands.ApiGetItems(request.GetItemsRequest);
+            }
+            catch (Exception ex)
+            {
+                response.Exception = ex;
+                response.Message = ex.Message;
+            }
             return response;
         }
 		#endregion

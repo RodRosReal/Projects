@@ -1,8 +1,10 @@
 ﻿
+using Domain.ValueObjects;
+
 namespace Application.Messages
 {
 	
-	public partial class ApiCommandResponse 
-	{
+	public partial class ApiCommandResponse : BaseResponse
+    {
 	} 
 }
